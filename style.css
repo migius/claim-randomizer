@@ -1,3 +1,13 @@
 .d-item {
     font-weight: bold;
 }
+
+footer.footer.mt-auto.py-3 {
+    background-color: #ccc;
+}
+
+div#result {
+    min-height: 250px;
+    margin-top: 20px;
+}
+

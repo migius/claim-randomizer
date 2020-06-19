@@ -118,7 +118,7 @@ function showResult()
     result.innerHTML = '';
 
     let res = document.createElement("h4");
-    res.innerText = "Use this decks:";
+    res.innerText = "Use this factions:";
 
     result.appendChild(res); 
 
