@@ -4,7 +4,8 @@
 const selectionForm = document.getElementById("SelectionForm");
 const result = document.getElementById("result");
 
-const TOTAL_FACT = 5;
+const COUPLE_FACT = 1;
+const OTHER_FACT = 3;
 
 var results = ["GO","KN","DP","DW","UD"];
 
@@ -111,6 +112,9 @@ function checkFaction(f,id)
 
 function showResult()
 {
+    //reset scroll
+    location.hash = "#";
+
     result.innerHTML = '';
 
     let res = document.createElement("h4");
@@ -128,7 +132,8 @@ function showResult()
     }
     
     result.appendChild(list); 
-
+    //scroll to result
+    location.hash = "#result";
 } 
 
 
@@ -176,7 +181,7 @@ function calculate() {
         }
     }
 
-    if(selectedCouples.length === 0) { alert("Select at least one couple!"); return;}    
+    if(selectedCouples.length < COUPLE_FACT) { alert("Select at least " + COUPLE_FACT + " couple!"); return;}    
 
 
     results = [];
@@ -187,7 +192,7 @@ function calculate() {
         results.push(selectedCouple[c]);
     }
 
-    let needed = TOTAL_FACT - results.length; 
+    let needed = OTHER_FACT; 
 
     if(selectedFactions.length < needed) { alert("Select at least " + needed + " factions not in couple!");  return;}    
 
