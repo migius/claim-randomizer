@@ -64,6 +64,9 @@ function refreshSelectionForm()
             let fationItem = document.createElement("div");
             fationItem.classList.add("form-check");
             fationItem.classList.add("f-item");
+            fationItem.setAttribute("data-toggle","tooltip");
+            fationItem.setAttribute("data-placement","left");
+            fationItem.setAttribute("title", Factions[fact].Ability);
 
             let input = document.createElement("input");
             input.classList.add("form-check-input");
@@ -94,6 +97,9 @@ function refreshSelectionForm()
         //add submit
         selectionForm.appendChild(submitBtn); 
     }
+    
+    //activate tooltip:
+    $('[data-toggle="tooltip"]').tooltip();
 }
 
 function checkDeck(d, id)
