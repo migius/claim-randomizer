@@ -41,9 +41,9 @@ var Couples = {
 var Deck = {
     C1: {Name:"Claim", Factions: ["GO","KN","DP","DW","UD"], Include: true},
     C2: {Name:"Claim 2", Factions: ["DR","GI","GN","SE","TR"], Include: false},
-    CRMAP: {Name:"Claim R.: Maps", Factions: ["BA","PH","UN"], Include: false},
-    CRMER: {Name:"Claim R.: Mercenaries", Factions: ["CY","EL","EO","OR"], Include: false},
-    CRMAG: {Name:"Claim R.: Mercenaries", Factions: ["DU","SH","WI"], Include: false},
+    CRMAP: {Name:"Claim Reinforcements: Maps", Factions: ["BA","PH","UN"], Include: false},
+    CRMER: {Name:"Claim Reinforcements: Mercenaries", Factions: ["CY","EL","EO","OR"], Include: false},
+    CRMAG: {Name:"Claim Reinforcements: Magic", Factions: ["DU","SH","WI"], Include: false},
     PROMO: {Name:"Promo", Factions: ["DE","GH"], Include: false}
 };
 

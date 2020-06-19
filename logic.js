@@ -158,8 +158,8 @@ function calculate() {
     for(var f in Factions) {
         if(Factions[f].Include) selectedFactions.push(f);
     }
-    console.log("selectedFactions: ");
-    console.log(selectedFactions);
+    //console.log("selectedFactions: ");
+    //console.log(selectedFactions);
 
     var selectedCouples = [];
     for(var c in Couples) {
@@ -171,8 +171,8 @@ function calculate() {
                 //remove from selectedFactions
                 //a couple faction will not be added alone
                 selectedFactions = selectedFactions.filter(function(value, index, arr){ return value !== Couples[c][f];});
-                console.log("post rem: " );
-                console.log(selectedFactions);
+                //console.log("post rem: " );
+                //console.log(selectedFactions);
             }
         }
         if(includeCouple) {
