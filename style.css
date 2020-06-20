@@ -11,3 +11,11 @@ div#result {
     margin-top: 20px;
 }
 
+div#main {
+    background-color: #fffd;
+}
+
+body {
+    background-image: url(images/castle.jpg);    
+    background-size: cover;
+}

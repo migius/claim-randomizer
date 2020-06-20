@@ -64,9 +64,6 @@ function refreshSelectionForm()
             let fationItem = document.createElement("div");
             fationItem.classList.add("form-check");
             fationItem.classList.add("f-item");
-            fationItem.setAttribute("data-toggle","tooltip");
-            fationItem.setAttribute("data-placement","left");
-            fationItem.setAttribute("title", Factions[fact].Ability);
 
             let input = document.createElement("input");
             input.classList.add("form-check-input");
@@ -84,6 +81,9 @@ function refreshSelectionForm()
             let label = document.createElement("label");
             label.classList.add("form-check-label");
             label.setAttribute("for", id_f);
+            label.setAttribute("data-toggle","tooltip");
+            label.setAttribute("data-placement","right");
+            label.setAttribute("title", Factions[fact].Ability);
             label.innerText = Factions[fact].Name;
 
             fationItem.appendChild(label); 
@@ -97,7 +97,7 @@ function refreshSelectionForm()
         //add submit
         selectionForm.appendChild(submitBtn); 
     }
-    
+
     //activate tooltip:
     $('[data-toggle="tooltip"]').tooltip();
 }
@@ -128,19 +128,116 @@ function showResult()
 
     result.appendChild(res); 
 
-    result.appendChild(res); 
+    let table = document.createElement("table");
+    table.classList.add("table");
 
-    let list = document.createElement("ul");
+    let thead = document.createElement("thead");
+    let tr = document.createElement("tr");
+    let th = document.createElement("th");
+    th.setAttribute("scope","col");
+    th.innerText = Strings["FACTION"];
+    tr.appendChild(th); 
+    th = document.createElement("th");
+    th.setAttribute("scope","col");
+    th.innerText = Strings["DECK"];
+    tr.appendChild(th); 
+    th = document.createElement("th");
+    th.setAttribute("scope","col");
+    th.innerText = Strings["PHASE_1"];
+    th.classList.add("d-none");
+    th.classList.add("d-sm-table-cell");
+    tr.appendChild(th); 
+    th = document.createElement("th");
+    th.setAttribute("scope","col");
+    th.innerText = Strings["PHASE_2"];
+    th.classList.add("d-none");
+    th.classList.add("d-sm-table-cell");
+    tr.appendChild(th); 
+    thead.appendChild(tr); 
+    table.appendChild(thead); 
+
+    let tbody = document.createElement("tbody");
+    let td = document.createElement("td");
     for(var f in results) {
-        let faction = document.createElement("li");
-        faction.innerText = Factions[results[f]].Name;
-        list.appendChild(faction); 
+        tr = document.createElement("tr");
+        th = document.createElement("th");
+        th.setAttribute("scope","row");
+        th.innerText = Factions[results[f]].Name;
+        tr.appendChild(th); 
+
+        td = document.createElement("td");
+        td.innerText = Deck[Factions[results[f]].Deck].Name;
+        tr.appendChild(td); 
+
+        td = document.createElement("td");
+        td.innerText = Factions[results[f]].Ability;
+        td.classList.add("d-none");
+        td.classList.add("d-sm-table-cell");
+        
+        emptyTd = document.createElement("td");
+        emptyTd.innerText = " ";
+        emptyTd.classList.add("d-none");
+        emptyTd.classList.add("d-sm-table-cell");
+        switch(Factions[results[f]].Phase_ab)
+        {
+            case 1:
+                tr.appendChild(td); 
+                tr.appendChild(emptyTd); 
+                break;
+            case 2:
+                tr.appendChild(emptyTd); 
+                tr.appendChild(td); 
+                break;
+            case 3:       
+                td.setAttribute("colspan","2");          
+                tr.appendChild(td); 
+                break; 
+        }        
+
+        tbody.appendChild(tr); 
     }
+
+    table.appendChild(tbody); 
     
-    result.appendChild(list); 
+    result.appendChild(table); 
     //scroll to result
     location.hash = "#result";
 } 
+
+/*
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+*/
+
+
 
 
 function getRandom(arr, n) {
