@@ -12,9 +12,35 @@ var results = ["GO","KN","DP","DW","UD"];
 let submitBtn = document.createElement("button");
 submitBtn.classList.add("btn");
 submitBtn.classList.add("btn-primary");
+submitBtn.classList.add("col-12");
 submitBtn.setAttribute("type","button");
-submitBtn.innerText = Strings["SUBMIT"];
 submitBtn.setAttribute("onclick", "calculate()");
+
+let bodyEl = document.getElementsByTagName("body")[0];
+let HELP_TRANSLATE_El = document.getElementById("HELP_TRANSLATE");
+let TITLE_El = document.getElementById("TITLE");
+let SELECT_FACT_El = document.getElementById("SELECT_FACT");
+
+function refreshPage()
+{
+    //todo: replace menu, titles, texts...
+    submitBtn.innerText = Strings["SUBMIT"];
+    HELP_TRANSLATE_El.innerText = Strings["HELP_TRANSLATE"];
+    TITLE_El.innerText = Strings["TITLE"];
+    SELECT_FACT_El.innerText = Strings["SELECT_FACT"];
+    CREDITS_BTN.innerText        = Strings["CREDITS_BTN"];
+    creditsModalLabel.innerText = Strings["creditsModalLabel"];
+    COPYRIGTH.innerText = Strings["COPYRIGTH"];
+    SOURCE_CODE_BY.innerText = Strings["SOURCE_CODE_BY"];
+    INSPIRED_BY.innerText = Strings["INSPIRED_BY"];
+    THIS_THREAD.innerText = Strings["THIS_THREAD"]; 
+    ENG_RUL.innerText = Strings["ENG_RUL"];
+    THIS_FILE.innerText = Strings["THIS_FILE"];
+    IT_RULE.innerText = Strings["IT_RULE"];
+    FEEDBACK.innerText = Strings["FEEDBACK"];
+    CLOSE.innerText = Strings["CLOSE"];
+    refreshSelectionForm();    
+}
 
 function refreshSelectionForm()
 {
@@ -204,42 +230,6 @@ function showResult()
     location.hash = "#result";
 } 
 
-/*
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-*/
-
-
-
-
 function getRandom(arr, n) {
     var result = new Array(n),
         len = arr.length,
@@ -254,15 +244,12 @@ function getRandom(arr, n) {
     return result;
 }
 
-
 function calculate() {
 
     var selectedFactions = [];
     for(var f in Factions) {
         if(Factions[f].Include) selectedFactions.push(f);
     }
-    //console.log("selectedFactions: ");
-    //console.log(selectedFactions);
 
     var selectedCouples = [];
     for(var c in Couples) {
@@ -308,10 +295,72 @@ function calculate() {
     showResult();
 }
 
+function loadScript(url, callback)
+{
+    // Adding the script tag to the head as suggested before
+    var head = document.head;
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = url;
+
+    // Then bind the event to the callback function.
+    // There are several events for cross browser compatibility.
+    script.onreadystatechange = callback;
+    script.onload = callback;
+
+    // Fire the loading
+    head.appendChild(script);
+}
+
+function setLanguage(lang) 
+{
+    //fallback EN
+    setEN();
+    if(lang !== 'EN') {
+        switch(lang) {
+            case 'IT':
+                loadScript("data-IT.js", function() {
+                    console.log("done"); 
+                    setIT();
+                    refreshPage();
+                });                
+                break;
+            default:
+                setEN();
+                break;
+        }
+    }
+    else 
+    {
+        refreshPage();
+    }
+}
+
+function setBackground(bg)
+{
+    bodyEl.className = '';
+    switch(bg) 
+    {
+        case "DP":
+        case "DW":
+        case "GO":
+        case "KN":
+        case "UD":
+            bodyEl.classList.add(bg);
+            break;
+        default:
+            bodyEl.classList.add("default");
+            break;
+    }
+}
+
 // self executing function here
 (function() {
     // your page initialization code here
     // the DOM will be available here
-    refreshSelectionForm();
+    setLanguage('EN');
+
+    setBackground(getRandom(["DP","DW","GO","KN","UD"],1)[0]);
+
 })();
 

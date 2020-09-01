@@ -7,15 +7,102 @@ footer.footer.mt-auto.py-3 {
 }
 
 div#result {
-    min-height: 250px;
-    margin-top: 20px;
+    min-height: 1px;
+    margin-top: 15px;
 }
 
 div#main {
     background-color: #fffd;
+    /*padding-bottom: 15px;*/
 }
 
-body {
-    background-image: url(images/castle.jpg);    
+body {    
     background-size: cover;
+    background-position: center;
 }
+
+
+/* STYLES */
+
+body.default {
+    background-image: url(images/castle.jpg);    
+}
+
+/*DP*/
+body.DP {
+    background-image: url(images/factions/backgrounds/DP.jpg);    
+}
+body.DP div#main {
+    background-color: #f8f4c5ee;
+}
+body.DP div#main, body.DP div#main table, body.DP .navbar-light .navbar-nav .nav-link {
+    color: #0e5b57;
+}
+.style-icon-DP {
+    color: #b6a816;   
+}
+
+/*DW*/
+body.DW {
+    background-image: url(images/factions/backgrounds/DW.jpg);    
+} 
+body.DW div#main {
+    background-color: #365a58ee;
+}
+body.DW div#main, body.DW div#main table, body.DW .navbar-light .navbar-nav .nav-link {
+    color: #fcdbad;
+}
+.style-icon-DW {
+    color: #365a58;   
+}
+
+/*GO*/
+body.GO {
+    background-image: url(images/factions/backgrounds/GO.jpg);    
+}
+body.GO div#main {
+    background-color: #dec182ee;
+}
+body.GO div#main, body.GO div#main table, body.GO .navbar-light .navbar-nav .nav-link {
+    color: #8f0202;
+}
+.style-icon-GO {
+    color: #dec182;   
+}
+
+
+/*KN*/
+body.KN {
+    background-image: url(images/factions/backgrounds/KN.jpg);    
+}
+
+body.KN div#main {
+    background-color: #d8e5b9dd;
+}
+
+body.KN div#main, body.KN div#main table, body.KN .navbar-light .navbar-nav .nav-link {
+    color: #004d76;
+}
+.style-icon-KN {
+    color: #94b643;   
+}
+
+
+
+/*UD*/
+body.UD {
+    background-image: url(images/factions/backgrounds/UD.jpg);    
+}
+body.UD div#main {
+    background-color: #572b66ee;
+}
+body.UD div#main, body.UD div#main table, body.UD .navbar-light .navbar-nav .nav-link {
+    color: #e2d879;
+}
+.style-icon-UD {
+    color: #572b66;   
+}
+
+
+
+
