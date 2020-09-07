@@ -36,6 +36,10 @@
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-droplet-fill style-icon-default" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6zM6.646 4.646c-.376.377-1.272 1.489-2.093 3.13l.894.448c.78-1.559 1.616-2.58 1.907-2.87l-.708-.708z"/>
                             </svg></a>
+                        <a class="dropdown-item" href="javascript:setBackground('claim');">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-droplet-fill style-icon-claim" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6zM6.646 4.646c-.376.377-1.272 1.489-2.093 3.13l.894.448c.78-1.559 1.616-2.58 1.907-2.87l-.708-.708z"/>
+                            </svg></a></a>
                         <a class="dropdown-item" href="javascript:setBackground('DP');">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-droplet-fill style-icon-DP" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6zM6.646 4.646c-.376.377-1.272 1.489-2.093 3.13l.894.448c.78-1.559 1.616-2.58 1.907-2.87l-.708-.708z"/>
@@ -66,7 +70,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="javascript:setLanguage('EN');"><span class="flag-icon flag-icon-us"></span></a>
-                        <a class="dropdown-item" href="javascript:setLanguage('IT');"><span class="flag-icon flag-icon-it"></span> (work in progress)</a>
+                        <a class="dropdown-item" href="javascript:setLanguage('IT');"><span class="flag-icon flag-icon-it"></span></a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item " id="HELP_TRANSLATE" href="https://migio.altervista.org/contatti/" target="popup">want to contribute to translation?</a>                        
                     </div>
@@ -83,6 +87,9 @@
     <hr/>
     <form id="SelectionForm"></form>
 
+    <div id="myAlert" class="alert alert-danger mt-3" role="alert">
+        If you read this the page is broken, please refresh.
+    </div>
     <div id="result"></div>
 
 </div>
@@ -137,7 +144,7 @@
                     <span id="INSPIRED_BY">Inspired by</span> <a href="https://boardgamegeek.com/thread/2450132" target=_blank><span id="THIS_THREAD">this thread</span></a>
                 </p>
                 <p>
-                    <span id="ENG_RUL">English rules taken from</span> <a href="https://boardgamegeek.com/filepage/191143/overview-all-factions-including-promos-and-reinfor" target=_blank><span id="THIS_FILE">this file</span></a>
+                    <span id="ENG_RUL">English rules by the White Goblin Games.</a>
                 </p>
                 <p>
                     <span id="IT_RULE">Italian rules by migio</span>
@@ -152,6 +159,28 @@
         </div>
     </div>
 </div>
+
+<!--details modal-->
+<div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="detailsModalLabel">TITLE</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-text" >Description...</p>
+                <img src="images/Claim.jpg" class="modal-image" ></img>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="CLOSE2">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 <!--<script type="text/javascript">

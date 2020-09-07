@@ -19,13 +19,84 @@ div#main {
 body {    
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
+    text-align: justify;
 }
+
+/*ICONS */
+.f-check {
+    height: 22px;
+}
+
+.form-check-label {
+    vertical-align: top;
+    font-size: large;
+}
+
+.icon-fact {
+    margin-left: 1em;
+    cursor: pointer;
+}
+
+.icon-fact:before {
+  display: inline-grid;
+  content: ' ';
+  background-size: 28px 28px;
+  height: 28px;
+  width: 28px;
+}
+
+.icon-DP:before { background-image: url('images/factions/icons/DP.svg'); }
+.icon-DW:before { background-image: url('images/factions/icons/DW.svg'); }
+.icon-GO:before { background-image: url('images/factions/icons/GO.svg'); }
+.icon-KN:before { background-image: url('images/factions/icons/KN.svg'); }
+.icon-UD:before { background-image: url('images/factions/icons/UD.svg'); }
+.icon-DR:before { background-image: url('images/factions/icons/DR.svg'); }
+.icon-GI:before { background-image: url('images/factions/icons/GI.svg'); }
+.icon-GN:before { background-image: url('images/factions/icons/GN.svg'); }
+.icon-SE:before { background-image: url('images/factions/icons/SE.svg'); }
+.icon-TR:before { background-image: url('images/factions/icons/TR.svg'); }
+.icon-BA:before { background-image: url('images/factions/icons/BA.svg'); }
+.icon-PH:before { background-image: url('images/factions/icons/PH.svg'); }
+.icon-UN:before { background-image: url('images/factions/icons/UN.svg'); }
+.icon-CY:before { background-image: url('images/factions/icons/CY.svg'); }
+.icon-EL:before { background-image: url('images/factions/icons/EL.svg'); }
+.icon-EO:before { background-image: url('images/factions/icons/EO.svg'); }
+.icon-OR:before { background-image: url('images/factions/icons/OR.svg'); }
+.icon-DU:before { background-image: url('images/factions/icons/DU.svg'); }
+.icon-SH:before { background-image: url('images/factions/icons/SH.svg'); }
+.icon-WI:before { background-image: url('images/factions/icons/WI.svg'); }
+.icon-DE:before { background-image: url('images/factions/icons/DE.svg'); }
+.icon-GH:before { background-image: url('images/factions/icons/GH.svg'); }
+.icon-ME:before { background-image: url('images/factions/icons/ME.svg'); }
+.icon-MI:before { background-image: url('images/factions/icons/MI.svg'); }
+.icon-VA:before { background-image: url('images/factions/icons/VA.svg'); }
+.icon-ZO:before { background-image: url('images/factions/icons/ZO.svg'); }
+.icon-WE:before { background-image: url('images/factions/icons/WE.svg'); }
+.icon-SD:before { background-image: url('images/factions/icons/SD.svg'); }
+.icon-FE:before { background-image: url('images/factions/icons/FE.svg'); }
+.icon-DM:before { background-image: url('images/factions/icons/DM.svg'); }
+.icon-TC:before { background-image: url('images/factions/icons/TC.svg'); }
+.icon-PO:before { background-image: url('images/factions/icons/PO.svg'); }
+.icon-FR:before { background-image: url('images/factions/icons/FR.svg'); }
+.icon-YE:before { background-image: url('images/factions/icons/YE.svg'); }
+.icon-IK:before { background-image: url('images/factions/icons/IK.svg'); }
+.icon-IQ:before { background-image: url('images/factions/icons/IQ.svg'); }
+.icon-AW:before { background-image: url('images/factions/icons/AW.svg'); }
+.icon-SA:before { background-image: url('images/factions/icons/SA.svg'); }
+
 
 
 /* STYLES */
 
 body.default {
     background-image: url(images/castle.jpg);    
+}
+body.claim {
+    background-image: url(images/claim.jpg);    
+}
+.style-icon-claim {
+    color: #58a143;   
 }
 
 /*DP*/

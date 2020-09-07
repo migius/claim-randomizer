@@ -12,6 +12,7 @@ var results = ["GO","KN","DP","DW","UD"];
 let submitBtn = document.createElement("button");
 submitBtn.classList.add("btn");
 submitBtn.classList.add("btn-primary");
+submitBtn.classList.add("btn-lg");
 submitBtn.classList.add("col-12");
 submitBtn.setAttribute("type","button");
 submitBtn.setAttribute("onclick", "calculate()");
@@ -35,10 +36,11 @@ function refreshPage()
     INSPIRED_BY.innerText = Strings["INSPIRED_BY"];
     THIS_THREAD.innerText = Strings["THIS_THREAD"]; 
     ENG_RUL.innerText = Strings["ENG_RUL"];
-    THIS_FILE.innerText = Strings["THIS_FILE"];
+    //THIS_FILE.innerText = Strings["THIS_FILE"];
     IT_RULE.innerText = Strings["IT_RULE"];
     FEEDBACK.innerText = Strings["FEEDBACK"];
     CLOSE.innerText = Strings["CLOSE"];
+    CLOSE2.innerText = Strings["CLOSE"];
     refreshSelectionForm();    
 }
 
@@ -113,6 +115,40 @@ function refreshSelectionForm()
             label.innerText = Factions[fact].Name;
 
             fationItem.appendChild(label); 
+/*
+            let infoCircle = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            infoCircle.setAttribute("width", "1em");
+            infoCircle.setAttribute("height", "1em");
+            infoCircle.setAttribute("viewBox", "0 0 16 16");
+            infoCircle.setAttribute("class", "bi bi-info-circle info-faction");
+            infoCircle.setAttribute("fill", "currentColor");
+            infoCircle.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+            let infoCirclePath = document.createElementNS("http://www.w3.org/2000/svg","path");
+            infoCirclePath.setAttribute("fill-rule", "evenodd");
+            infoCirclePath.setAttribute("d", "M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z");
+            infoCircle.appendChild(infoCirclePath); 
+            let infoCirclePath2 = document.createElementNS("http://www.w3.org/2000/svg","path");
+            infoCirclePath2.setAttribute("d", "M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z");
+            infoCircle.appendChild(infoCirclePath2); 
+            let infoCircleCircle = document.createElementNS("http://www.w3.org/2000/svg","circle");
+            infoCircleCircle.setAttribute("cx", "8");
+            infoCircleCircle.setAttribute("cy", "4.5");
+            infoCircleCircle.setAttribute("r", "1");
+            infoCircle.appendChild(infoCircleCircle); 
+
+            fationItem.appendChild(infoCircle); 
+*/
+            let modalLink = document.createElement("a");
+            modalLink.setAttribute("data-toggle", "modal");
+            modalLink.setAttribute("data-target", "#detailsModal");
+            modalLink.setAttribute("class", "icon-fact icon-" + fact);
+            modalLink.setAttribute("data-name", Factions[fact].Name);
+            modalLink.setAttribute("data-ability", Factions[fact].Ability);
+            modalLink.setAttribute("data-phase", Factions[fact].Phase_ab);
+            modalLink.setAttribute("data-image", Factions[fact].Image);
+            //modalLink.innerText = "LINK";
+
+            fationItem.appendChild(modalLink); 
 
             deckList.appendChild(fationItem); 
         }
@@ -142,15 +178,20 @@ function checkFaction(f,id)
     Factions[f].Include = document.getElementById(id).checked;
 } 
 
+
+function cleanResult()
+{
+    result.innerHTML = '';
+    $('#myAlert').hide();
+}
+
 function showResult()
 {
     //reset scroll
-    location.hash = "#";
-
-    result.innerHTML = '';
+    location.hash = "#";    
 
     let res = document.createElement("h4");
-    res.innerText = "Use this factions:";
+    res.innerText = Strings["USE_THIS_FACTIONS"];
 
     result.appendChild(res); 
 
@@ -245,6 +286,7 @@ function getRandom(arr, n) {
 }
 
 function calculate() {
+    cleanResult();
 
     var selectedFactions = [];
     for(var f in Factions) {
@@ -271,7 +313,7 @@ function calculate() {
         }
     }
 
-    if(selectedCouples.length < COUPLE_FACT) { alert("Select at least " + COUPLE_FACT + " couple!"); return;}    
+    if(selectedCouples.length < COUPLE_FACT) { myAlert(Strings["AT_LEAST_COUPLES"].replace("{0}",COUPLE_FACT)); return;}    
 
 
     results = [];
@@ -284,7 +326,7 @@ function calculate() {
 
     let needed = OTHER_FACT; 
 
-    if(selectedFactions.length < needed) { alert("Select at least " + needed + " factions not in couple!");  return;}    
+    if(selectedFactions.length < needed) { myAlert(Strings["AT_LEAST_FACTIONS"].replace("{0}",needed));  return;}    
 
     randomFactions = getRandom(selectedFactions, needed);
 
@@ -294,6 +336,29 @@ function calculate() {
 
     showResult();
 }
+
+function myAlert(message)
+{
+    $('#myAlert').innerText = message;
+    $('#myAlert').show();
+}
+
+
+//modal factions info
+$('#detailsModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget); // Button that triggered the modal
+  var Name = button.data('name'); // Extract info from data-* attributes
+  var Ability = button.data('ability'); 
+  var Phase_ab = button.data('phase');
+  var Image = button.data('image');
+
+  var modal = $(this)
+  modal.find('.modal-title').text(Name);
+  modal.find('.modal-image').attr('src', Image);
+  modal.find('.modal-text').text(Ability);
+})
+
+
 
 function loadScript(url, callback)
 {
@@ -346,6 +411,7 @@ function setBackground(bg)
         case "GO":
         case "KN":
         case "UD":
+        case "claim":
             bodyEl.classList.add(bg);
             break;
         default:
@@ -360,7 +426,10 @@ function setBackground(bg)
     // the DOM will be available here
     setLanguage('EN');
 
-    setBackground(getRandom(["DP","DW","GO","KN","UD"],1)[0]);
+    setBackground(getRandom(["DP","DW","GO","KN","UD","claim"],1)[0]);
+
+    //LAST, IMPORTANT!
+    $('#myAlert').hide();
 
 })();
 
