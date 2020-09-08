@@ -85,7 +85,9 @@ body {
 .icon-AW:before { background-image: url('images/factions/icons/AW.svg'); }
 .icon-SA:before { background-image: url('images/factions/icons/SA.svg'); }
 
-
+img.modal-image {
+    width: 100%;
+}
 
 /* STYLES */
 
