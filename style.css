@@ -2,18 +2,12 @@
     font-weight: bold;
 }
 
-footer.footer.mt-auto.py-3 {
-    background-color: #ccc;
-}
-
 div#result {
     min-height: 1px;
     margin-top: 15px;
 }
 
 div#main {
-    background-color: #fffd;
-    /*padding-bottom: 15px;*/
 }
 
 body {    
@@ -21,6 +15,40 @@ body {
     background-position: center;
     background-attachment: fixed;
     text-align: justify;
+}
+
+.form-group.trasp-background, #result.trasp-background {
+    margin: 0.2rem 0.5rem;
+}
+
+#result.trasp-background {
+    padding: 1rem;
+}
+
+.trasp-background {
+    background-color: #ffffff;    
+    border: 2px solid;
+    padding: 0.5rem 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    border-bottom-right-radius: 225px 15px;
+    border-bottom-left-radius: 15px 255px;
+}
+
+.btn.trasp-background {
+    color: #ffffff;  
+    background-color: #111111;
+    border: 1rem;
+    border-top-left-radius: 255px 45px;
+    border-top-right-radius: 45px 225px;
+    border-bottom-right-radius: 225px 45px;
+    border-bottom-left-radius: 45px 255px;
+}
+
+.d-md-table-cell {
+    min-width: 200px;
 }
 
 /*ICONS */
@@ -105,42 +133,55 @@ body.claim {
 body.DP {
     background-image: url(images/factions/backgrounds/DP.jpg);    
 }
-body.DP div#main {
-    background-color: #f8f4c5ee;
+body.DP .trasp-background {
+    background-color: #f8f4c5aa;
 }
-body.DP div#main, body.DP div#main table, body.DP .navbar-light .navbar-nav .nav-link {
+body.DP {/*div#main, body.DP div#main table, body.DP .navbar-light .navbar-nav .nav-link {*/
     color: #0e5b57;
 }
 .style-icon-DP {
     color: #b6a816;   
+}
+body.DP .btn.trasp-background {
+    color: #f8f4c5;
+    background-color: #0e5b57;
 }
 
 /*DW*/
 body.DW {
     background-image: url(images/factions/backgrounds/DW.jpg);    
 } 
-body.DW div#main {
-    background-color: #365a58ee;
+body.DW .trasp-background {
+    background-color: #365a58aa;
 }
-body.DW div#main, body.DW div#main table, body.DW .navbar-light .navbar-nav .nav-link {
+body.DW {/*div#main, body.DW div#main table, body.DW .navbar-light .navbar-nav .nav-link {*/
     color: #fcdbad;
 }
 .style-icon-DW {
     color: #365a58;   
 }
+body.DW .btn.trasp-background {
+    color: #365a58;
+    background-color: #fcdbad;
+}
+
 
 /*GO*/
 body.GO {
     background-image: url(images/factions/backgrounds/GO.jpg);    
 }
-body.GO div#main {
-    background-color: #dec182ee;
+body.GO .trasp-background {
+    background-color: #dec182aa;
 }
-body.GO div#main, body.GO div#main table, body.GO .navbar-light .navbar-nav .nav-link {
+body.GO {/*div#main, body.GO div#main table, body.GO .navbar-light .navbar-nav .nav-link {*/
     color: #8f0202;
 }
 .style-icon-GO {
     color: #dec182;   
+}
+body.GO .btn.trasp-background {
+    color: #dec182;
+    background-color: #8f0202;
 }
 
 
@@ -149,16 +190,21 @@ body.KN {
     background-image: url(images/factions/backgrounds/KN.jpg);    
 }
 
-body.KN div#main {
-    background-color: #d8e5b9dd;
+body.KN .trasp-background {
+    background-color: #d8e5b9aa;
 }
 
-body.KN div#main, body.KN div#main table, body.KN .navbar-light .navbar-nav .nav-link {
+body.KN {/*div#main, body.KN div#main table, body.KN .navbar-light .navbar-nav .nav-link {*/
     color: #004d76;
 }
 .style-icon-KN {
     color: #94b643;   
 }
+body.KN .btn.trasp-background {
+    color: #d8e5b9;
+    background-color: #004d76;
+}
+
 
 
 
@@ -166,14 +212,18 @@ body.KN div#main, body.KN div#main table, body.KN .navbar-light .navbar-nav .nav
 body.UD {
     background-image: url(images/factions/backgrounds/UD.jpg);    
 }
-body.UD div#main {
-    background-color: #572b66ee;
+body.UD .trasp-background {
+    background-color: #572b66aa;
 }
-body.UD div#main, body.UD div#main table, body.UD .navbar-light .navbar-nav .nav-link {
+body.UD {/*div#main, body.UD div#main table, body.UD .navbar-light .navbar-nav .nav-link {*/
     color: #e2d879;
 }
 .style-icon-UD {
     color: #572b66;   
+}
+body.UD .btn.trasp-background {
+    color: #572b66;
+    background-color: #e2d879;
 }
 
 

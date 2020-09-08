@@ -14,6 +14,7 @@ submitBtn.classList.add("btn");
 submitBtn.classList.add("btn-primary");
 submitBtn.classList.add("btn-lg");
 submitBtn.classList.add("col-12");
+submitBtn.classList.add("trasp-background");
 submitBtn.setAttribute("type","button");
 submitBtn.setAttribute("onclick", "calculate()");
 
@@ -50,6 +51,7 @@ function refreshSelectionForm()
     for(var d in Deck) {
         let formGroup = document.createElement("div");
         formGroup.classList.add("form-group");
+        formGroup.classList.add("trasp-background");
         formGroup.classList.add("row");
         formGroup.setAttribute("id", d + "-row");
                 
@@ -182,6 +184,7 @@ function checkFaction(f,id)
 function cleanResult()
 {
     result.innerHTML = '';
+    $('#result').hide();
     $('#myAlert').hide();
 }
 
@@ -212,13 +215,13 @@ function showResult()
     th.setAttribute("scope","col");
     th.innerText = Strings["PHASE_1"];
     th.classList.add("d-none");
-    th.classList.add("d-sm-table-cell");
+    th.classList.add("d-md-table-cell");
     tr.appendChild(th); 
     th = document.createElement("th");
     th.setAttribute("scope","col");
     th.innerText = Strings["PHASE_2"];
     th.classList.add("d-none");
-    th.classList.add("d-sm-table-cell");
+    th.classList.add("d-md-table-cell");
     tr.appendChild(th); 
     thead.appendChild(tr); 
     table.appendChild(thead); 
@@ -267,6 +270,8 @@ function showResult()
     table.appendChild(tbody); 
     
     result.appendChild(table); 
+
+    $('#result').show();
     //scroll to result
     location.hash = "#result";
 } 
@@ -429,7 +434,7 @@ function setBackground(bg)
     setBackground(getRandom(["DP","DW","GO","KN","UD","claim"],1)[0]);
 
     //LAST, IMPORTANT!
-    $('#myAlert').hide();
+    cleanResult();
 
 })();
 
