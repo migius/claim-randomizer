@@ -55,7 +55,8 @@ function setEN()
     Couples = {
         CLAIM_1: ["GO","KN"],
         CLAIM_2: ["GN","GI"],
-        CLAIM_R_MERC: ["EL","EO","OR"]
+        CLAIM_R_MERC: ["EL","EO","OR"],
+        CLAIM_R_FRO: ["IQ","IK"]
     };
 
     Deck = {

@@ -17,6 +17,10 @@ body {
     text-align: justify;
 }
 
+a {
+    color: inherit !important;
+}
+
 .form-group.trasp-background, #result.trasp-background {
     margin: 0.2rem 0.5rem;
 }
@@ -25,8 +29,12 @@ body {
     padding: 1rem;
 }
 
+.trasp-background.solid-bg {
+    background-color: #ffffff;
+}
+
 .trasp-background {
-    background-color: #ffffff;    
+    background-color: #ffffff99;    
     border: 2px solid;
     padding: 0.5rem 0.5rem;
     margin-top: 0.5rem;
@@ -45,6 +53,26 @@ body {
     border-top-right-radius: 45px 225px;
     border-bottom-right-radius: 225px 45px;
     border-bottom-left-radius: 45px 255px;
+}
+
+.trasp-background .table {
+    color: inherit;
+}
+
+.trasp-background .table thead th {
+    border-bottom: 2px solid;
+}
+
+.trasp-background .table td, .trasp-background .table th {
+    border-top: 1px solid;
+}
+
+.trasp-background .modal-header {    
+    border-bottom: 1px solid;
+}
+
+.trasp-background .modal-footer {
+    border-top: 1px solid;
 }
 
 .d-md-table-cell {
@@ -136,6 +164,9 @@ body.DP {
 body.DP .trasp-background {
     background-color: #f8f4c5aa;
 }
+body.DP .trasp-background.solid-bg {
+    background-color: #f8f4c5;
+}
 body.DP {/*div#main, body.DP div#main table, body.DP .navbar-light .navbar-nav .nav-link {*/
     color: #0e5b57;
 }
@@ -153,6 +184,9 @@ body.DW {
 } 
 body.DW .trasp-background {
     background-color: #365a58aa;
+}
+body.DW .trasp-background.solid-bg {
+    background-color: #365a58;
 }
 body.DW {/*div#main, body.DW div#main table, body.DW .navbar-light .navbar-nav .nav-link {*/
     color: #fcdbad;
@@ -173,6 +207,9 @@ body.GO {
 body.GO .trasp-background {
     background-color: #dec182aa;
 }
+body.GO .trasp-background.solid-bg {
+    background-color: #dec182;
+}
 body.GO {/*div#main, body.GO div#main table, body.GO .navbar-light .navbar-nav .nav-link {*/
     color: #8f0202;
 }
@@ -192,6 +229,9 @@ body.KN {
 
 body.KN .trasp-background {
     background-color: #d8e5b9aa;
+}
+body.KN .trasp-background.solid-bg {
+    background-color: #d8e5b9;
 }
 
 body.KN {/*div#main, body.KN div#main table, body.KN .navbar-light .navbar-nav .nav-link {*/
@@ -214,6 +254,9 @@ body.UD {
 }
 body.UD .trasp-background {
     background-color: #572b66aa;
+}
+body.UD .trasp-background.solid-bg {
+    background-color: #572b66;
 }
 body.UD {/*div#main, body.UD div#main table, body.UD .navbar-light .navbar-nav .nav-link {*/
     color: #e2d879;

@@ -344,7 +344,7 @@ function calculate() {
 
 function myAlert(message)
 {
-    $('#myAlert').innerText = message;
+    $('#myAlert').text(message);
     $('#myAlert').show();
 }
 
@@ -404,6 +404,7 @@ function setLanguage(lang)
     {
         refreshPage();
     }
+    cleanResult();
 }
 
 function setBackground(bg)
