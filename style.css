@@ -19,6 +19,15 @@ body {
 
 a {
     color: inherit !important;
+    font-weight: bold;
+}
+
+.trasp-background .dropdown-menu {
+    color: inherit;
+}
+
+.trasp-background .dropdown-divider {
+    border-top: 1px solid;
 }
 
 .form-group.trasp-background, #result.trasp-background {
@@ -27,10 +36,6 @@ a {
 
 #result.trasp-background {
     padding: 1rem;
-}
-
-.trasp-background.solid-bg {
-    background-color: #ffffff;
 }
 
 .trasp-background {
@@ -43,6 +48,7 @@ a {
     border-top-right-radius: 15px 225px;
     border-bottom-right-radius: 225px 15px;
     border-bottom-left-radius: 15px 255px;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.75)!important;
 }
 
 .btn.trasp-background {
@@ -90,8 +96,19 @@ a {
 }
 
 .icon-fact {
-    margin-left: 1em;
     cursor: pointer;
+}
+
+.f-item > .icon-fact {
+    margin-left: 1em;
+}
+
+tbody > tr > th {
+    white-space: nowrap;
+}
+
+tbody > tr > th > a:before{
+    vertical-align: middle;
 }
 
 .icon-fact:before {
@@ -146,15 +163,45 @@ img.modal-image {
 }
 
 /* STYLES */
-
 body.default {
     background-image: url(images/castle.jpg);    
 }
+body.default .trasp-background {
+    background-color: #ffffffaa;
+}
+body.default .trasp-background.solid-bg {
+    background-color: #ffffff;
+}
+body.default {
+    color: #000;
+}
+.style-icon-default {
+    color: #fff;   
+}
+body.default .btn.trasp-background {
+    color: #fff;
+    background-color: #000;
+}
+
+/*claim*/
 body.claim {
     background-image: url(images/claim.jpg);    
 }
+body.claim .trasp-background {
+    background-color: #338110aa;
+}
+body.claim .trasp-background.solid-bg {
+    background-color: #338110;
+}
+body.claim {
+    color: #ffffff;
+}
 .style-icon-claim {
-    color: #58a143;   
+    color: #338110;   
+}
+body.claim .btn.trasp-background {
+    color: #338110;
+    background-color: #ffffff;
 }
 
 /*DP*/
@@ -171,7 +218,7 @@ body.DP {/*div#main, body.DP div#main table, body.DP .navbar-light .navbar-nav .
     color: #0e5b57;
 }
 .style-icon-DP {
-    color: #b6a816;   
+    color: #f8f4c5;/* #b6a816;   */
 }
 body.DP .btn.trasp-background {
     color: #f8f4c5;
@@ -238,7 +285,7 @@ body.KN {/*div#main, body.KN div#main table, body.KN .navbar-light .navbar-nav .
     color: #004d76;
 }
 .style-icon-KN {
-    color: #94b643;   
+    color: #d8e5b9;/*#94b643;   */
 }
 body.KN .btn.trasp-background {
     color: #d8e5b9;

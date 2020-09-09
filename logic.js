@@ -140,17 +140,10 @@ function refreshSelectionForm()
 
             fationItem.appendChild(infoCircle); 
 */
-            let modalLink = document.createElement("a");
-            modalLink.setAttribute("data-toggle", "modal");
-            modalLink.setAttribute("data-target", "#detailsModal");
-            modalLink.setAttribute("class", "icon-fact icon-" + fact);
-            modalLink.setAttribute("data-name", Factions[fact].Name);
-            modalLink.setAttribute("data-ability", Factions[fact].Ability);
-            modalLink.setAttribute("data-phase", Factions[fact].Phase_ab);
-            modalLink.setAttribute("data-image", Factions[fact].Image);
+            
             //modalLink.innerText = "LINK";
 
-            fationItem.appendChild(modalLink); 
+            fationItem.appendChild(createModalFaction(fact)); 
 
             deckList.appendChild(fationItem); 
         }
@@ -164,6 +157,19 @@ function refreshSelectionForm()
 
     //activate tooltip:
     $('[data-toggle="tooltip"]').tooltip();
+}
+
+function createModalFaction(fact)
+{
+    let modalLink = document.createElement("a");
+    modalLink.setAttribute("data-toggle", "modal");
+    modalLink.setAttribute("data-target", "#detailsModal");
+    modalLink.setAttribute("class", "icon-fact icon-" + fact);
+    modalLink.setAttribute("data-name", Factions[fact].Name);
+    modalLink.setAttribute("data-ability", Factions[fact].Ability);
+    modalLink.setAttribute("data-phase", Factions[fact].Phase_ab);
+    modalLink.setAttribute("data-image", Factions[fact].Image);
+    return modalLink;
 }
 
 function checkDeck(d, id)
@@ -232,7 +238,10 @@ function showResult()
         tr = document.createElement("tr");
         th = document.createElement("th");
         th.setAttribute("scope","row");
-        th.innerText = Factions[results[f]].Name;
+
+        modal = createModalFaction(results[f]);
+        modal.innerText = " " + Factions[results[f]].Name;
+        th.appendChild(modal);
         tr.appendChild(th); 
 
         td = document.createElement("td");
@@ -242,12 +251,12 @@ function showResult()
         td = document.createElement("td");
         td.innerText = Factions[results[f]].Ability;
         td.classList.add("d-none");
-        td.classList.add("d-sm-table-cell");
+        td.classList.add("d-md-table-cell");
         
         emptyTd = document.createElement("td");
         emptyTd.innerText = " ";
         emptyTd.classList.add("d-none");
-        emptyTd.classList.add("d-sm-table-cell");
+        emptyTd.classList.add("d-md-table-cell");
         switch(Factions[results[f]].Phase_ab)
         {
             case 1:
@@ -361,6 +370,25 @@ $('#detailsModal').on('show.bs.modal', function (event) {
   modal.find('.modal-title').text(Name);
   modal.find('.modal-image').attr('src', Image);
   modal.find('.modal-text').text(Ability);
+
+  switch(Phase_ab)
+  {
+    case 1:
+        modal.find('.phase-text').text(Strings["PHASE_1"]);
+        break;
+    case 2:
+        modal.find('.phase-text').text(Strings["PHASE_2"]);
+        break;
+    case 3:
+        modal.find('.phase-text').text(Strings["PHASE_1_2"]);
+        break;
+    default:
+        modal.find('.phase-text').text(Strings["PHASE_1_2"]);
+        break;
+  }
+
+
+
 })
 
 

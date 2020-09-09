@@ -85,6 +85,7 @@ function setEN()
         FACTION: "Faction",
         PHASE_1: "Phase 1",
         PHASE_2: "Phase 2",
+        PHASE_1_2: "Phases 1 & 2",
         CREDITS_BTN: "Credits",
         creditsModalLabel: "Credits",
         COPYRIGTH: "Images and texts rights reserved to their respective owners, this page is authorized by the White Goblin Games.",
