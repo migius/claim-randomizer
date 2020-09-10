@@ -53,6 +53,7 @@ function refreshSelectionForm()
         formGroup.classList.add("form-group");
         formGroup.classList.add("trasp-background");
         formGroup.classList.add("row");
+        formGroup.classList.add("mb-2");
         formGroup.setAttribute("id", d + "-row");
                 
         let deck = document.createElement("div");
