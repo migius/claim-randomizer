@@ -162,6 +162,60 @@ img.modal-image {
     width: 100%;
 }
 
+/*DECKS*/
+
+div#C1-row { background-image: url(images/deck/300/C1.png); }
+div#C2-row { background-image: url(images/deck/300/C2.png); }
+div#CRMAP-row { background-image: url(images/deck/300/CMAP.png); }
+div#CRMER-row { background-image: url(images/deck/300/CMER.png); }
+div#CRMAG-row { background-image: url(images/deck/300/CMAG.png); }
+div#CRFEA-row { background-image: url(images/deck/300/CFEA.png); }
+div#CRFIR-row { background-image: url(images/deck/300/CFIR.png); }
+div#CRFRO-row { background-image: url(images/deck/300/CFRO.png); }
+div#PROMO-row { background-image: url(images/deck/300/PROMO.png); }
+div#STBOX-row { background-image: url(images/deck/300/STBOX.png); }
+
+div.form-group {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 0px;
+    background-position: right top;
+}
+
+@media (min-width: 450px) {
+    div.form-group {
+        background-size: 180px;
+    }
+}
+
+
+@media (min-width: 576px) {
+    div.form-group {
+        background-size: 0px;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width:768px) {
+    div.form-group {
+        background-size: 200px;
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 992px) {
+    div.form-group {
+        background-size: 250px;
+    }
+}
+
+@media (min-width: 1200px) {
+    div.form-group {
+        background-size: 300px;
+    }
+}
+
+
 /* STYLES */
 body.default {
     background-image: url(images/castle.jpg);    
