@@ -89,6 +89,12 @@ h1, h3, h4 {
     min-width: 200px;
 }
 
+div.buy-link a {
+    font-weight: normal;
+    font-style: italic;
+    font-family: monospace;
+}
+
 /*ICONS */
 .f-check {
     height: 22px;
