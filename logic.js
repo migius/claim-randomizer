@@ -441,6 +441,13 @@ function setLanguage(lang)
                     refreshPage();
                 });                
                 break;
+            case 'NL':
+                loadScript("data-NL.js", function() {
+                    console.log("done"); 
+                    setNL();
+                    refreshPage();
+                });                
+                break;
             default:
                 setEN();
                 break;
