@@ -92,7 +92,7 @@ function setEN()
         SOURCE_CODE_BY: "Source code under MIT License by migio.",
         INSPIRED_BY: "Inspired by",
         THIS_THREAD: "this thread",
-        ENG_RUL: "English rules by the White Goblin Games.",
+        ENG_RUL: "English and dutch rules provided by the White Goblin Games.",
         THIS_FILE: "this file",
         IT_RULE: "Italian rules by migio",
         FEEDBACK: "Send a Feedback",
