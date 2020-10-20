@@ -66,16 +66,16 @@ function setNL()
     };
 
     Strings = {
-        HELP_TRANSLATE: "Wil je bijdragen aan de vertaling?",
+        HELP_TRANSLATE: "Heb je tips voor de vertaling?",
         TITLE: "Claim randomizer",
         SELECT_FACT: "Selecteer facties die je wilt gebruiken",
         SUBMIT: "Willekeurig",
-        USE_THIS_FACTIONS: "Gebruik deze facties:",
-        DECK: "Deck",
-        FACTION: "Faction",
+        USE_THIS_FACTIONS: "Geselecteerde facties:",
+        DECK: "Spel",
+        FACTION: "Factie",
         PHASE_1: "Fase 1",
         PHASE_2: "Fase 2",
-        PHASE_1_2: "Fasen 1 en 2",
+        PHASE_1_2: "Fase 1 en 2",
         CREDITS_BTN: "Credits",
         creditsModalLabel: "Credits",
         COPYRIGTH: "Afbeeldingen en tekstrechten voorbehouden aan hun respectievelijke eigenaren, deze pagina is geautoriseerd door de White Goblin Games.",
@@ -83,13 +83,13 @@ function setNL()
         INSPIRED_BY: "Geïnspireerd door",
         THIS_THREAD: "deze thread",
         ENG_RUL: "Engelse en Nederlandse spelregels van de White Goblin Games.",
-        THIS_FILE: "dit bestand",
-        IT_RULE: "Italiaanse regels door migio",
-        FEEDBACK: "Stuur een feedback",
+        THIS_FILE: "Dit bestand",
+        IT_RULE: "Italiaanse spelregels door migio",
+        FEEDBACK: "Stuur ons feedback",
         CLOSE: "Sluiten",
         //alerts
         AT_LEAST_COUPLES: "Selecteer minimaal {0} koppels!",
-        AT_LEAST_FACTIONS: "Selecteer tenminste {0} facties die niet in een koppel zijn!",
+        AT_LEAST_FACTIONS: "Selecteer minimaal {0} facties die niet in een koppel zijn!",
         BUY_DECK: "Koop dit kaartspel"
     }
 }
