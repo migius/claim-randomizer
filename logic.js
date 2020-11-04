@@ -448,6 +448,13 @@ function setLanguage(lang)
                     refreshPage();
                 });                
                 break;
+            case 'ES':
+                loadScript("data-ES.js", function() {
+                    console.log("done"); 
+                    setES();
+                    refreshPage();
+                });                
+                break;
             default:
                 setEN();
                 break;

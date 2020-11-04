@@ -82,7 +82,7 @@ function setIT()
         SOURCE_CODE_BY: "Source code con licenza MIT creato da migio.",
         INSPIRED_BY: "Ispirato da",
         THIS_THREAD: "questo thread",
-        ENG_RUL: "Regole in inglese e olandese fornite dalla White Goblin Games.",
+        ENG_RUL: "Regole in inglese, spagnolo e olandese fornite dalla White Goblin Games.",
         THIS_FILE: "questo file",
         IT_RULE: "Regole in italiano scritte da migio",
         FEEDBACK: "Invia un Feedback",

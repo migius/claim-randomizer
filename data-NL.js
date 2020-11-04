@@ -82,7 +82,7 @@ function setNL()
         SOURCE_CODE_BY: "Broncode onder MIT-licentie door migio.",
         INSPIRED_BY: "Geïnspireerd door",
         THIS_THREAD: "deze thread",
-        ENG_RUL: "Engelse en Nederlandse spelregels van de White Goblin Games.",
+        ENG_RUL: "Engelse, Spaanse en Nederlandse spelregels van de White Goblin Games.",
         THIS_FILE: "Dit bestand",
         IT_RULE: "Italiaanse spelregels door migio",
         FEEDBACK: "Stuur ons feedback",
