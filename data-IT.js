@@ -85,6 +85,7 @@ function setIT()
         ENG_RUL: "Regole in inglese, spagnolo e olandese fornite dalla White Goblin Games.",
         THIS_FILE: "questo file",
         IT_RULE: "Regole in italiano scritte da migio",
+        DE_RULE: "Regole in tedesco scritte da Yarra Mekian",
         FEEDBACK: "Invia un Feedback",
         CLOSE: "Chiudi",
         //alerts

@@ -39,6 +39,7 @@ function refreshPage()
     ENG_RUL.innerText = Strings["ENG_RUL"];
     //THIS_FILE.innerText = Strings["THIS_FILE"];
     IT_RULE.innerText = Strings["IT_RULE"];
+    DE_RULE.innerText = Strings["DE_RULE"];
     FEEDBACK.innerText = Strings["FEEDBACK"];
     CLOSE.innerText = Strings["CLOSE"];
     CLOSE2.innerText = Strings["CLOSE"];
@@ -452,6 +453,13 @@ function setLanguage(lang)
                 loadScript("data-ES.js", function() {
                     console.log("done"); 
                     setES();
+                    refreshPage();
+                });                
+                break;
+            case 'DE':
+                loadScript("data-DE.js", function() {
+                    console.log("done"); 
+                    setDE();
                     refreshPage();
                 });                
                 break;

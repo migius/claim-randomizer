@@ -85,6 +85,7 @@ function setNL()
         ENG_RUL: "Engelse, Spaanse en Nederlandse spelregels van de White Goblin Games.",
         THIS_FILE: "Dit bestand",
         IT_RULE: "Italiaanse spelregels door migio",
+        DE_RULE: "Duitse spelregels door Yarra Mekian",
         FEEDBACK: "Stuur ons feedback",
         CLOSE: "Sluiten",
         //alerts

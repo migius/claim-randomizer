@@ -85,6 +85,7 @@ function setES()
         ENG_RUL: "Reglas en inglés, español y holandés olandese suministradas por White Goblin Games.",//#######################################
         THIS_FILE: "este archivo",//#######################################
         IT_RULE: "Reglas en italiano escritas por migio",//#######################################
+        DE_RULE: "Reglas alemanas escritas por Yarra Mekian",//#######################################
         FEEDBACK: "Envia un comentario",//#######################################
         CLOSE: "Cerrar",//#######################################
         //alerts

@@ -95,6 +95,7 @@ function setEN()
         ENG_RUL: "English, spanish and dutch rules provided by the White Goblin Games.",
         THIS_FILE: "this file",
         IT_RULE: "Italian rules by migio",
+        DE_RULE: "German rules by Yarra Mekian",
         FEEDBACK: "Send a Feedback",
         CLOSE: "Close",
         //alerts
