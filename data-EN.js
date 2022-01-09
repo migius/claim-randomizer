@@ -96,6 +96,7 @@ function setEN()
         THIS_FILE: "this file",
         IT_RULE: "Italian rules by migio",
         DE_RULE: "German rules by Yarra Mekian",
+        PT_RULE: "Portuguese rules by Sansão Oliveira",
         FEEDBACK: "Send a Feedback",
         CLOSE: "Close",
         //alerts

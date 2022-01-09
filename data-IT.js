@@ -86,6 +86,7 @@ function setIT()
         THIS_FILE: "questo file",
         IT_RULE: "Regole in italiano scritte da migio",
         DE_RULE: "Regole in tedesco scritte da Yarra Mekian",
+        PT_RULE: "Regole in portoghese scritte da Sansão Oliveira",
         FEEDBACK: "Invia un Feedback",
         CLOSE: "Chiudi",
         //alerts

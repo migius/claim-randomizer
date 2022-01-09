@@ -96,6 +96,7 @@ function setDE()
         THIS_FILE: "diese Datei",
         IT_RULE: "Italienische Regeln von migio",
         DE_RULE: "Deutsche Regeln von Yarra Mekian",
+        PT_RULE: "Portugiesische Regeln von Sansão Oliveira",
         FEEDBACK: "Sende uns ein Feedback",
         CLOSE: "Schließen",
         //alerts

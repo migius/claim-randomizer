@@ -86,6 +86,7 @@ function setES()
         THIS_FILE: "este archivo",//#######################################
         IT_RULE: "Reglas en italiano escritas por migio",//#######################################
         DE_RULE: "Reglas alemanas escritas por Yarra Mekian",//#######################################
+        PT_RULE: "Reglas portuguesas escritas por Sansão Oliveira",
         FEEDBACK: "Envia un comentario",//#######################################
         CLOSE: "Cerrar",//#######################################
         //alerts

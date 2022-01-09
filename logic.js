@@ -463,6 +463,13 @@ function setLanguage(lang)
                     refreshPage();
                 });                
                 break;
+            case 'PT':
+                loadScript("data-PT.js", function() {
+                    console.log("done"); 
+                    setPT();
+                    refreshPage();
+                });                
+                break;
             default:
                 setEN();
                 break;
