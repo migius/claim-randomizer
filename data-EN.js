@@ -58,6 +58,13 @@ function setEN()
         PT: {Image: "images\\factions\\cards\\small\\PT.jpg", Deck: "CRSKY", Name: "Pterosaurs", Include: false, Phase_ab:3, Ability: "At the end of the game, any pterosaur card 7 or higher extinct! The cards do not count towards faction majority."},
         LE: {Image: "images\\factions\\cards\\small\\LE.jpg", Deck: "CRSKY", Name: "Lightning Elementals", Include: false, Phase_ab:2, Ability: "In Phase 2, you may discard any number Lightning Elementals from you Score pile to boost a played card. Each discarded card boosts the card with +1."},
         VK: {Image: "images\\factions\\cards\\small\\VK.jpg", Deck: "CRSKY", Name: "Vulturekin", Include: false, Phase_ab:3, Ability: "At the end of the game, if you win the majority of the Vulturekin, shuffle the Discard pile of Phase 1 and draw 2 random cards. Add the cards to your Score pile."},
+        //CR: SEA
+        PI: {Image: "images\\factions\\cards\\small\\PI.PNG", Deck: "CRSEA", Name: "Pirates", Include: false, Phase_ab:3, Ability: "At the end of the game, if a player has a Pirate and a Royal Navy of the same value, the Pirate is arrested. The Pirate counts as a Royal Navy cards towards faction majority. It does not count as a Pirate."},
+        RN: {Image: "images\\factions\\cards\\small\\RN.PNG", Deck: "CRSEA", Name: "Royal Navy", Include: false, Phase_ab:3, Ability: "At the end of the game, if a player has a Pirate and a Royal Navy of the same value, the Pirate is arrested and counts towards the Royal Navy"},
+        SM: {Image: "images\\factions\\cards\\small\\SM.PNG", Deck: "CRSEA", Name: "Sea Monsters", Include: false, Phase_ab:1, Ability: "In Phase 1, if a Sea Monster is revealed as the center card, players must exchange one card from their hand. Exchange the cards face-down. Take the new card in hand."},
+        OC: {Image: "images\\factions\\cards\\small\\OC.jpg", Deck: "CRSEA", Name: "Octipi", Include: false, Phase_ab:3, Ability: "Any faction card valued 8 or higher from another faction wins against an Octopus of any number."},
+        FP: {Image: "images\\factions\\cards\\small\\FP.jpg", Deck: "CRSEA", Name: "Fish People", Include: false, Phase_ab:3, Ability: "In Phase 1 and 2, if you lose a trick where you played a Fish, take a Trident card from the draw pile or from another player if all trident cards from the draw pile are taken. The value of all Fish People cards increases with 1 for each trident card you own."},
+
     };
 
     Couples = {
@@ -69,6 +76,7 @@ function setEN()
         CLAIM_R_SKY_EA: ["EA"],
         CLAIM_R_SKY_PT: ["PT"],
         CLAIM_R_SKY_LE: ["LE"],
+        CLAIM_R_SEA: ["PI","RN"],
 
     };
 
@@ -85,7 +93,7 @@ function setEN()
         CRFRO: {Name:"Claim Reinforcements: Frost", Factions: ["FR","YE","IK","IQ"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/claim-reinforcements-frost/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Frostbeasts, Yeti, Ice Kings and Ice Queens
 
         CRSKY: {Name:"Claim Reinforcements: Sky", Factions: ["AN", "EA", "PT", "LE", "VK"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/claim-reinforcements-sky/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Angels, Eagles, Pterosaurs, Lightning Elemental, Vulturekin
-
+        CRSEA: {Name:"Claim Reinforcements: Sea", Factions: ["PI", "RN", "SM", "OC", "FP"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/claim-reinforcements-sky/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Angels, Eagles, Pterosaurs, Lightning Elemental, Vulturekin
 
         PROMO: {Name:"Promo", Factions: ["DE","GH","ME","MI","TI","VL"], Include: false, linkBuy: "https://magicmerchant.it/catalogue/claim-fantasmi-espansione-gioco-da-tavolo_46163/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Mermaids Minotaurs
         STBOX: {Name:"Storage Box", Factions: ["AW","SA"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/pre-order-claim-storage-box/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}//(Awakeners and Satyrs)
