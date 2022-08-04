@@ -172,6 +172,8 @@ tbody > tr > th > a:before{
 .icon-LE:before { background-image: url('images/factions/icons/LE.svg'); }
 .icon-PT:before { background-image: url('images/factions/icons/PT.svg'); }
 .icon-VK:before { background-image: url('images/factions/icons/VK.svg'); }
+.icon-TI:before { background-image: url('images/factions/icons/TI.svg'); }
+.icon-VL:before { background-image: url('images/factions/icons/VL.svg'); }
 
 img.modal-image {
     width: 100%;
