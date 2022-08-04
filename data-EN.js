@@ -64,7 +64,12 @@ function setEN()
         SM: {Image: "images\\factions\\cards\\small\\SM.PNG", Deck: "CRSEA", Name: "Sea Monsters", Include: false, Phase_ab:1, Ability: "In Phase 1, if a Sea Monster is revealed as the center card, players must exchange one card from their hand. Exchange the cards face-down. Take the new card in hand."},
         OC: {Image: "images\\factions\\cards\\small\\OC.jpg", Deck: "CRSEA", Name: "Octipi", Include: false, Phase_ab:3, Ability: "Any faction card valued 8 or higher from another faction wins against an Octopus of any number."},
         FP: {Image: "images\\factions\\cards\\small\\FP.jpg", Deck: "CRSEA", Name: "Fish People", Include: false, Phase_ab:3, Ability: "In Phase 1 and 2, if you lose a trick where you played a Fish, take a Trident card from the draw pile or from another player if all trident cards from the draw pile are taken. The value of all Fish People cards increases with 1 for each trident card you own."},
-
+        //CR: SUN
+        SUN_MONKS: {Image: "images\\factions\\cards\\small\\SUN_MONKS.jpg", Deck: "CRSUN", Name: "Sun Monks", Include: false, Phase_ab:3, Ability: "When a Sun Monk is played, it must be followed by a Star Monk to follow faction. If the faction is followed correctly, the highest card wins. A Sun Monk following a Sun Monk is considered to be off faction and you will automatically lose the trick."},
+        STAR_MONKS: {Image: "images\\factions\\cards\\small\\STAR_MONKS.jpg", Deck: "CRSUN", Name: "Star Monks", Include: false, Phase_ab:3, Ability: "When a Star Monk is played, it must be followed by a Sun Monk to follow faction. If the faction is followed correctly, the highest card wins. A Star Monk following a Star Monk is considered to be off faction and you will automatically lose the trick."},
+        PR: {Image: "images\\factions\\cards\\small\\PR.jpg", Deck: "CRSUN", Name: "Prophets", Include: false, Phase_ab:2, Ability: "In Phase 2, the winner of the Prophets is depending on the number of Runes. If there are at least 3 Runes combined in the players Score pile, the Prophet with the highest value wins. If there are less than 3 Runes combined in the players Score pile, the Prophet with the lowest value wins. Runes are icons on the prophet cards."},
+        SW: {Image: "images\\factions\\cards\\small\\SW.jpg", Deck: "CRSUN", Name: "Sandworms", Include: false, Phase_ab:3, Ability: "In Phase 1/2, when a trick with a Sandworm is led, it is played face-down. After all cards are played, the cards are revealed."},
+        SC: {Image: "images\\factions\\cards\\small\\SC.jpg", Deck: "CRSUN", Name: "Scorpions", Include: false, Phase_ab:2, Ability: "In Phase 2, when you add a Scorpion to your Score pile, you must take Stung. The stung cards will give you a point penalty or a rare bonus in the next trick played. The card is afterwards discarded. If the Stung deck ever runs out. Shuffle the discarded cards and form a new deck."},
     };
 
     Couples = {
@@ -77,7 +82,7 @@ function setEN()
         CLAIM_R_SKY_PT: ["PT"],
         CLAIM_R_SKY_LE: ["LE"],
         CLAIM_R_SEA: ["PI","RN"],
-
+        CLAIM_R_SUN: ["SUN_MONKS","STAR_MONKS"],
     };
 
     Deck = {
@@ -93,7 +98,8 @@ function setEN()
         CRFRO: {Name:"Claim Reinforcements: Frost", Factions: ["FR","YE","IK","IQ"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/claim-reinforcements-frost/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Frostbeasts, Yeti, Ice Kings and Ice Queens
 
         CRSKY: {Name:"Claim Reinforcements: Sky", Factions: ["AN", "EA", "PT", "LE", "VK"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/claim-reinforcements-sky/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Angels, Eagles, Pterosaurs, Lightning Elemental, Vulturekin
-        CRSEA: {Name:"Claim Reinforcements: Sea", Factions: ["PI", "RN", "SM", "OC", "FP"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/claim-reinforcements-sky/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Angels, Eagles, Pterosaurs, Lightning Elemental, Vulturekin
+        CRSEA: {Name:"Claim Reinforcements: Sea", Factions: ["PI", "RN", "SM", "OC", "FP"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/claim-reinforcements-sea/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Pirates, Royal Navy, Sea Monsters, Octipi, Fish People
+        CRSUN: {Name:"Claim Reinforcements: Sun", Factions: ["SUN_MONKS", "STAR_MONKS", "PR", "SW", "SC"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/claim-reinforcements-sun/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Sun Monks, Star Monks, Prophets, Sandworms, Scorpions
 
         PROMO: {Name:"Promo", Factions: ["DE","GH","ME","MI","TI","VL"], Include: false, linkBuy: "https://magicmerchant.it/catalogue/claim-fantasmi-espansione-gioco-da-tavolo_46163/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Mermaids Minotaurs
         STBOX: {Name:"Storage Box", Factions: ["AW","SA"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/pre-order-claim-storage-box/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}//(Awakeners and Satyrs)

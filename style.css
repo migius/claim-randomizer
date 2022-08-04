@@ -179,6 +179,11 @@ tbody > tr > th > a:before{
 .icon-SM:before { background-image: url('images/factions/icons/SM.svg'); }
 .icon-OC:before { background-image: url('images/factions/icons/OC.svg'); }
 .icon-FP:before { background-image: url('images/factions/icons/FP.svg'); }
+.icon-SUN_MONKS:before { background-image: url('images/factions/icons/SUN_MONKS.svg'); }
+.icon-STAR_MONKS:before { background-image: url('images/factions/icons/STAR_MONKS.svg'); }
+.icon-PR:before { background-image: url('images/factions/icons/PR.svg'); }
+.icon-SW:before { background-image: url('images/factions/icons/SW.svg'); }
+.icon-SC:before { background-image: url('images/factions/icons/SC.svg'); }
 
 img.modal-image {
     width: 100%;
@@ -198,6 +203,7 @@ div#PROMO-row { background-image: url(images/deck/300/PROMO.png); }
 div#STBOX-row { background-image: url(images/deck/300/STBOX.png); }
 div#CRSKY-row { background-image: url(images/deck/lg/CRSKY.jpeg); }
 div#CRSEA-row { background-image: url(images/deck/lg/CRSEA.jpeg); }
+div#CRSUN-row { background-image: url(images/deck/lg/CRSUN.jpeg); }
 
 div.form-group {
     background-size: contain;
