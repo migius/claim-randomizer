@@ -5,7 +5,6 @@ const selectionForm = document.getElementById("SelectionForm");
 const result = document.getElementById("result");
 
 const COUPLE_FACT = 1;
-const OTHER_FACT = 3;
 
 var results = ["GO","KN","DP","DW","UD"];
 
@@ -357,7 +356,8 @@ function calculate() {
         results.push(selectedCouple[c]);
     }
 
-    let needed = OTHER_FACT; 
+    // If the selectedCouple is a special 12 cards faction, we need to add 4 normal factions instead of 3
+    let needed = selectedCouple.length === 1 ? 4 : 3;
 
     if(selectedFactions.length < needed) { myAlert(Strings["AT_LEAST_FACTIONS"].replace("{0}",needed));  return;}    
 

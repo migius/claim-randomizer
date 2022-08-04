@@ -32,6 +32,8 @@ function setEN()
         GH: {Image: "images\\factions\\cards\\small\\GH.jpg", Deck: "PROMO", Name: "Ghosts", Include: false, Phase_ab:1, Ability: "You may keep the Ghost you played instead of the card you would normally take: If you win the trick, you place the Ghost in your Follower deck and discard the card in the middle. If you lose the trick, you place the Ghost in your Follower deck and discard the top card of the deck in the middle (without looking at it upfront)."},
         ME: {Image: "images\\factions\\cards\\small\\ME.jpg", Deck: "PROMO", Name: "Mermaids", Include: false, Phase_ab:3, Ability: "When you collect Mermaids into your Score Pile, leave them face up. For every Mermaid you have, your played cards have a -1 value."},
         MI: {Image: "images\\factions\\cards\\small\\MI.jpg", Deck: "PROMO", Name: "Minotaurs", Include: false, Phase_ab:2, Ability: "If you lead with a Minotaur and win the hand, the other player may take the card they played back into their hand. "},
+        TI: {Image: "images\\factions\\cards\\small\\TI.jpg", Deck: "PROMO", Name: "Tinkerers", Include: false, Phase_ab:2, Ability: "If a Tinkerer beats a played card by a value of 4 or more, then it explodes! The card is discarded from the game. You still win the trick and the other card."},
+        VL: {Image: "images\\factions\\cards\\small\\VL.jpg", Deck: "PROMO", Name: "Valkyrie", Include: false, Phase_ab:3, Ability: "If the Valkyrie is played following another faction, it becomes that faction if it is valued 3 or higher than the first card played."},
         //CR: FEA                                           ,
         VA: {Image: "images\\factions\\cards\\small\\VA.jpg", Deck: "CRFEA", Name: "Vampires", Include: false, Phase_ab:2, Ability: "When you collect a Vampire into your Score pile, you may place it face-up in front of you. When you collect other non-Vampire cards into your Score pile, you may optionally place it under the face-up Vampire card. These cards will not count towards their faction, but towards a Vampire victory. The player with the highest value of face-up Vampire plus the cards underneath wins that faction. Other Vampire cards are not counted. A player may replace their face-up Vampire card, but when they do so they discard any faction cards under the previous face-up cards."},
         ZO: {Image: "images\\factions\\cards\\small\\ZO.jpg", Deck: "CRFEA", Name: "Zombies", Include: false, Phase_ab:1, Ability: "If you win a trick with the Zombies, collect the losing card of the trick and place into your Score Pile."},
@@ -49,14 +51,25 @@ function setEN()
         IQ: {Image: "images\\factions\\cards\\small\\IQ.jpg", Deck: "CRFRO", Name: "Ice Queens", Include: false, Phase_ab:3, Ability: "At the end of the game, each matching value of Ice Queen and Ice King in your score pile are discarded. They get married and run away! This is done before the majority of each faction is decided."},
         //STBOX                                             ,
         AW: {Image: "images\\factions\\cards\\small\\AW.jpg", Deck: "STBOX", Name: "Awakeners", Include: false, Phase_ab:2, Ability: "After phase 1, shuffle the discarded cards and form a second deck. If you win a trick with an Awakener in phase 2, you draw a card from the second deck and place it in your Score Pile."},
-        SA: {Image: "images\\factions\\cards\\small\\SA.jpg", Deck: "STBOX", Name: "Satyrs", Include: false, Phase_ab:1, Ability: "When the card where the players are competing off is a Satyr, the second player does not have to follow faction. The highest number is considered the winner of the trick."}
+        SA: {Image: "images\\factions\\cards\\small\\SA.jpg", Deck: "STBOX", Name: "Satyrs", Include: false, Phase_ab:1, Ability: "When the card where the players are competing off is a Satyr, the second player does not have to follow faction. The highest number is considered the winner of the trick."},
+        //CR: SKY
+        AN: {Image: "images\\factions\\cards\\small\\AN.jpg", Deck: "CRSKY", Name: "Angels", Include: false, Phase_ab:3, Ability: "At the end of the game, if there are no other cards in your Score pile with the same number, the Angel card is x2 towards the faction majority."},
+        EA: {Image: "images\\factions\\cards\\small\\EA.jpg", Deck: "CRSKY", Name: "Eagles", Include: false, Phase_ab:3, Ability: "An Eagle can not lead a trick 2 times in a row. (Exception: The lead player has only Eagles.)"},
+        PT: {Image: "images\\factions\\cards\\small\\PT.jpg", Deck: "CRSKY", Name: "Pterosaurs", Include: false, Phase_ab:3, Ability: "At the end of the game, any pterosaur card 7 or higher extinct! The cards do not count towards faction majority."},
+        LE: {Image: "images\\factions\\cards\\small\\LE.jpg", Deck: "CRSKY", Name: "Lightning Elementals", Include: false, Phase_ab:2, Ability: "In Phase 2, you may discard any number Lightning Elementals from you Score pile to boost a played card. Each discarded card boosts the card with +1."},
+        VK: {Image: "images\\factions\\cards\\small\\VK.jpg", Deck: "CRSKY", Name: "Vulturekin", Include: false, Phase_ab:3, Ability: "At the end of the game, if you win the majority of the Vulturekin, shuffle the Discard pile of Phase 1 and draw 2 random cards. Add the cards to your Score pile."},
     };
 
     Couples = {
         CLAIM_1: ["GO","KN"],
         CLAIM_2: ["GN","GI"],
         CLAIM_R_MERC: ["EL","EO","OR"],
-        CLAIM_R_FRO: ["IQ","IK"]
+        CLAIM_R_FRO: ["IQ","IK"],
+        CLAIM_R_SKY_AN: ["AN"],
+        CLAIM_R_SKY_EA: ["EA"],
+        CLAIM_R_SKY_PT: ["PT"],
+        CLAIM_R_SKY_LE: ["LE"],
+
     };
 
     Deck = {
@@ -71,7 +84,10 @@ function setEN()
         CRFIR: {Name:"Claim Reinforcements: Fire", Factions: ["FE","DM","TC","PO"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/claim-reinforcements-fire/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Fire Elementals, Demons, Tricksters and Poisoners
         CRFRO: {Name:"Claim Reinforcements: Frost", Factions: ["FR","YE","IK","IQ"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/claim-reinforcements-frost/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Frostbeasts, Yeti, Ice Kings and Ice Queens
 
-        PROMO: {Name:"Promo", Factions: ["DE","GH","ME","MI"], Include: false, linkBuy: "https://magicmerchant.it/catalogue/claim-fantasmi-espansione-gioco-da-tavolo_46163/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Mermaids Minotaurs
+        CRSKY: {Name:"Claim Reinforcements: Sky", Factions: ["AN", "EA", "PT", "LE", "VK"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/claim-reinforcements-sky/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Angels, Eagles, Pterosaurs, Lightning Elemental, Vulturekin
+
+
+        PROMO: {Name:"Promo", Factions: ["DE","GH","ME","MI","TI","VL"], Include: false, linkBuy: "https://magicmerchant.it/catalogue/claim-fantasmi-espansione-gioco-da-tavolo_46163/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Mermaids Minotaurs
         STBOX: {Name:"Storage Box", Factions: ["AW","SA"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/pre-order-claim-storage-box/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}//(Awakeners and Satyrs)
     };
 

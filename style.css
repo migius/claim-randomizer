@@ -167,6 +167,11 @@ tbody > tr > th > a:before{
 .icon-IQ:before { background-image: url('images/factions/icons/IQ.svg'); }
 .icon-AW:before { background-image: url('images/factions/icons/AW.svg'); }
 .icon-SA:before { background-image: url('images/factions/icons/SA.svg'); }
+.icon-AN:before { background-image: url('images/factions/icons/AN.svg'); }
+.icon-EA:before { background-image: url('images/factions/icons/EA.svg'); }
+.icon-LE:before { background-image: url('images/factions/icons/LE.svg'); }
+.icon-PT:before { background-image: url('images/factions/icons/PT.svg'); }
+.icon-VK:before { background-image: url('images/factions/icons/VK.svg'); }
 
 img.modal-image {
     width: 100%;
@@ -184,6 +189,7 @@ div#CRFIR-row { background-image: url(images/deck/300/CFIR.png); }
 div#CRFRO-row { background-image: url(images/deck/300/CFRO.png); }
 div#PROMO-row { background-image: url(images/deck/300/PROMO.png); }
 div#STBOX-row { background-image: url(images/deck/300/STBOX.png); }
+div#CRSKY-row { background-image: url(images/deck/lg/CRSKY.jpeg); }
 
 div.form-group {
     background-size: contain;
