@@ -32,6 +32,8 @@ function setDE()
         GH: {Image: "images\\factions\\cards\\small\\GH.jpg", Deck: "PROMO", Name: "Gespenster", Include: false, Phase_ab:1, Ability: "Du darfst die ausgespielte Gespensterkarte in den Anhängerstapel aufnehmen anstelle die ausgelegte oder die oberste vom Stapel (ohne sie vorher anzusehen), je nachdem ob du den Stich gewonnen oder verloren hast."},
         ME: {Image: "images\\factions\\cards\\small\\ME.jpg", Deck: "PROMO", Name: "Meerjungfrauen", Include: false, Phase_ab:3, Ability: "Wenn du Meerjungfrauen in deinen Punktestapel aufnimmst, lass sie offen vor dir liegen. Für jede Meerjungfrau vor dir wird der Wert deiner ausgespielten Karten um 1 reduziert."},
         MI: {Image: "images\\factions\\cards\\small\\MI.jpg", Deck: "PROMO", Name: "Minotaurus", Include: false, Phase_ab:2, Ability: "Wenn du als Startspieler mit einem Minotaurus anspielst und den Stich gewinnst, darf der andere Spieler seine gerade gespielte Karte zurück auf die Hand nehmen."},
+        TI: {Image: "images\\factions\\cards\\small\\TI.png", Deck: "PROMO", Name: "Tüftler", Include: false, Phase_ab:2, Ability: "[MT] Wenn ein Tüftler eine gespielte Karte mit einem Wert von 4 oder mehr übertrifft, explodiert sie! Die Karte wird aus dem Spiel entfernt. Du gewinnst trotzdem den Stich und die andere Karte."},
+        VL: {Image: "images\\factions\\cards\\small\\VL.png", Deck: "PROMO", Name: "Walküre", Include: false, Phase_ab:3, Ability: "[MT] Wenn die Walküre nach einer anderen Fraktion gespielt wird, übernimmt sie diese Fraktion, sofern ihr Wert 3 oder mehr höher ist als der der zuerst gespielten Karte."},
         //CR: FEA                                           ,
         VA: {Image: "images\\factions\\cards\\small\\VA.jpg", Deck: "CRFEA", Name: "Vampire", Include: false, Phase_ab:2, Ability: "Platziere einen gewonnen Vampir vor dir. Du kannst ab jetzt eine gewonnene nicht-Vampir-Karte unter die Vampir-Karte oder regulär auf den Punktestapel legen. Diese Karten zählen später für die Vampir-Fraktion, nicht ihre eigene. Falls du die Vampir-Karte austauschen möchtest, müssen alle daruntergelegten Karten abgeworfen werden. Nur der ausliegende Vampir und die darunterliegenden Karten zählen für die Vampir-Fraktion."},
         ZO: {Image: "images\\factions\\cards\\small\\ZO.jpg", Deck: "CRFEA", Name: "Zombies", Include: false, Phase_ab:1, Ability: "Wenn du einen Stich mit einem Zombie gewinnst, wird die Verliererkarte deinem Punktestapel hinzugefügt."},
@@ -49,14 +51,47 @@ function setDE()
         IQ: {Image: "images\\factions\\cards\\small\\IQ.jpg", Deck: "CRFRO", Name: "Eisköniginnen", Include: false, Phase_ab:3, Ability: "Am Ende des Spiels werden alle Eisköniginnen und Eiskönige mit demselben Wert abgeworfen. Dies geschieht vor der Mehrheitenbestimmung."},
         //STBOX                                             ,
         AW: {Image: "images\\factions\\cards\\small\\AW.jpg", Deck: "STBOX", Name: "Auferwecker", Include: false, Phase_ab:2, Ability: "Mische den Abwurfstapel nach dem Ende von Phase 1. Gewinnst du einen Stich mit einem Auferwecker ziehst du eine Karte vom „Abwurfstapel“ und fügst diese zu deinem Punktestapel hinzu."},
-        SA: {Image: "images\\factions\\cards\\small\\SA.jpg", Deck: "STBOX", Name: "Satyr", Include: false, Phase_ab:1, Ability: "Wenn die aufgedeckte Karte, um die gespielt wird, ein Satyr ist, muss nicht die Fraktion angegeben "}
+        SA: {Image: "images\\factions\\cards\\small\\SA.jpg", Deck: "STBOX", Name: "Satyr", Include: false, Phase_ab:1, Ability: "Wenn die aufgedeckte Karte, um die gespielt wird, ein Satyr ist, muss nicht die Fraktion angegeben "},
+        //CR: SKY
+        AN: {Image: "images\\factions\\cards\\small\\AN.jpg", Deck: "CRSKY", Name: "Engel", Include: false, Phase_ab:3, Ability: "[MT] Am Ende des Spiels gilt: Wenn sich keine andere Karte mit derselben Zahl in deinem Punktestapel befindet, zählt die Engel-Karte doppelt für die Fraktionsmehrheit."},
+        EA: {Image: "images\\factions\\cards\\small\\EA.jpg", Deck: "CRSKY", Name: "Adler", Include: false, Phase_ab:3, Ability: "[MT] Ein Adler darf nicht zwei Stiche hintereinander anführen. (Ausnahme: Der führende Spieler hat nur Adler.)"},
+        PT: {Image: "images\\factions\\cards\\small\\PT.jpg", Deck: "CRSKY", Name: "Flugsaurier", Include: false, Phase_ab:3, Ability: "[MT] Am Ende des Spiels: Jede Flugsaurier-Karte mit dem Wert 7 oder höher erlischt! Diese Karten zählen nicht zur Fraktionsmehrheit."},
+        LE: {Image: "images\\factions\\cards\\small\\LE.jpg", Deck: "CRSKY", Name: "Blitz-Elementare", Include: false, Phase_ab:2, Ability: "[MT] In Phase 2 darfst du beliebig viele Blitz-Elementare aus deinem Punktestapel abwerfen, um eine gespielte Karte zu verstärken. Jede abgeworfene Karte verstärkt die Karte um +1."},
+        VK: {Image: "images\\factions\\cards\\small\\VK.jpg", Deck: "CRSKY", Name: "Geierwesen", Include: false, Phase_ab:3, Ability: "[MT] Am Ende des Spiels: Wenn du die Mehrheit der Geierwesen gewinnst, mische den Ablagestapel von Phase 1 und ziehe 2 zufällige Karten. Füge diese deinem Punktestapel hinzu."},
+        //CR: SEA
+        PI: {Image: "images\\factions\\cards\\small\\PI.png", Deck: "CRSEA", Name: "Piraten", Include: false, Phase_ab:3, Ability: "[MT] Am Ende des Spiels: Hat ein Spieler einen Piraten und eine Königliche Marine derselben Zahl, wird der Pirat verhaftet. Er zählt als Karte der Königlichen Marine für die Fraktionsmehrheit und nicht als Pirat."},
+        RN: {Image: "images\\factions\\cards\\small\\RN.png", Deck: "CRSEA", Name: "Königliche Marine", Include: false, Phase_ab:3, Ability: "[MT] Am Ende des Spiels: Hat ein Spieler einen Piraten und eine Königliche Marine derselben Zahl, wird der Pirat verhaftet und zählt zur Königlichen Marine."},
+        SM: {Image: "images\\factions\\cards\\small\\SM.png", Deck: "CRSEA", Name: "Seemonster", Include: false, Phase_ab:1, Ability: "[MT] In Phase 1: Wenn ein Seemonster als Mittlere Karte aufgedeckt wird, müssen die Spieler eine Karte aus ihrer Hand tauschen. Die Karten werden verdeckt getauscht. Nimm die neue Karte auf die Hand."},
+        OC: {Image: "images\\factions\\cards\\small\\OC.jpg", Deck: "CRSEA", Name: "Oktopusse", Include: false, Phase_ab:3, Ability: "[MT] Jede Fraktionskarte mit dem Wert 8 oder höher aus einer anderen Fraktion gewinnt gegen einen Oktopus beliebiger Zahl."},
+        FP: {Image: "images\\factions\\cards\\small\\FP.jpg", Deck: "CRSEA", Name: "Fischmenschen", Include: false, Phase_ab:3, Ability: "[MT] In Phase 1 und 2: Wenn du einen Stich verlierst, in dem du einen Fisch gespielt hast, nimm eine Dreizack-Karte vom Nachziehstapel oder von einem anderen Spieler (falls alle aus dem Stapel bereits genommen sind). Der Wert aller Fischmenschen-Karten erhöht sich um 1 für jeden Dreizack, den du besitzt."},
+        //CR: SUN
+        SUN_MONKS: {Image: "images\\factions\\cards\\small\\SUN_MONKS.jpg", Deck: "CRSUN", Name: "Sonnenmönche", Include: false, Phase_ab:3, Ability: "[MT] Wenn ein Sonnenmönch gespielt wird, muss ihm ein Sternenmönch folgen, um die Fraktion zu bedienen. Wird die Fraktion korrekt bedient, gewinnt die höchste Karte. Ein Sonnenmönch, der einem Sonnenmönch folgt, gilt als fehlende Fraktion und du verlierst den Stich automatisch."},
+        STAR_MONKS: {Image: "images\\factions\\cards\\small\\STAR_MONKS.jpg", Deck: "CRSUN", Name: "Sternenmönche", Include: false, Phase_ab:3, Ability: "[MT] Wenn ein Sternenmönch gespielt wird, muss ihm ein Sonnenmönch folgen, um die Fraktion zu bedienen. Wird die Fraktion korrekt bedient, gewinnt die höchste Karte. Ein Sternenmönch, der einem Sternenmönch folgt, gilt als fehlende Fraktion und du verlierst den Stich automatisch."},
+        PR: {Image: "images\\factions\\cards\\small\\PR.jpg", Deck: "CRSUN", Name: "Propheten", Include: false, Phase_ab:2, Ability: "[MT] In Phase 2 hängt der Gewinner der Propheten von der Anzahl der Runen ab. Gibt es insgesamt mindestens 3 Runen im Punktestapel der Spieler, gewinnt der Prophet mit dem höchsten Wert. Gibt es weniger als 3 Runen, gewinnt der Prophet mit dem niedrigsten Wert. Runen sind Symbole auf den Prophetenkarten."},
+        SW: {Image: "images\\factions\\cards\\small\\SW.jpg", Deck: "CRSUN", Name: "Sandwürmer", Include: false, Phase_ab:3, Ability: "[MT] In Phase 1/2: Wenn ein Stich mit einem Sandwurm eröffnet wird, wird er verdeckt gespielt. Nachdem alle Karten gespielt wurden, werden sie aufgedeckt."},
+        SC: {Image: "images\\factions\\cards\\small\\SC.jpg", Deck: "CRSUN", Name: "Skorpione", Include: false, Phase_ab:2, Ability: "[MT] In Phase 2: Wenn du einen Skorpion zu deinem Punktestapel hinzufügst, musst du eine Gestochens-Karte nehmen. Diese Karten geben dir im nächsten Stich einen Punktabzug oder selten einen Bonus. Danach wird die Karte abgelegt. Wenn der Gestochens-Stapel jemals aufgebraucht ist, mische die abgelegten Karten und bilde einen neuen Stapel."},
+        //C: 5 ann edition
+        AU: {Image: "images\\factions\\cards\\small\\AU.jpg", Deck: "C5A", Name: "Automaten", Include: false, Phase_ab:1, Ability: "[MT] Der Gewinner eines Stiches gewinnt automatisch auch den nächsten Stich und ist der Anführer des darauffolgenden Stiches."},
+        BD: {Image: "images\\factions\\cards\\small\\BD.jpg", Deck: "C5A", Name: "Barden", Include: false, Phase_ab:3, Ability: "[MT] Am Ende des Spiels gewinnt der Spieler mit der längsten ununterbrochenen Reihe von Barden die Stimmenmehrheit der Fraktion."},
+        GR: {Image: "images\\factions\\cards\\small\\GR.jpg", Deck: "C5A", Name: "Greifen", Include: false, Phase_ab:2, Ability: "[MT] Gewonnene Greifen verleihen im nächsten Stich +5 Stärke, wenn du eine Karte mit demselben Wert spielst."},
+        PE: {Image: "images\\factions\\cards\\small\\PE.jpg", Deck: "C5A", Name: "Bauer", Include: false, Phase_ab:3, Ability: "[MT] Am Ende des Spiels verlässt dich ein Bauer, wenn du keinen Königlichen mit demselben Wert bis +3 hast."},
+        RA: {Image: "images\\factions\\cards\\small\\RA.jpg", Deck: "C5A", Name: "Waschbären", Include: false, Phase_ab:3, Ability: "[MT] Waschbären mit einem Beute-Symbol zählen am Ende des Spiels auch für die Fraktion, von der du die wenigsten Karten hast."},
+        RO: {Image: "images\\factions\\cards\\small\\RO.jpg", Deck: "C5A", Name: "Königliche", Include: false, Phase_ab:3, Ability: "[MT] Am Ende des Spiels verlässt dich ein Bauer, wenn du keinen Königlichen mit demselben Wert bis +3 hast."},
+        VI: {Image: "images\\factions\\cards\\small\\VI.jpg", Deck: "C5A", Name: "Wikinger", Include: false, Phase_ab:3, Ability: "[MT] Am Ende des Spiels zählt jeder Wikinger doppelt, wenn sich eine andere Karte mit demselben Wert in deinem Punktestapel befindet."},
     };
 
     Couples = {
         CLAIM_1: ["GO","KN"],
         CLAIM_2: ["GN","GI"],
         CLAIM_R_MERC: ["EL","EO","OR"],
-        CLAIM_R_FRO: ["IQ","IK"]
+        CLAIM_R_FRO: ["IQ","IK"],
+        CLAIM_R_SKY_AN: ["AN"],
+        CLAIM_R_SKY_EA: ["EA"],
+        CLAIM_R_SKY_PT: ["PT"],
+        CLAIM_R_SKY_LE: ["LE"],
+        CLAIM_R_SEA: ["PI","RN"],
+        CLAIM_R_SUN: ["SUN_MONKS","STAR_MONKS"],
+        CLAIM_5A: ["PE","RO"],
     };
 
     Deck = {
@@ -71,8 +106,14 @@ function setDE()
         CRFIR: {Name:"Claim - Verstärkung Feuer", Factions: ["FE","DM","TC","PO"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/claim-reinforcements-fire/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Fire Elementals, Demons, Tricksters and Poisoners
         CRFRO: {Name:"Claim - Verstärkung Frost", Factions: ["FR","YE","IK","IQ"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/claim-reinforcements-frost/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Frostbeasts, Yeti, Ice Kings and Ice Queens
 
-        PROMO: {Name:"Promo", Factions: ["DE","GH","ME","MI"], Include: false, linkBuy: "https://magicmerchant.it/catalogue/claim-fantasmi-espansione-gioco-da-tavolo_46163/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Mermaids Minotaurs
-        STBOX: {Name:"Storage Box", Factions: ["AW","SA"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/pre-order-claim-storage-box/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}//(Awakeners and Satyrs)
+        CRSKY: {Name:"Claim Reinforcements: Sky", Factions: ["AN", "EA", "PT", "LE", "VK"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/claim-reinforcements-sky/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Angels, Eagles, Pterosaurs, Lightning Elemental, Vulturekin
+        CRSEA: {Name:"Claim Reinforcements: Sea", Factions: ["PI", "RN", "SM", "OC", "FP"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/claim-reinforcements-sea/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Pirates, Royal Navy, Sea Monsters, Octipi, Fish People
+        CRSUN: {Name:"Claim Reinforcements: Sun", Factions: ["SUN_MONKS", "STAR_MONKS", "PR", "SW", "SC"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/claim-reinforcements-sun/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Sun Monks, Star Monks, Prophets, Sandworms, Scorpions
+
+        PROMO: {Name:"Promo", Factions: ["DE","GH","ME","MI","TI","VL"], Include: false, linkBuy: "https://magicmerchant.it/catalogue/claim-fantasmi-espansione-gioco-da-tavolo_46163/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Mermaids Minotaurs
+        STBOX: {Name:"Storage Box", Factions: ["AW","SA"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/pre-order-claim-storage-box/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"},//(Awakeners and Satyrs)
+
+        C5A: {Name:"5th Anniversary Edition", Factions: ["AU","BD","DP","DR","DW","GI","GN","GO","GR","KN","PE","RA","RO","SE","TR","UD","VI"], Include: false, linkBuy: "https://www.amazon.it/MS-Edizioni-95028-Claim/dp/B0881KJ3KX/ref=as_li_ss_tl?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=claim&qid=1603033037&s=toys&sr=1-2&linkCode=ll1&tag=migio21-21&linkId=9e48931d66127a34d74d5dc04b4a46bd&language=it_IT"}, 
     };
 
     Strings = {
@@ -92,11 +133,11 @@ function setDE()
         SOURCE_CODE_BY: "Quellcode unter MIT-Lizenz von migio.",
         INSPIRED_BY: "Inspiriert von",
         THIS_THREAD: "diesem Beitrag",
-        ENG_RUL: "Englische, spanische und niederländische Regeln wurden von White Goblin Games bereitgestellt.",
+        ENG_RUL: "Englische, spanische und niederländische Regeln wurden von White Goblin Games bereitgestellt.*",
         THIS_FILE: "diese Datei",
         IT_RULE: "Italienische Regeln von migio",
-        DE_RULE: "Deutsche Regeln von Yarra Mekian",
-        PT_RULE: "Portugiesische Regeln von Sansão Oliveira",
+        DE_RULE: "Deutsche Regeln von Yarra Mekian*",
+        PT_RULE: "Portugiesische Regeln von Sansão Oliveira*",
         FEEDBACK: "Sende uns ein Feedback",
         CLOSE: "Schließen",
         //alerts

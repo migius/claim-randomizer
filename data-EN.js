@@ -60,7 +60,7 @@ function setEN()
         VK: {Image: "images\\factions\\cards\\small\\VK.jpg", Deck: "CRSKY", Name: "Vulturekin", Include: false, Phase_ab:3, Ability: "At the end of the game, if you win the majority of the Vulturekin, shuffle the Discard pile of Phase 1 and draw 2 random cards. Add the cards to your Score pile."},
         //CR: SEA
         PI: {Image: "images\\factions\\cards\\small\\PI.png", Deck: "CRSEA", Name: "Pirates", Include: false, Phase_ab:3, Ability: "At the end of the game, if a player has a Pirate and a Royal Navy of the same value, the Pirate is arrested. The Pirate counts as a Royal Navy cards towards faction majority. It does not count as a Pirate."},
-        RN: {Image: "images\\factions\\cards\\small\\RN.png", Deck: "CRSEA", Name: "Royal Navy", Include: false, Phase_ab:3, Ability: "At the end of the game, if a player has a Pirate and a Royal Navy of the same value, the Pirate is arrested and counts towards the Royal Navy"},
+        RN: {Image: "images\\factions\\cards\\small\\RN.png", Deck: "CRSEA", Name: "Royal Navy", Include: false, Phase_ab:3, Ability: "At the end of the game, if a player has a Pirate and a Royal Navy of the same value, the Pirate is arrested and counts towards the Royal Navy."},
         SM: {Image: "images\\factions\\cards\\small\\SM.png", Deck: "CRSEA", Name: "Sea Monsters", Include: false, Phase_ab:1, Ability: "In Phase 1, if a Sea Monster is revealed as the center card, players must exchange one card from their hand. Exchange the cards face-down. Take the new card in hand."},
         OC: {Image: "images\\factions\\cards\\small\\OC.jpg", Deck: "CRSEA", Name: "Octipi", Include: false, Phase_ab:3, Ability: "Any faction card valued 8 or higher from another faction wins against an Octopus of any number."},
         FP: {Image: "images\\factions\\cards\\small\\FP.jpg", Deck: "CRSEA", Name: "Fish People", Include: false, Phase_ab:3, Ability: "In Phase 1 and 2, if you lose a trick where you played a Fish, take a Trident card from the draw pile or from another player if all trident cards from the draw pile are taken. The value of all Fish People cards increases with 1 for each trident card you own."},
@@ -70,6 +70,14 @@ function setEN()
         PR: {Image: "images\\factions\\cards\\small\\PR.jpg", Deck: "CRSUN", Name: "Prophets", Include: false, Phase_ab:2, Ability: "In Phase 2, the winner of the Prophets is depending on the number of Runes. If there are at least 3 Runes combined in the players Score pile, the Prophet with the highest value wins. If there are less than 3 Runes combined in the players Score pile, the Prophet with the lowest value wins. Runes are icons on the prophet cards."},
         SW: {Image: "images\\factions\\cards\\small\\SW.jpg", Deck: "CRSUN", Name: "Sandworms", Include: false, Phase_ab:3, Ability: "In Phase 1/2, when a trick with a Sandworm is led, it is played face-down. After all cards are played, the cards are revealed."},
         SC: {Image: "images\\factions\\cards\\small\\SC.jpg", Deck: "CRSUN", Name: "Scorpions", Include: false, Phase_ab:2, Ability: "In Phase 2, when you add a Scorpion to your Score pile, you must take Stung. The stung cards will give you a point penalty or a rare bonus in the next trick played. The card is afterwards discarded. If the Stung deck ever runs out. Shuffle the discarded cards and form a new deck."},
+        //C: 5 ann edition
+        AU: {Image: "images\\factions\\cards\\small\\AU.jpg", Deck: "C5A", Name: "Automatons", Include: false, Phase_ab:1, Ability: "The winner of the tricks wins automatically the next trick and is the Leader of the subsequent trick."},
+        BD: {Image: "images\\factions\\cards\\small\\BD.jpg", Deck: "C5A", Name: "Bards", Include: false, Phase_ab:3, Ability: "At the end of the game the player who has the longest sequential set ol Bards wins the vote of the faction."},
+        GR: {Image: "images\\factions\\cards\\small\\GR.jpg", Deck: "C5A", Name: "Griffons", Include: false, Phase_ab:2, Ability: "Won Griffons give in a next trick a +5 power if you play a card with the same value."},
+        PE: {Image: "images\\factions\\cards\\small\\PE.jpg", Deck: "C5A", Name: "Peasant", Include: false, Phase_ab:3, Ability: "At the end of the game a Peasant will abandon your kingdom if you do not have a Royal with the same value up to +3."},
+        RA: {Image: "images\\factions\\cards\\small\\RA.jpg", Deck: "C5A", Name: "Racoons", Include: false, Phase_ab:3, Ability: "Racoons with a loot symbool count at the end of the game also towards the faction you have the least cards of."},
+        RO: {Image: "images\\factions\\cards\\small\\RO.jpg", Deck: "C5A", Name: "Royals", Include: false, Phase_ab:3, Ability: "At the end of the game a Peasant will abandon your kingdom if you do not have a Royal with the same value up to +3."},
+        VI: {Image: "images\\factions\\cards\\small\\VI.jpg", Deck: "C5A", Name: "Vikings", Include: false, Phase_ab:3, Ability: "At the end of the game, each Viking count as 2 if there is another card with the same value in your Score pile."},
     };
 
     Couples = {
@@ -83,10 +91,11 @@ function setEN()
         CLAIM_R_SKY_LE: ["LE"],
         CLAIM_R_SEA: ["PI","RN"],
         CLAIM_R_SUN: ["SUN_MONKS","STAR_MONKS"],
+        CLAIM_5A: ["PE","RO"],
     };
 
     Deck = {
-        C1: {Name:"Claim", Factions: ["GO","KN","DP","DW","UD"], Include: true, linkBuy: "https://www.amazon.it/MS-Edizioni-95028-Claim/dp/B0881KJ3KX/ref=as_li_ss_tl?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=claim&qid=1603033037&s=toys&sr=1-2&linkCode=ll1&tag=migio21-21&linkId=9e48931d66127a34d74d5dc04b4a46bd&language=it_IT"},
+        C1: {Name:"Claim", Factions: ["GO","KN","DP","DW","UD"], Include: false, linkBuy: "https://www.amazon.it/MS-Edizioni-95028-Claim/dp/B0881KJ3KX/ref=as_li_ss_tl?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=claim&qid=1603033037&s=toys&sr=1-2&linkCode=ll1&tag=migio21-21&linkId=9e48931d66127a34d74d5dc04b4a46bd&language=it_IT"},
         C2: {Name:"Claim 2", Factions: ["DR","GI","GN","SE","TR"], Include: false, linkBuy: "https://www.amazon.it/GAMEFACTORY-646223-Gioco-di-luci/dp/B07JD62Z69/ref=as_li_ss_tl?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=claim&qid=1603033037&s=toys&sr=1-1&linkCode=ll1&tag=migio21-21&linkId=281f4f309662ddd02985edbf36b32276&language=it_IT"},
 
         CRMAP: {Name:"Claim Reinforcements: Maps", Factions: ["BA","PH","UN"], linkBuy: "https://whitegoblingames.com/site/game/claim-reinforcements-maps/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"},
@@ -102,7 +111,9 @@ function setEN()
         CRSUN: {Name:"Claim Reinforcements: Sun", Factions: ["SUN_MONKS", "STAR_MONKS", "PR", "SW", "SC"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/claim-reinforcements-sun/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Sun Monks, Star Monks, Prophets, Sandworms, Scorpions
 
         PROMO: {Name:"Promo", Factions: ["DE","GH","ME","MI","TI","VL"], Include: false, linkBuy: "https://magicmerchant.it/catalogue/claim-fantasmi-espansione-gioco-da-tavolo_46163/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Mermaids Minotaurs
-        STBOX: {Name:"Storage Box", Factions: ["AW","SA"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/pre-order-claim-storage-box/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}//(Awakeners and Satyrs)
+        STBOX: {Name:"Storage Box", Factions: ["AW","SA"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/pre-order-claim-storage-box/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"},//(Awakeners and Satyrs)
+
+        C5A: {Name:"5th Anniversary Edition", Factions: ["AU","BD","DP","DR","DW","GI","GN","GO","GR","KN","PE","RA","RO","SE","TR","UD","VI"], Include: false, linkBuy: "https://www.amazon.it/MS-Edizioni-95028-Claim/dp/B0881KJ3KX/ref=as_li_ss_tl?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=claim&qid=1603033037&s=toys&sr=1-2&linkCode=ll1&tag=migio21-21&linkId=9e48931d66127a34d74d5dc04b4a46bd&language=it_IT"}, 
     };
 
     Strings = {
@@ -122,11 +133,11 @@ function setEN()
         SOURCE_CODE_BY: "Source code under MIT License by migio.",
         INSPIRED_BY: "Inspired by",
         THIS_THREAD: "this thread",
-        ENG_RUL: "English, spanish and dutch rules provided by the White Goblin Games.",
+        ENG_RUL: "English, spanish and dutch rules provided by the White Goblin Games.*",
         THIS_FILE: "this file",
         IT_RULE: "Italian rules by migio",
-        DE_RULE: "German rules by Yarra Mekian",
-        PT_RULE: "Portuguese rules by Sansão Oliveira",
+        DE_RULE: "German rules by Yarra Mekian*",
+        PT_RULE: "Portuguese rules by Sansão Oliveira*",
         FEEDBACK: "Send a Feedback",
         CLOSE: "Close",
         //alerts

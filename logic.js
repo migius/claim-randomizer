@@ -86,7 +86,7 @@ function refreshSelectionForm()
         deck.appendChild(deckItem); 
 
         //amazon link
-        let buyLinkDiv = document.createElement("div");
+/*         let buyLinkDiv = document.createElement("div");
         buyLinkDiv.classList.add("buy-link");
         let buyLink = document.createElement("a");
         buyLink.setAttribute("href", Deck[d].linkBuy);
@@ -98,7 +98,7 @@ function refreshSelectionForm()
 
 
         buyLinkDiv.appendChild(buyLink); 
-        deckItem.appendChild(buyLinkDiv); 
+        deckItem.appendChild(buyLinkDiv);  */
 
 
         formGroup.appendChild(deck); 

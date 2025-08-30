@@ -32,6 +32,8 @@ function setPT()
         GH: {Image: "images\\factions\\cards\\small\\GH.jpg", Deck: "PROMO", Name: "Fantasmas", Include: false, Phase_ab:1, Ability: "Você pode ficar com o Fantasma que jogou em vez da carta que normalmente ganharia. Se vencer a rodada, você coloca o Fantasma em seu baralho de Seguidores e descarta a carta do centro. Se perder a rodada, você coloca o Fantasma em seu baralho de Seguidores e descarta a carta do topo do baralho do centro (sem olhá-la)."},
         ME: {Image: "images\\factions\\cards\\small\\ME.jpg", Deck: "PROMO", Name: "Sereias", Include: false, Phase_ab:3, Ability: "Ao coletar sereias em sua pilha de pontuação, deixe-as voltadas para cima. Para cada sereia que você tem, suas cartas jogadas têm um valor -1."},
         MI: {Image: "images\\factions\\cards\\small\\MI.jpg", Deck: "PROMO", Name: "Minotauros", Include: false, Phase_ab:2, Ability: "Se você liderar com um Minotauro e ganhar a vaza, o outro jogador pode pegar a carta que jogou de volta para sua mão."},
+        TI: {Image: "images\\factions\\cards\\small\\TI.png", Deck: "PROMO", Name: "Inventores", Include: false, Phase_ab:2, Ability: "[MT] Se um Inventor vence uma carta jogada por um valor de 4 ou mais, então ele explode! A carta é descartada do jogo. Você ainda vence a vaza e a outra carta."},
+        VL: {Image: "images\\factions\\cards\\small\\VL.png", Deck: "PROMO", Name: "Valquíria", Include: false, Phase_ab:3, Ability: "[MT] Se a Valquíria for jogada após outra facção, ela se torna essa facção se tiver valor 3 ou mais superior à primeira carta jogada."},
         //CR: FEA                                           ,
         VA: {Image: "images\\factions\\cards\\small\\VA.jpg", Deck: "CRFEA", Name: "Vampiros", Include: false, Phase_ab:2, Ability: "Quando você coleta um Vampiro em sua pilha de Pontuação, você pode colocá-lo com a face para cima na sua frente. Quando você coleta outras cartas que não sejam de Vampiro em sua pilha de Pontuação, você pode opcionalmente colocá-las sob a carta de Vampiro virada para cima. Essas cartas não contarão para sua facção, mas para a vitória do Vampiro. O jogador com o valor mais alto de Vampiro virado para cima mais as cartas abaixo ganha essa facção. Outras cartas de vampiro não são contadas. Um jogador pode substituir sua carta de Vampiro virada para cima, mas quando o faz, descarta todas as cartas de facção das cartas anteriores."},
         ZO: {Image: "images\\factions\\cards\\small\\ZO.jpg", Deck: "CRFEA", Name: "Zumbis", Include: false, Phase_ab:1, Ability: "Se você ganhar uma vaza com os Zumbis, pegue a carta perdedora da vaza e coloque-a na pilha de pontuação do vencedor da rodada."},
@@ -49,14 +51,50 @@ function setPT()
         IQ: {Image: "images\\factions\\cards\\small\\IQ.jpg", Deck: "CRFRO", Name: "Rainhas do Gelo", Include: false, Phase_ab:3, Ability: "No final do jogo, cada valor correspondente da Rainha do Gelo com o Rei do Gelo em sua pilha de pontuação é descartado. Eles se casam e fogem! Isso é feito antes que a maioria de cada facção seja decidida."},
         //STBOX                                             ,
         AW: {Image: "images\\factions\\cards\\small\\AW.jpg", Deck: "STBOX", Name: "Despertadores", Include: false, Phase_ab:2, Ability: "Após a fase 1, embaralhe as cartas descartadas e forme um segundo baralho. Se você ganhar uma vaza com um Despertador na fase 2, você compra uma carta do segundo baralho e a coloca em sua Pilha de Pontuação."},
-        SA: {Image: "images\\factions\\cards\\small\\SA.jpg", Deck: "STBOX", Name: "Sátiros", Include: false, Phase_ab:1, Ability: "Quando a carta do centro, a que os jogadores estão competindo é um Sátiro, o segundo jogador não precisa seguir a facção. O maior número é considerado o vencedor da rodada."}
+        SA: {Image: "images\\factions\\cards\\small\\SA.jpg", Deck: "STBOX", Name: "Sátiros", Include: false, Phase_ab:1, Ability: "Quando a carta do centro, a que os jogadores estão competindo é um Sátiro, o segundo jogador não precisa seguir a facção. O maior número é considerado o vencedor da rodada."},
+        //CR: SKY
+        AN: {Image: "images\\factions\\cards\\small\\AN.jpg", Deck: "CRSKY", Name: "Anjos", Include: false, Phase_ab:3, Ability: "[MT] No final do jogo, se não houver outras cartas no seu monte de Pontos com o mesmo número, a carta Anjo vale x2 para a maioria da facção."},
+        EA: {Image: "images\\factions\\cards\\small\\EA.jpg", Deck: "CRSKY", Name: "Águias", Include: false, Phase_ab:3, Ability: "[MT] Uma Águia não pode liderar duas vezes seguidas uma vaza. (Exceção: o jogador líder tem apenas Águias.)"},
+        PT: {Image: "images\\factions\\cards\\small\\PT.jpg", Deck: "CRSKY", Name: "Pterossauros", Include: false, Phase_ab:3, Ability: "[MT] No final do jogo, qualquer carta de pterossauro de valor 7 ou mais é extinta! Essas cartas não contam para a maioria da facção."},
+        LE: {Image: "images\\factions\\cards\\small\\LE.jpg", Deck: "CRSKY", Name: "Elementais de Relâmpago", Include: false, Phase_ab:2, Ability: "[MT] Na Fase 2, você pode descartar qualquer número de Elementais de Relâmpago do seu monte de Pontos para reforçar uma carta jogada. Cada carta descartada aumenta +1 na carta."},
+        VK: {Image: "images\\factions\\cards\\small\\VK.jpg", Deck: "CRSKY", Name: "Carcaceiros", Include: false, Phase_ab:3, Ability: "[MT] No final do jogo, se você tiver a maioria dos Carcaceiros, embaralhe a pilha de Descarte da Fase 1 e compre 2 cartas aleatórias. Adicione-as ao seu monte de Pontos."},
+
+        //CR: SEA
+        PI: {Image: "images\\factions\\cards\\small\\PI.png", Deck: "CRSEA", Name: "Piratas", Include: false, Phase_ab:3, Ability: "[MT] No final do jogo, se um jogador tiver um Pirata e um Marinha Real do mesmo valor, o Pirata é preso. O Pirata conta como carta da Marinha Real para a maioria da facção. Não conta como Pirata."},
+        RN: {Image: "images\\factions\\cards\\small\\RN.png", Deck: "CRSEA", Name: "Marinha Real", Include: false, Phase_ab:3, Ability: "[MT] No final do jogo, se um jogador tiver um Pirata e um Marinha Real do mesmo valor, o Pirata é preso e conta para a Marinha Real."},
+        SM: {Image: "images\\factions\\cards\\small\\SM.png", Deck: "CRSEA", Name: "Monstros Marinhos", Include: false, Phase_ab:1, Ability: "[MT] Na Fase 1, se um Monstro Marinho for revelado como carta central, os jogadores devem trocar uma carta da mão. As trocas são feitas viradas para baixo. Pegue a nova carta na mão."},
+        OC: {Image: "images\\factions\\cards\\small\\OC.jpg", Deck: "CRSEA", Name: "Polvos", Include: false, Phase_ab:3, Ability: "[MT] Qualquer carta de facção com valor 8 ou superior vence contra um Polvo de qualquer número."},
+        FP: {Image: "images\\factions\\cards\\small\\FP.jpg", Deck: "CRSEA", Name: "Povo-Peixe", Include: false, Phase_ab:3, Ability: "[MT] Nas Fases 1 e 2, se você perder uma vaza onde jogou um Peixe, pegue uma carta Tridente do baralho ou de outro jogador se todas as cartas Tridente do baralho já foram tiradas. O valor de todas as cartas Povo-Peixe aumenta em +1 para cada tridente que você possuir."},
+
+        //CR: SUN
+        SUN_MONKS: {Image: "images\\factions\\cards\\small\\SUN_MONKS.jpg", Deck: "CRSUN", Name: "Monges do Sol", Include: false, Phase_ab:3, Ability: "[MT] Quando um Monge do Sol é jogado, ele deve ser seguido por um Monge das Estrelas para seguir a facção. Se a facção for seguida corretamente, a carta mais alta vence. Um Monge do Sol seguido por outro Monge do Sol é considerado fora de facção e você perde automaticamente a vaza."},
+        STAR_MONKS: {Image: "images\\factions\\cards\\small\\STAR_MONKS.jpg", Deck: "CRSUN", Name: "Monges das Estrelas", Include: false, Phase_ab:3, Ability: "[MT] Quando um Monge das Estrelas é jogado, ele deve ser seguido por um Monge do Sol para seguir a facção. Se a facção for seguida corretamente, a carta mais alta vence. Um Monge das Estrelas seguido por outro Monge das Estrelas é considerado fora de facção e você perde automaticamente a vaza."},
+        PR: {Image: "images\\factions\\cards\\small\\PR.jpg", Deck: "CRSUN", Name: "Profetas", Include: false, Phase_ab:2, Ability: "[MT] Na Fase 2, o vencedor dos Profetas depende do número de Runas. Se houver pelo menos 3 Runas combinadas nos montes de Pontos dos jogadores, o Profeta com maior valor vence. Se houver menos de 3 Runas, o Profeta de menor valor vence. Runas são ícones nas cartas de Profeta."},
+        SW: {Image: "images\\factions\\cards\\small\\SW.jpg", Deck: "CRSUN", Name: "Vermes da Areia", Include: false, Phase_ab:3, Ability: "[MT] Na Fase 1/2, quando uma vaza com um Verme da Areia for liderada, ela é jogada virada para baixo. Após todas as cartas serem jogadas, revele-as."},
+        SC: {Image: "images\\factions\\cards\\small\\SC.jpg", Deck: "CRSUN", Name: "Escorpiões", Include: false, Phase_ab:2, Ability: "[MT] Na Fase 2, quando você adicionar um Escorpião ao seu monte de Pontos, você deve pegar um Picado. As cartas Picado lhe darão uma penalidade de pontos ou um raro bônus na próxima vaza jogada. Depois, a carta é descartada. Se o baralho Picado acabar, embaralhe as cartas descartadas e forme um novo baralho."},
+
+        //C: 5 ann edition
+        AU: {Image: "images\\factions\\cards\\small\\AU.jpg", Deck: "C5A", Name: "Automatos", Include: false, Phase_ab:1, Ability: "[MT] O vencedor da vaza vence automaticamente a próxima vaza e é o Líder da vaza seguinte."},
+        BD: {Image: "images\\factions\\cards\\small\\BD.jpg", Deck: "C5A", Name: "Bardos", Include: false, Phase_ab:3, Ability: "[MT] No final do jogo, o jogador que tiver a sequência mais longa de Bardos vence o voto da facção."},
+        GR: {Image: "images\\factions\\cards\\small\\GR.jpg", Deck: "C5A", Name: "Grifos", Include: false, Phase_ab:2, Ability: "[MT] Grifos ganhos dão em uma próxima vaza +5 de poder se você jogar uma carta com o mesmo valor."},
+        PE: {Image: "images\\factions\\cards\\small\\PE.jpg", Deck: "C5A", Name: "Camponês", Include: false, Phase_ab:3, Ability: "[MT] No final do jogo, um Camponês abandonará seu reino se você não tiver um Real com o mesmo valor até +3."},
+        RA: {Image: "images\\factions\\cards\\small\\RA.jpg", Deck: "C5A", Name: "Guaxinins", Include: false, Phase_ab:3, Ability: "[MT] Guaxinins com um símbolo de saque contam no final do jogo também para a facção da qual você tiver menos cartas."},
+        RO: {Image: "images\\factions\\cards\\small\\RO.jpg", Deck: "C5A", Name: "Reais", Include: false, Phase_ab:3, Ability: "[MT] No final do jogo, um Camponês abandonará seu reino se você não tiver um Real com o mesmo valor até +3."},
+        VI: {Image: "images\\factions\\cards\\small\\VI.jpg", Deck: "C5A", Name: "Vikings", Include: false, Phase_ab:3, Ability: "[MT] No final do jogo, cada Viking conta como 2 se houver outra carta com o mesmo valor no seu monte de Pontos."},
     };
 
-    Couples = {
+     Couples = {
         CLAIM_1: ["GO","KN"],
         CLAIM_2: ["GN","GI"],
         CLAIM_R_MERC: ["EL","EO","OR"],
-        CLAIM_R_FRO: ["IQ","IK"]
+        CLAIM_R_FRO: ["IQ","IK"],
+        CLAIM_R_SKY_AN: ["AN"],
+        CLAIM_R_SKY_EA: ["EA"],
+        CLAIM_R_SKY_PT: ["PT"],
+        CLAIM_R_SKY_LE: ["LE"],
+        CLAIM_R_SEA: ["PI","RN"],
+        CLAIM_R_SUN: ["SUN_MONKS","STAR_MONKS"],
+        CLAIM_5A: ["PE","RO"],
     };
 
     Deck = {
@@ -71,8 +109,14 @@ function setPT()
         CRFIR: {Name:"Claim Reforços: Fogo", Factions: ["FE","DM","TC","PO"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/claim-reinforcements-fire/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Fire Elementals, Demons, Tricksters and Poisoners
         CRFRO: {Name:"Claim Reforços: Gelo", Factions: ["FR","YE","IK","IQ"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/claim-reinforcements-frost/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Frostbeasts, Yeti, Ice Kings and Ice Queens
 
-        PROMO: {Name:"Promo", Factions: ["DE","GH","ME","MI"], Include: false, linkBuy: "https://magicmerchant.it/catalogue/claim-fantasmi-espansione-gioco-da-tavolo_46163/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Mermaids Minotaurs
-        STBOX: {Name:"Storage Box", Factions: ["AW","SA"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/pre-order-claim-storage-box/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}//(Awakeners and Satyrs)
+        CRSKY: {Name:"Claim Reinforcements: Sky", Factions: ["AN", "EA", "PT", "LE", "VK"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/claim-reinforcements-sky/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Angels, Eagles, Pterosaurs, Lightning Elemental, Vulturekin
+        CRSEA: {Name:"Claim Reinforcements: Sea", Factions: ["PI", "RN", "SM", "OC", "FP"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/claim-reinforcements-sea/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Pirates, Royal Navy, Sea Monsters, Octipi, Fish People
+        CRSUN: {Name:"Claim Reinforcements: Sun", Factions: ["SUN_MONKS", "STAR_MONKS", "PR", "SW", "SC"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/claim-reinforcements-sun/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Sun Monks, Star Monks, Prophets, Sandworms, Scorpions
+
+        PROMO: {Name:"Promo", Factions: ["DE","GH","ME","MI","TI","VL"], Include: false, linkBuy: "https://magicmerchant.it/catalogue/claim-fantasmi-espansione-gioco-da-tavolo_46163/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"}, //Mermaids Minotaurs
+        STBOX: {Name:"Storage Box", Factions: ["AW","SA"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/pre-order-claim-storage-box/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"},//(Awakeners and Satyrs)
+
+        C5A: {Name:"5th Anniversary Edition", Factions: ["AU","BD","DP","DR","DW","GI","GN","GO","GR","KN","PE","RA","RO","SE","TR","UD","VI"], Include: false, linkBuy: "https://www.amazon.it/MS-Edizioni-95028-Claim/dp/B0881KJ3KX/ref=as_li_ss_tl?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=claim&qid=1603033037&s=toys&sr=1-2&linkCode=ll1&tag=migio21-21&linkId=9e48931d66127a34d74d5dc04b4a46bd&language=it_IT"}, 
     };
 
     Strings = {
@@ -92,11 +136,11 @@ function setPT()
         SOURCE_CODE_BY: "O código-fonte está sob a licença MIT por migio.",
         INSPIRED_BY: "Inspirado por",
         THIS_THREAD: "este tópico",
-        ENG_RUL: "As regras em inglês, espanhol e alemão foram fornecidas pela White Goblin Games.",
+        ENG_RUL: "As regras em inglês, espanhol e alemão foram fornecidas pela White Goblin Games.*",
         THIS_FILE: "esse arquivo",
         IT_RULE: "Regras em italiano por migio",
-        DE_RULE: "Regras em alemão por Yarra Mekian",
-        PT_RULE: "Regras em português por Sansão Oliveira",
+        DE_RULE: "Regras em alemão por Yarra Mekian*",
+        PT_RULE: "Regras em português por Sansão Oliveira*",
         FEEDBACK: "Deixe seu Feedback",
         CLOSE: "Fechar",
         //alerts

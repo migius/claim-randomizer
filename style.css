@@ -127,6 +127,7 @@ tbody > tr > th > a:before{
   background-size: 28px 28px;
   height: 28px;
   width: 28px;
+  background-image: url('images/factions/icons/DEFAULT.svg'); 
 }
 
 .icon-DP:before { background-image: url('images/factions/icons/DP.svg'); }
@@ -184,12 +185,27 @@ tbody > tr > th > a:before{
 .icon-PR:before { background-image: url('images/factions/icons/PR.svg'); }
 .icon-SW:before { background-image: url('images/factions/icons/SW.svg'); }
 .icon-SC:before { background-image: url('images/factions/icons/SC.svg'); }
+.icon-AU:before { background-image: url('images/factions/icons/AU.svg'); }
+.icon-BD:before { background-image: url('images/factions/icons/BD.svg'); }
+.icon-GR:before { background-image: url('images/factions/icons/GR.svg'); }
+.icon-PE:before { background-image: url('images/factions/icons/PE.svg'); }
+.icon-RA:before { background-image: url('images/factions/icons/RA.svg'); }
+.icon-RO:before { background-image: url('images/factions/icons/RO.svg'); }
+.icon-VI:before { background-image: url('images/factions/icons/VI.svg'); }
 
 img.modal-image {
     width: 100%;
 }
 
 /*DECKS*/
+
+
+div.form-group.trasp-background.row {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 0px;
+    background-position: right top;
+}
 
 div#C1-row { background-image: url(images/deck/300/C1.png); }
 div#C2-row { background-image: url(images/deck/300/C2.png); }
@@ -201,9 +217,10 @@ div#CRFIR-row { background-image: url(images/deck/300/CFIR.png); }
 div#CRFRO-row { background-image: url(images/deck/300/CFRO.png); }
 div#PROMO-row { background-image: url(images/deck/300/PROMO.png); }
 div#STBOX-row { background-image: url(images/deck/300/STBOX.png); }
-div#CRSKY-row { background-image: url(images/deck/lg/CRSKY.jpeg); }
-div#CRSEA-row { background-image: url(images/deck/lg/CRSEA.jpeg); }
-div#CRSUN-row { background-image: url(images/deck/lg/CRSUN.jpeg); }
+div#CRSKY-row { background-image: url(images/deck/300/CRSKY.png); }
+div#CRSEA-row { background-image: url(images/deck/300/CRSEA.png); }
+div#CRSUN-row { background-image: url(images/deck/300/CRSUN.png); }
+div#C5A-row { background-image: url(images/deck/300/C5A.png); }
 
 div.form-group {
     background-size: contain;
