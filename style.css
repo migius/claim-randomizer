@@ -417,3 +417,26 @@ body.UD .btn.trasp-background {
     background-color: #e2d879;
 }
 
+
+
+/*C5a*/
+body.C5A {
+    background-image: url(images/factions/backgrounds/C5A.jpg);    
+}
+body.C5A .trasp-background {
+    background-color: #3a393aaa;
+}
+body.C5A .trasp-background.solid-bg {
+    background-color: #676368;
+}
+body.C5A {/*div#main, body.UD div#main table, body.UD .navbar-light .navbar-nav .nav-link {*/
+    color: #f1f1ed;
+}
+.style-icon-C5A {
+    color: #676368;   
+}
+body.C5A .btn.trasp-background {
+    color: #676368;
+    background-color: #dad9d4;
+}
+

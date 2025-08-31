@@ -492,6 +492,7 @@ function setBackground(bg)
         case "GO":
         case "KN":
         case "UD":
+        case "C5A":
         case "claim":
             bodyEl.classList.add(bg);
             break;
@@ -507,7 +508,7 @@ function setBackground(bg)
     // the DOM will be available here
     setLanguage('EN');
 
-    setBackground(getRandom(["DP","DW","GO","KN","UD","claim"],1)[0]);
+    setBackground(getRandom(["DP","DW","GO","KN","UD","claim","C5A","C5A","C5A","C5A"],1)[0]); //a little more chance for C5A
 
     //LAST, IMPORTANT!
     cleanResult();
