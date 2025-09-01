@@ -3,11 +3,11 @@ function setIT()
     //DATA
     Factions = {
         //C1
-        DP: {Image: "images\\factions\\cards\\small\\DP.jpg", Deck: "C1", Name: "Mutaforma", Include: true, Phase_ab:3, Ability: "Un mutaforma può essere giocato al posto della fazione richiesta, ma non ne guadagna le sue abilità speciali."},
-        DW: {Image: "images\\factions\\cards\\small\\DW.jpg", Deck: "C1", Name: "Nani", Include: true, Phase_ab:2, Ability: "I Nani giocati vengono aggiunti al Mazzo dei Punti di chi ha perso il turno."},
-        GO: {Image: "images\\factions\\cards\\small\\GO.jpg", Deck: "C1", Name: "Goblin", Include: true, Phase_ab:3, Ability: "Nessun potere speciale."},
-        KN: {Image: "images\\factions\\cards\\small\\KN.jpg", Deck: "C1", Name: "Cavalieri", Include: true, Phase_ab:3, Ability: "Quando viene giocato dopo un Goblin vince indipendentemente dal valore."},
-        UD: {Image: "images\\factions\\cards\\small\\UD.jpg", Deck: "C1", Name: "Non-Morti", Include: true, Phase_ab:1, Ability: "Non si scartano i Non-Morti giocati ma vengono aggiunti al Mazzo dei Punti del vincitore del turno."},        //C2                                                ,
+        DP: {Image: "images\\factions\\cards\\small\\DP.jpg", Deck: "C1", Name: "Mutaforma", Include: false, Phase_ab:3, Ability: "Un mutaforma può essere giocato al posto della fazione richiesta, ma non ne guadagna le sue abilità speciali."},
+        DW: {Image: "images\\factions\\cards\\small\\DW.jpg", Deck: "C1", Name: "Nani", Include: false, Phase_ab:2, Ability: "I Nani giocati vengono aggiunti al Mazzo dei Punti di chi ha perso il turno."},
+        GO: {Image: "images\\factions\\cards\\small\\GO.jpg", Deck: "C1", Name: "Goblin", Include: false, Phase_ab:3, Ability: "Nessun potere speciale."},
+        KN: {Image: "images\\factions\\cards\\small\\KN.jpg", Deck: "C1", Name: "Cavalieri", Include: false, Phase_ab:3, Ability: "Quando viene giocato dopo un Goblin vince indipendentemente dal valore."},
+        UD: {Image: "images\\factions\\cards\\small\\UD.jpg", Deck: "C1", Name: "Non-Morti", Include: false, Phase_ab:1, Ability: "Non si scartano i Non-Morti giocati ma vengono aggiunti al Mazzo dei Punti del vincitore del turno."},        //C2                                                ,
         //C2                                                ,
         DR: {Image: "images\\factions\\cards\\small\\DR.jpg", Deck: "C2", Name: "Draghi", Include: false, Phase_ab:3, Ability: "L'ultima persona ad aver giocato un drago sarà il leader del prossimo turno."},
         GI: {Image: "images\\factions\\cards\\small\\GI.jpg", Deck: "C2", Name: "Giganti", Include: false, Phase_ab:2, Ability: "Schiaccia uno Gnomo dello stesso valore di fronte al perdente del turno."},
@@ -95,7 +95,7 @@ function setIT()
     };
 
     Deck = {
-        C1: {Name:"Claim", Factions: ["GO","KN","DP","DW","UD"], Include: true, linkBuy: "https://www.amazon.it/MS-Edizioni-95028-Claim/dp/B0881KJ3KX/ref=as_li_ss_tl?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=claim&qid=1603033037&s=toys&sr=1-2&linkCode=ll1&tag=migio21-21&linkId=9e48931d66127a34d74d5dc04b4a46bd&language=it_IT"},
+        C1: {Name:"Claim", Factions: ["GO","KN","DP","DW","UD"], Include: false, linkBuy: "https://www.amazon.it/MS-Edizioni-95028-Claim/dp/B0881KJ3KX/ref=as_li_ss_tl?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=claim&qid=1603033037&s=toys&sr=1-2&linkCode=ll1&tag=migio21-21&linkId=9e48931d66127a34d74d5dc04b4a46bd&language=it_IT"},
         C2: {Name:"Claim 2", Factions: ["DR","GI","GN","SE","TR"], Include: false, linkBuy: "https://www.amazon.it/GAMEFACTORY-646223-Gioco-di-luci/dp/B07JD62Z69/ref=as_li_ss_tl?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=claim&qid=1603033037&s=toys&sr=1-1&linkCode=ll1&tag=migio21-21&linkId=281f4f309662ddd02985edbf36b32276&language=it_IT"},
 
         CRMAP: {Name:"Claim Reinforcements: Maps", Factions: ["BA","PH","UN"], linkBuy: "https://whitegoblingames.com/site/game/claim-reinforcements-maps/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"},

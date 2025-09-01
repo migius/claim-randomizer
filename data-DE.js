@@ -3,11 +3,11 @@ function setDE()
     //DATA
     Factions = {
         //C1
-        DP: {Image: "images\\factions\\cards\\small\\DP.jpg", Deck: "C1", Name: "Doppelgänger", Include: true, Phase_ab:3, Ability: "Du kannst einen Doppelgänger anstelle der angespielten Fraktion spielen, auch wenn du diese angeben könntest."},
-        DW: {Image: "images\\factions\\cards\\small\\DW.jpg", Deck: "C1", Name: "Zwerge", Include: true, Phase_ab:2, Ability: "Der Verlierer des Stiches sammelt alle ausgespielten Zwerge ein und fügt diese seinem Punktestapel hinzu."},
-        GO: {Image: "images\\factions\\cards\\small\\GO.jpg", Deck: "C1", Name: "Kobolde", Include: true, Phase_ab:3, Ability: "Keine spezielle Fähigkeit."},
-        KN: {Image: "images\\factions\\cards\\small\\KN.jpg", Deck: "C1", Name: "Ritter", Include: true, Phase_ab:3, Ability: "Wird ein Ritter auf einen Kobold gespielt, schlägt er diesen ungeachtet der Werte."},
-        UD: {Image: "images\\factions\\cards\\small\\UD.jpg", Deck: "C1", Name: "Untote", Include: true, Phase_ab:1, Ability: "Gespielte Untote werden nicht wie die anderen Karten aus dem Spiel genommen, sondern auf den Punktestapel des Rundengewinners gelegt."},
+        DP: {Image: "images\\factions\\cards\\small\\DP.jpg", Deck: "C1", Name: "Doppelgänger", Include: false, Phase_ab:3, Ability: "Du kannst einen Doppelgänger anstelle der angespielten Fraktion spielen, auch wenn du diese angeben könntest."},
+        DW: {Image: "images\\factions\\cards\\small\\DW.jpg", Deck: "C1", Name: "Zwerge", Include: false, Phase_ab:2, Ability: "Der Verlierer des Stiches sammelt alle ausgespielten Zwerge ein und fügt diese seinem Punktestapel hinzu."},
+        GO: {Image: "images\\factions\\cards\\small\\GO.jpg", Deck: "C1", Name: "Kobolde", Include: false, Phase_ab:3, Ability: "Keine spezielle Fähigkeit."},
+        KN: {Image: "images\\factions\\cards\\small\\KN.jpg", Deck: "C1", Name: "Ritter", Include: false, Phase_ab:3, Ability: "Wird ein Ritter auf einen Kobold gespielt, schlägt er diesen ungeachtet der Werte."},
+        UD: {Image: "images\\factions\\cards\\small\\UD.jpg", Deck: "C1", Name: "Untote", Include: false, Phase_ab:1, Ability: "Gespielte Untote werden nicht wie die anderen Karten aus dem Spiel genommen, sondern auf den Punktestapel des Rundengewinners gelegt."},
         //C2                                                ,
         DR: {Image: "images\\factions\\cards\\small\\DR.jpg", Deck: "C2", Name: "Drachen", Include: false, Phase_ab:3, Ability: "Wer als Letztes in einer Runde einen Drachen spielt, ist Startspieler der nächsten Runde."},
         GI: {Image: "images\\factions\\cards\\small\\GI.jpg", Deck: "C2", Name: "Riesen", Include: false, Phase_ab:2, Ability: "Pro gewonnenem Riesen kann ein Gnom des Gegners (gleicher Wert), sollte er vor diesem ausliegen, zerstört werden."},
@@ -95,7 +95,7 @@ function setDE()
     };
 
     Deck = {
-        C1: {Name:"Claim", Factions: ["GO","KN","DP","DW","UD"], Include: true, linkBuy: "https://www.amazon.it/GAMEFACTORY-646222-Gioco-di-luci/dp/B07JD8K4L5?pd_rd_w=gPtBu&pf_rd_p=73021335-3337-4067-9dba-3816378c8630&pf_rd_r=YEGKM73SY7W9DTC05W54&pd_rd_r=26b56eb1-b0e4-4b22-836a-a95383313340&pd_rd_wg=b3BMt&pd_rd_i=B07JD8K4L5&psc=1&linkCode=ll1&tag=migio21-21&linkId=b6372d7472fca89042c5057081ac095d&language=it_IT&ref_=as_li_ss_tl"},
+        C1: {Name:"Claim", Factions: ["GO","KN","DP","DW","UD"], Include: false, linkBuy: "https://www.amazon.it/GAMEFACTORY-646222-Gioco-di-luci/dp/B07JD8K4L5?pd_rd_w=gPtBu&pf_rd_p=73021335-3337-4067-9dba-3816378c8630&pf_rd_r=YEGKM73SY7W9DTC05W54&pd_rd_r=26b56eb1-b0e4-4b22-836a-a95383313340&pd_rd_wg=b3BMt&pd_rd_i=B07JD8K4L5&psc=1&linkCode=ll1&tag=migio21-21&linkId=b6372d7472fca89042c5057081ac095d&language=it_IT&ref_=as_li_ss_tl"},
         C2: {Name:"Claim 2", Factions: ["DR","GI","GN","SE","TR"], Include: false, linkBuy: "https://www.amazon.it/GAMEFACTORY-646223-Gioco-di-luci/dp/B07JD62Z69/ref=as_li_ss_tl?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=claim&qid=1603033037&s=toys&sr=1-1&linkCode=ll1&tag=migio21-21&linkId=281f4f309662ddd02985edbf36b32276&language=it_IT"},
 
         CRMAP: {Name:"Claim - Verstärkung Orte", Factions: ["BA","PH","UN"], linkBuy: "https://whitegoblingames.com/site/game/claim-reinforcements-maps/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"},

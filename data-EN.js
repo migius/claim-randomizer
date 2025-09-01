@@ -3,11 +3,11 @@ function setEN()
     //DATA
     Factions = {
         //C1
-        DP: {Image: "images\\factions\\cards\\small\\DP.jpg", Deck: "C1", Name: "Doppelgängers", Include: true, Phase_ab:3, Ability: "You may play a Doppelgängers instead of the faction you must follow."},
-        DW: {Image: "images\\factions\\cards\\small\\DW.jpg", Deck: "C1", Name: "Dwarves", Include: true, Phase_ab:2, Ability: "The loser of the trick collects all Dwarves played and adds them to their Score Pile."},
-        GO: {Image: "images\\factions\\cards\\small\\GO.jpg", Deck: "C1", Name: "Goblins", Include: true, Phase_ab:3, Ability: "No Special Power."},
-        KN: {Image: "images\\factions\\cards\\small\\KN.jpg", Deck: "C1", Name: "Knights", Include: true, Phase_ab:3, Ability: "If played after a Goblin, it automatically beats a Goblin regardless its value."},
-        UD: {Image: "images\\factions\\cards\\small\\UD.jpg", Deck: "C1", Name: "Undead", Include: true, Phase_ab:1, Ability: "Played Undead cards are not discarded, but added to the trick winner's Score Pile."},
+        DP: {Image: "images\\factions\\cards\\small\\DP.jpg", Deck: "C1", Name: "Doppelgängers", Include: false, Phase_ab:3, Ability: "You may play a Doppelgängers instead of the faction you must follow."},
+        DW: {Image: "images\\factions\\cards\\small\\DW.jpg", Deck: "C1", Name: "Dwarves", Include: false, Phase_ab:2, Ability: "The loser of the trick collects all Dwarves played and adds them to their Score Pile."},
+        GO: {Image: "images\\factions\\cards\\small\\GO.jpg", Deck: "C1", Name: "Goblins", Include: false, Phase_ab:3, Ability: "No Special Power."},
+        KN: {Image: "images\\factions\\cards\\small\\KN.jpg", Deck: "C1", Name: "Knights", Include: false, Phase_ab:3, Ability: "If played after a Goblin, it automatically beats a Goblin regardless its value."},
+        UD: {Image: "images\\factions\\cards\\small\\UD.jpg", Deck: "C1", Name: "Undead", Include: false, Phase_ab:1, Ability: "Played Undead cards are not discarded, but added to the trick winner's Score Pile."},
         //C2                                                ,
         DR: {Image: "images\\factions\\cards\\small\\DR.jpg", Deck: "C2", Name: "Dragons", Include: false, Phase_ab:3, Ability: "You will be the leader of the next trick."},
         GI: {Image: "images\\factions\\cards\\small\\GI.jpg", Deck: "C2", Name: "Giants", Include: false, Phase_ab:2, Ability: "Smashes one Gnome of the same value in front of the loser of the trick."},

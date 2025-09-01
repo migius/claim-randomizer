@@ -3,11 +3,11 @@ function setNL()
     //DATA
     Factions = {
         //C1
-        DP: {Image: "images\\factions\\cards\\small\\DP.jpg", Deck: "C1", Name: "Dubbelgangers", Include: true, Phase_ab:3, Ability: "Deze factie wordt beschouwd als joker. Je mag een Dubbelganger spelen in plaats van de gevraagde factie, zelfs als je factie kan volgen. Als je een Dubbelganger speelt als tweede kaart in een slag wordt deze beschouwd als dezelfde factie als de eerste kaart en geldt het als het volgen van factie."},
-        DW: {Image: "images\\factions\\cards\\small\\DW.jpg", Deck: "C1", Name: "Dwergen", Include: true, Phase_ab:2, Ability: "De verliezer van de slag legt alle gespeelde Dwergen op zijn score-stapel."},
-        GO: {Image: "images\\factions\\cards\\small\\GO.jpg", Deck: "C1", Name: "Goblins", Include: true, Phase_ab:3, Ability: "Geen speciale kracht."},
-        KN: {Image: "images\\factions\\cards\\small\\KN.jpg", Deck: "C1", Name: "Ridders", Include: true, Phase_ab:3, Ability: "Indien gespeeld na een Goblin, verslaat deze automatisch de Goblin onafhankelijk van zijn waarde."},
-        UD: {Image: "images\\factions\\cards\\small\\UD.jpg", Deck: "C1", Name: "Ondoden", Include: true, Phase_ab:1, Ability: "Gespeelde Ondoden kaarten worden niet afgelegd, maar gaan naar de score-stapel van de winnaar van de slag."},
+        DP: {Image: "images\\factions\\cards\\small\\DP.jpg", Deck: "C1", Name: "Dubbelgangers", Include: false, Phase_ab:3, Ability: "Deze factie wordt beschouwd als joker. Je mag een Dubbelganger spelen in plaats van de gevraagde factie, zelfs als je factie kan volgen. Als je een Dubbelganger speelt als tweede kaart in een slag wordt deze beschouwd als dezelfde factie als de eerste kaart en geldt het als het volgen van factie."},
+        DW: {Image: "images\\factions\\cards\\small\\DW.jpg", Deck: "C1", Name: "Dwergen", Include: false, Phase_ab:2, Ability: "De verliezer van de slag legt alle gespeelde Dwergen op zijn score-stapel."},
+        GO: {Image: "images\\factions\\cards\\small\\GO.jpg", Deck: "C1", Name: "Goblins", Include: false, Phase_ab:3, Ability: "Geen speciale kracht."},
+        KN: {Image: "images\\factions\\cards\\small\\KN.jpg", Deck: "C1", Name: "Ridders", Include: false, Phase_ab:3, Ability: "Indien gespeeld na een Goblin, verslaat deze automatisch de Goblin onafhankelijk van zijn waarde."},
+        UD: {Image: "images\\factions\\cards\\small\\UD.jpg", Deck: "C1", Name: "Ondoden", Include: false, Phase_ab:1, Ability: "Gespeelde Ondoden kaarten worden niet afgelegd, maar gaan naar de score-stapel van de winnaar van de slag."},
         //C2                                                ,
         DR: {Image: "images\\factions\\cards\\small\\DR.jpg", Deck: "C2", Name: "Draken", Include: false, Phase_ab:3, Ability: "Je ben de Leider van de volgende slag."},
         GI: {Image: "images\\factions\\cards\\small\\GI.jpg", Deck: "C2", Name: "Reuzen", Include: false, Phase_ab:2, Ability: "Verpletter één Gnoom met dezelfde waarde van je tegenstander."},
@@ -95,7 +95,7 @@ function setNL()
     };
 
     Deck = {
-        C1: {Name:"Claim", Factions: ["GO","KN","DP","DW","UD"], Include: true, linkBuy: "https://whitegoblingames.com/site/game/claim/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"},
+        C1: {Name:"Claim", Factions: ["GO","KN","DP","DW","UD"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/claim/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"},
         C2: {Name:"Claim 2", Factions: ["DR","GI","GN","SE","TR"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/claim-2/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"},
 
         CRMAP: {Name:"Claim Reinforcements: Maps", Factions: ["BA","PH","UN"], linkBuy: "https://whitegoblingames.com/site/game/claim-reinforcements-maps/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"},

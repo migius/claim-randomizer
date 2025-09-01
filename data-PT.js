@@ -3,11 +3,11 @@ function setPT()
     //DATA
     Factions = {
         //C1
-        DP: {Image: "images\\factions\\cards\\small\\DP.jpg", Deck: "C1", Name: "Doppelgängers", Include: true, Phase_ab:3, Ability: "Você pode jogar um Doppelgänger em vez da facção pedida, mesmo se for capaz de seguir a facção.Quando jogada em resposta ao Líder, a carta é considerada como sendo da mesma facção da carta do Líder."},
-        DW: {Image: "images\\factions\\cards\\small\\DW.jpg", Deck: "C1", Name: "Anões", Include: true, Phase_ab:2, Ability: "Quem perde uma rodada recebe todos os Anões jogados durante esta rodada e os coloca em sua pilha de pontuação. O vencedor ainda ganhará quaisquer cartas não-Anão que tiverem sido jogadas."},
-        GO: {Image: "images\\factions\\cards\\small\\GO.jpg", Deck: "C1", Name: "Goblins", Include: true, Phase_ab:3, Ability: "Nenhum poder especial."},
-        KN: {Image: "images\\factions\\cards\\small\\KN.jpg", Deck: "C1", Name: "Cavaleiros", Include: true, Phase_ab:3, Ability: "Quando jogado após um Goblin, automaticamente derrota o Goblin, independentemente de seu valor. O jogador ainda deve seguir a facção jogada, se possível."},
-        UD: {Image: "images\\factions\\cards\\small\\UD.jpg", Deck: "C1", Name: "Mortos-Vivos", Include: true, Phase_ab:1, Ability: "Cartas de Mortos-Vivos jogadas não são descartadas. Em vez disso, elas são colocadas na pilha de pontuação do vencedor da rodada."},
+        DP: {Image: "images\\factions\\cards\\small\\DP.jpg", Deck: "C1", Name: "Doppelgängers", Include: false, Phase_ab:3, Ability: "Você pode jogar um Doppelgänger em vez da facção pedida, mesmo se for capaz de seguir a facção.Quando jogada em resposta ao Líder, a carta é considerada como sendo da mesma facção da carta do Líder."},
+        DW: {Image: "images\\factions\\cards\\small\\DW.jpg", Deck: "C1", Name: "Anões", Include: false, Phase_ab:2, Ability: "Quem perde uma rodada recebe todos os Anões jogados durante esta rodada e os coloca em sua pilha de pontuação. O vencedor ainda ganhará quaisquer cartas não-Anão que tiverem sido jogadas."},
+        GO: {Image: "images\\factions\\cards\\small\\GO.jpg", Deck: "C1", Name: "Goblins", Include: false, Phase_ab:3, Ability: "Nenhum poder especial."},
+        KN: {Image: "images\\factions\\cards\\small\\KN.jpg", Deck: "C1", Name: "Cavaleiros", Include: false, Phase_ab:3, Ability: "Quando jogado após um Goblin, automaticamente derrota o Goblin, independentemente de seu valor. O jogador ainda deve seguir a facção jogada, se possível."},
+        UD: {Image: "images\\factions\\cards\\small\\UD.jpg", Deck: "C1", Name: "Mortos-Vivos", Include: false, Phase_ab:1, Ability: "Cartas de Mortos-Vivos jogadas não são descartadas. Em vez disso, elas são colocadas na pilha de pontuação do vencedor da rodada."},
         //C2                                                ,
         DR: {Image: "images\\factions\\cards\\small\\DR.jpg", Deck: "C2", Name: "Dragões", Include: false, Phase_ab:3, Ability: "O último jogador a jogar um dragão em uma rodada será o líder na próxima rodada, não importando seu valor ou se o jogador repetiu ou não a facção do líder. O vencedor ganha a(s) carta(s) normalmente."},
         GI: {Image: "images\\factions\\cards\\small\\GI.jpg", Deck: "C2", Name: "Gigantes", Include: false, Phase_ab:2, Ability: "Cada Gigante conquistado nesta rodada pode esmagar um Gnomo de mesmo valor do adversário. Remova o Gnomo esmagado. Ele não será pontuado ao final do jogo."},
@@ -98,7 +98,7 @@ function setPT()
     };
 
     Deck = {
-        C1: {Name:"Claim", Factions: ["GO","KN","DP","DW","UD"], Include: true, linkBuy: "https://www.amazon.it/MS-Edizioni-95028-Claim/dp/B0881KJ3KX/ref=as_li_ss_tl?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=claim&qid=1603033037&s=toys&sr=1-2&linkCode=ll1&tag=migio21-21&linkId=9e48931d66127a34d74d5dc04b4a46bd&language=it_IT"},
+        C1: {Name:"Claim", Factions: ["GO","KN","DP","DW","UD"], Include: false, linkBuy: "https://www.amazon.it/MS-Edizioni-95028-Claim/dp/B0881KJ3KX/ref=as_li_ss_tl?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=claim&qid=1603033037&s=toys&sr=1-2&linkCode=ll1&tag=migio21-21&linkId=9e48931d66127a34d74d5dc04b4a46bd&language=it_IT"},
         C2: {Name:"Claim 2", Factions: ["DR","GI","GN","SE","TR"], Include: false, linkBuy: "https://www.amazon.it/GAMEFACTORY-646223-Gioco-di-luci/dp/B07JD62Z69/ref=as_li_ss_tl?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=claim&qid=1603033037&s=toys&sr=1-1&linkCode=ll1&tag=migio21-21&linkId=281f4f309662ddd02985edbf36b32276&language=it_IT"},
 
         CRMAP: {Name:"Claim Reforços: Mapas", Factions: ["BA","PH","UN"], linkBuy: "https://whitegoblingames.com/site/game/claim-reinforcements-maps/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"},

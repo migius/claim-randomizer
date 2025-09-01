@@ -3,11 +3,11 @@ function setES()
     //DATA
     Factions = {
         //C1
-        DP: {Image: "images\\factions\\cards\\small\\DP.jpg", Deck: "C1", Name: "Doppelgängers", Include: true, Phase_ab:3, Ability: "Puedes jugar un Doppelgänger en vez de seguir a la facción líder"},
-        DW: {Image: "images\\factions\\cards\\small\\DW.jpg", Deck: "C1", Name: "Enanos", Include: true, Phase_ab:2, Ability: "El perdedor de la baza coloca en su pila de Simpatizantes todas las cartas de Enano jugadas."},
-        GO: {Image: "images\\factions\\cards\\small\\GO.jpg", Deck: "C1", Name: "Goblins", Include: true, Phase_ab:3, Ability: "No tienen poderes especiales."},
-        KN: {Image: "images\\factions\\cards\\small\\KN.jpg", Deck: "C1", Name: "Caballeros", Include: true, Phase_ab:3, Ability: "Si juegas un Caballero después de un Goblin, el Caballero gana automáticamente al Goblin, independientemente de su valor."},
-        UD: {Image: "images\\factions\\cards\\small\\UD.jpg", Deck: "C1", Name: "No-muertos", Include: true, Phase_ab:1, Ability: "Las cartas jugadas de No-Muertos no se descartan como de costumbre. En su lugar, se añaden a la pila de Simpatizantes del ganador de la baza."},        
+        DP: {Image: "images\\factions\\cards\\small\\DP.jpg", Deck: "C1", Name: "Doppelgängers", Include: false, Phase_ab:3, Ability: "Puedes jugar un Doppelgänger en vez de seguir a la facción líder"},
+        DW: {Image: "images\\factions\\cards\\small\\DW.jpg", Deck: "C1", Name: "Enanos", Include: false, Phase_ab:2, Ability: "El perdedor de la baza coloca en su pila de Simpatizantes todas las cartas de Enano jugadas."},
+        GO: {Image: "images\\factions\\cards\\small\\GO.jpg", Deck: "C1", Name: "Goblins", Include: false, Phase_ab:3, Ability: "No tienen poderes especiales."},
+        KN: {Image: "images\\factions\\cards\\small\\KN.jpg", Deck: "C1", Name: "Caballeros", Include: false, Phase_ab:3, Ability: "Si juegas un Caballero después de un Goblin, el Caballero gana automáticamente al Goblin, independientemente de su valor."},
+        UD: {Image: "images\\factions\\cards\\small\\UD.jpg", Deck: "C1", Name: "No-muertos", Include: false, Phase_ab:1, Ability: "Las cartas jugadas de No-Muertos no se descartan como de costumbre. En su lugar, se añaden a la pila de Simpatizantes del ganador de la baza."},        
         //C2                                                ,
         DR: {Image: "images\\factions\\cards\\small\\DR.jpg", Deck: "C2", Name: "Dragones", Include: false, Phase_ab:3, Ability: "El último jugador en jugar un Dragón en una baza será el Líder de la siguiente."},
         GI: {Image: "images\\factions\\cards\\small\\GI.jpg", Deck: "C2", Name: "Gigantes", Include: false, Phase_ab:2, Ability: "Cada Gigante que hayas conseguido puede aplastar un Gnomo del oponente del mismo valor."},
@@ -95,7 +95,7 @@ function setES()
     };
 
     Deck = {
-        C1: {Name:"Claim", Factions: ["GO","KN","DP","DW","UD"], Include: true, linkBuy: "https://playsdgames.com/categoria-producto/serie-claim/"},
+        C1: {Name:"Claim", Factions: ["GO","KN","DP","DW","UD"], Include: false, linkBuy: "https://playsdgames.com/categoria-producto/serie-claim/"},
         C2: {Name:"Claim 2", Factions: ["DR","GI","GN","SE","TR"], Include: false, linkBuy: "https://playsdgames.com/categoria-producto/serie-claim/"},
 
         CRMAP: {Name:"Claim Reinforcements: Maps", Factions: ["BA","PH","UN"], linkBuy: "https://playsdgames.com/categoria-producto/serie-claim/"},
