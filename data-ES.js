@@ -125,6 +125,8 @@ function setES()
         TITLE: "Claim randomizer",
         SELECT_FACT: "Selecciona las facciones que quieras usar",
         SUBMIT: "Aleatorizar",
+        RANDOMIZE_2: "Aleatorizar (2 jugadores)",
+        RANDOMIZE_34: "Aleatorizar (3/4 jugadores)",
         CHECK_ALL: "Marcar todas las facciones",
         USE_THIS_FACTIONS: "Usa estas facciones:",
         DECK: "Caja",

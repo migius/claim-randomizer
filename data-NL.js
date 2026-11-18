@@ -125,6 +125,8 @@ function setNL()
         TITLE: "Claim randomizer",
         SELECT_FACT: "Selecteer facties die je wilt gebruiken",
         SUBMIT: "Willekeurig",
+        RANDOMIZE_2: "Willekeurig kiezen (2 spelers)",
+        RANDOMIZE_34: "Willekeurig kiezen (3/4 spelers)",
         CHECK_ALL: "Selecteer alle facties",
         USE_THIS_FACTIONS: "Geselecteerde facties:",
         DECK: "Spel",

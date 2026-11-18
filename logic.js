@@ -15,7 +15,17 @@ submitBtn.classList.add("btn-lg");
 submitBtn.classList.add("col-12");
 submitBtn.classList.add("trasp-background");
 submitBtn.setAttribute("type","button");
-submitBtn.setAttribute("onclick", "calculate()");
+submitBtn.setAttribute("onclick", "calculate(2)");
+
+let submit34Btn = document.createElement("button");
+submit34Btn.classList.add("btn");
+submit34Btn.classList.add("btn-primary");
+submit34Btn.classList.add("btn-lg");
+submit34Btn.classList.add("col-12");
+submit34Btn.classList.add("trasp-background");
+submit34Btn.classList.add("mb-2");
+submit34Btn.setAttribute("type","button");
+submit34Btn.setAttribute("onclick", "calculate(34)");
 
 let checkAllBtn = document.createElement("button");
 checkAllBtn.classList.add("btn");
@@ -35,7 +45,8 @@ let SELECT_FACT_El = document.getElementById("SELECT_FACT");
 function refreshPage()
 {
     //todo: replace menu, titles, texts...
-    submitBtn.innerText = Strings["SUBMIT"];
+    submitBtn.innerText = Strings["RANDOMIZE_2"];
+    submit34Btn.innerText = Strings["RANDOMIZE_34"];
     checkAllBtn.innerText = Strings["CHECK_ALL"];
     HELP_TRANSLATE_El.innerText = Strings["HELP_TRANSLATE"];
     TITLE_El.innerText = Strings["TITLE"];
@@ -182,6 +193,7 @@ function refreshSelectionForm()
     }
 
     selectionForm.appendChild(checkAllBtn);
+    selectionForm.appendChild(submit34Btn);
     selectionForm.appendChild(submitBtn);
 
     //activate tooltip:
@@ -339,7 +351,7 @@ function getRandom(arr, n) {
     return result;
 }
 
-function calculate() {
+function calculate(playerCount) {
     cleanResult();
 
     var selectedFactions = [];
@@ -378,8 +390,14 @@ function calculate() {
         results.push(selectedCouple[c]);
     }
 
-    // If the selectedCouple is a special 12 cards faction, we need to add 4 normal factions instead of 3
-    let needed = selectedCouple.length === 1 ? 4 : 3;
+    let needed;
+    if(playerCount === 34) {
+        // If the selectedCouple is a special 12 cards faction, we need to add 6 normal factions instead of 5
+        needed = selectedCouple.length === 1 ? 6 : 5;
+    } else {
+        // If the selectedCouple is a special 12 cards faction, we need to add 4 normal factions instead of 3
+        needed = selectedCouple.length === 1 ? 4 : 3;
+    }
 
     if(selectedFactions.length < needed) { myAlert(Strings["AT_LEAST_FACTIONS"].replace("{0}",needed));  return;}    
 

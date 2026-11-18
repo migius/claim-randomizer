@@ -127,6 +127,8 @@ function setDE()
         TITLE: "Claim - Companion App",
         SELECT_FACT: "Wähle die Fraktionen aus, die du benutzen möchtest",
         SUBMIT: "Zufällig zusammenstellen",
+        RANDOMIZE_2: "Zufällig zusammenstellen (2 Spieler)",
+        RANDOMIZE_34: "Zufällig zusammenstellen (3/4 Spieler)",
         CHECK_ALL: "Alle Fraktionen auswählen",
         USE_THIS_FACTIONS: "Benutze diese Fraktion:",
         DECK: "Kartendeck",
