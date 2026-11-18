@@ -126,6 +126,7 @@ function setEN()
         TITLE: "Claim randomizer",
         SELECT_FACT: "Select factions you want to use",
         SUBMIT: "Randomize",
+        CHECK_ALL: "Check all factions",
         USE_THIS_FACTIONS: "Use this factions:",
         DECK: "Deck",
         FACTION: "Faction",

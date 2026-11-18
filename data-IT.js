@@ -125,6 +125,7 @@ function setIT()
         TITLE: "Claim randomizer",
         SELECT_FACT: "Seleziona le fazioni che vuoi usare",
         SUBMIT: "Mescola",
+        CHECK_ALL: "Seleziona tutte le fazioni",
         USE_THIS_FACTIONS: "Usa queste fazioni:",
         DECK: "Mazzo",
         FACTION: "Fazione",

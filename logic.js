@@ -17,6 +17,16 @@ submitBtn.classList.add("trasp-background");
 submitBtn.setAttribute("type","button");
 submitBtn.setAttribute("onclick", "calculate()");
 
+let checkAllBtn = document.createElement("button");
+checkAllBtn.classList.add("btn");
+checkAllBtn.classList.add("btn-secondary");
+checkAllBtn.classList.add("btn-lg");
+checkAllBtn.classList.add("col-12");
+checkAllBtn.classList.add("trasp-background");
+checkAllBtn.classList.add("mb-2");
+checkAllBtn.setAttribute("type","button");
+checkAllBtn.setAttribute("onclick", "checkAllFactions()");
+
 let bodyEl = document.getElementsByTagName("body")[0];
 let HELP_TRANSLATE_El = document.getElementById("HELP_TRANSLATE");
 let TITLE_El = document.getElementById("TITLE");
@@ -26,6 +36,7 @@ function refreshPage()
 {
     //todo: replace menu, titles, texts...
     submitBtn.innerText = Strings["SUBMIT"];
+    checkAllBtn.innerText = Strings["CHECK_ALL"];
     HELP_TRANSLATE_El.innerText = Strings["HELP_TRANSLATE"];
     TITLE_El.innerText = Strings["TITLE"];
     SELECT_FACT_El.innerText = Strings["SELECT_FACT"];
@@ -168,10 +179,10 @@ function refreshSelectionForm()
 
         formGroup.appendChild(deckList); 
         selectionForm.appendChild(formGroup); 
-
-        //add submit
-        selectionForm.appendChild(submitBtn); 
     }
+
+    selectionForm.appendChild(checkAllBtn);
+    selectionForm.appendChild(submitBtn);
 
     //activate tooltip:
     $('[data-toggle="tooltip"]').tooltip();
@@ -203,6 +214,17 @@ function checkFaction(f,id)
 {
     Factions[f].Include = document.getElementById(id).checked;
 } 
+
+function checkAllFactions()
+{
+    for(var f in Factions) {
+        Factions[f].Include = true;
+    }
+    for(var d in Deck) {
+        Deck[d].Include = true;
+    }
+    refreshSelectionForm();
+}
 
 
 function cleanResult()

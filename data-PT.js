@@ -128,6 +128,7 @@ function setPT()
         TITLE: "Claim randomizer",
         SELECT_FACT: "Selecione as facções que você quer usar",
         SUBMIT: "Sortear",
+        CHECK_ALL: "Marcar todas as facções",
         USE_THIS_FACTIONS: "Use essas facções:",
         DECK: "Deck",
         FACTION: "Facção",
