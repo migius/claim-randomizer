@@ -124,8 +124,8 @@ function setDE()
 
     Strings = {
         HELP_TRANSLATE: "Möchtest du zu den Übersetzungen einen Beitrag leisten?",
-        TITLE: "Claim - Companion App",
-        SELECT_FACT: "Wähle die Fraktionen aus, die du benutzen möchtest",
+        TITLE: "Claim - Companion",
+        SELECT_FACT: "Wähle Fraktionen",
         SUBMIT: "Zufällig zusammenstellen",
         RANDOMIZE_2: "Zufällig zusammenstellen (2 Spieler)",
         RANDOMIZE_34: "Zufällig zusammenstellen (3/4 Spieler)",
