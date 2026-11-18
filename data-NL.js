@@ -78,6 +78,9 @@ function setNL()
         RA: {Image: "images\\factions\\cards\\small\\RA.jpg", Deck: "C5A", Name: "Wasberen", Include: false, Phase_ab:3, Ability: "[MT] Wasberen met een buit-symbool tellen aan het einde van het spel ook mee voor de factie waarvan je de minste kaarten hebt."},
         RO: {Image: "images\\factions\\cards\\small\\RO.jpg", Deck: "C5A", Name: "Koninklijken", Include: false, Phase_ab:3, Ability: "[MT] Aan het einde van het spel verlaat een Boer je koninkrijk als je geen Koninklijke hebt met dezelfde waarde tot +3."},
         VI: {Image: "images\\factions\\cards\\small\\VI.jpg", Deck: "C5A", Name: "Vikingen", Include: false, Phase_ab:3, Ability: "[MT] Aan het einde van het spel telt elke Viking voor 2 als er een andere kaart met dezelfde waarde in je puntenset ligt."},
+        // CAL
+        BP: {Image: "images\\factions\\cards\\small\\BP.jpg", Deck: "CAL", Name: "Insectenvolk", Include: false, Phase_ab:3, Ability: "Aan het einde van het spel controleert iedere speler alle Insectenvolk-kaarten in zijn of haar puntenset. Om een Insectenvolk-kaart te behouden, moet er nog een Insectenvolk-kaart zijn met een waarde binnen +/-2. Als er geen Insectenvolk-kaart binnen dit bereik ligt, kruipt de kaart naar de tegenstander. Dit gebeurt gelijktijdig."},
+        BK: {Image: "images\\factions\\cards\\small\\BK.jpg", Deck: "CAL", Name: "Beerkin", Include: false, Phase_ab:1, Ability: "Als je in Fase 1 een slag wint met een Beerkin, mag je de volgende omgedraaide kaart onder de trekstapel leggen en een nieuwe kaart omdraaien. Als je de laatste slag van Fase 1 wint met een Beerkin, gebeurt er niets."},
     };
 
     Couples = {
@@ -114,6 +117,7 @@ function setNL()
         STBOX: {Name:"Storage Box", Factions: ["AW","SA"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/pre-order-claim-storage-box/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"},//(Awakeners and Satyrs)
         
         C5A: {Name:"5th Anniversary Edition", Factions: ["AU","BD","DP","DR","DW","GI","GN","GO","GR","KN","PE","RA","RO","SE","TR","UD","VI"], Include: false, linkBuy: "https://www.amazon.it/MS-Edizioni-95028-Claim/dp/B0881KJ3KX/ref=as_li_ss_tl?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=claim&qid=1603033037&s=toys&sr=1-2&linkCode=ll1&tag=migio21-21&linkId=9e48931d66127a34d74d5dc04b4a46bd&language=it_IT"}, 
+        CAL: {Name:"Claim Alliances", Factions: ["BP","BK"], Include: false, linkBuy: "http://www.whitegoblingames.com/product/claim-alliances-kaartspel/"},
     };
 
     Strings = {

@@ -81,6 +81,9 @@ function setPT()
         RA: {Image: "images\\factions\\cards\\small\\RA.jpg", Deck: "C5A", Name: "Guaxinins", Include: false, Phase_ab:3, Ability: "[MT] Guaxinins com um símbolo de saque contam no final do jogo também para a facção da qual você tiver menos cartas."},
         RO: {Image: "images\\factions\\cards\\small\\RO.jpg", Deck: "C5A", Name: "Reais", Include: false, Phase_ab:3, Ability: "[MT] No final do jogo, um Camponês abandonará seu reino se você não tiver um Real com o mesmo valor até +3."},
         VI: {Image: "images\\factions\\cards\\small\\VI.jpg", Deck: "C5A", Name: "Vikings", Include: false, Phase_ab:3, Ability: "[MT] No final do jogo, cada Viking conta como 2 se houver outra carta com o mesmo valor no seu monte de Pontos."},
+        // CAL
+        BP: {Image: "images\\factions\\cards\\small\\BP.jpg", Deck: "CAL", Name: "Povo-Inseto", Include: false, Phase_ab:3, Ability: "No final do jogo, cada jogador verifica todas as cartas do Povo-Inseto no seu monte de Pontos. Para manter uma carta do Povo-Inseto, deve haver outra carta do Povo-Inseto com valor dentro de +/-2. Se não houver nenhuma carta do Povo-Inseto nessa faixa, a carta rasteja para o oponente. Isso é feito simultaneamente."},
+        BK: {Image: "images\\factions\\cards\\small\\BK.jpg", Deck: "CAL", Name: "Ursinos", Include: false, Phase_ab:1, Ability: "Se você vencer uma vaza na Fase 1 com um Ursino, pode colocar a próxima carta revelada sob o monte de compra e revelar uma nova carta. Se você vencer a última vaza da Fase 1 com um Ursino, nada acontece."},
     };
 
      Couples = {
@@ -117,6 +120,7 @@ function setPT()
         STBOX: {Name:"Storage Box", Factions: ["AW","SA"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/pre-order-claim-storage-box/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"},//(Awakeners and Satyrs)
 
         C5A: {Name:"5th Anniversary Edition", Factions: ["AU","BD","DP","DR","DW","GI","GN","GO","GR","KN","PE","RA","RO","SE","TR","UD","VI"], Include: false, linkBuy: "https://www.amazon.it/MS-Edizioni-95028-Claim/dp/B0881KJ3KX/ref=as_li_ss_tl?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=claim&qid=1603033037&s=toys&sr=1-2&linkCode=ll1&tag=migio21-21&linkId=9e48931d66127a34d74d5dc04b4a46bd&language=it_IT"}, 
+        CAL: {Name:"Claim Alliances", Factions: ["BP","BK"], Include: false, linkBuy: "http://www.whitegoblingames.com/product/claim-alliances-kaartspel/"},
     };
 
     Strings = {

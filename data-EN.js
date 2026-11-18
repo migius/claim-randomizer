@@ -78,6 +78,9 @@ function setEN()
         RA: {Image: "images\\factions\\cards\\small\\RA.jpg", Deck: "C5A", Name: "Racoons", Include: false, Phase_ab:3, Ability: "Racoons with a loot symbool count at the end of the game also towards the faction you have the least cards of."},
         RO: {Image: "images\\factions\\cards\\small\\RO.jpg", Deck: "C5A", Name: "Royals", Include: false, Phase_ab:3, Ability: "At the end of the game a Peasant will abandon your kingdom if you do not have a Royal with the same value up to +3."},
         VI: {Image: "images\\factions\\cards\\small\\VI.jpg", Deck: "C5A", Name: "Vikings", Include: false, Phase_ab:3, Ability: "At the end of the game, each Viking count as 2 if there is another card with the same value in your Score pile."},
+        // CAL
+        BP: {Image: "images\\factions\\cards\\small\\BP.jpg", Deck: "CAL", Name: "Bug People", Include: false, Phase_ab:3, Ability: "At the end of the game, each player checks all Bug People cards in their Score Pile. To keep a Bug People card, there must be another Bug People card with a value within +/-2. If no Bug People card is within that range, the card crawls to the opponent. This is done simultaneously."},
+        BK: {Image: "images\\factions\\cards\\small\\BK.jpg", Deck: "CAL", Name: "Bearkin", Include: false, Phase_ab:1, Ability: "If you win a trick in Phase 1 with a Bearkin, you may place the next revealed card beneath the draw pile and reveal a new card. If you win the last trick of Phase 1 with a Bearkin, nothing happens."},
     };
 
     Couples = {
@@ -114,6 +117,8 @@ function setEN()
         STBOX: {Name:"Storage Box", Factions: ["AW","SA"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/pre-order-claim-storage-box/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"},//(Awakeners and Satyrs)
 
         C5A: {Name:"5th Anniversary Edition", Factions: ["AU","BD","DP","DR","DW","GI","GN","GO","GR","KN","PE","RA","RO","SE","TR","UD","VI"], Include: false, linkBuy: "https://www.amazon.it/MS-Edizioni-95028-Claim/dp/B0881KJ3KX/ref=as_li_ss_tl?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=claim&qid=1603033037&s=toys&sr=1-2&linkCode=ll1&tag=migio21-21&linkId=9e48931d66127a34d74d5dc04b4a46bd&language=it_IT"}, 
+        
+        CAL: {Name:"Claim Alliances", Factions: ["BP","BK"], Include: false, linkBuy: "http://www.whitegoblingames.com/product/claim-alliances-kaartspel/"}, //(Bug People and Bearkin)
     };
 
     Strings = {
