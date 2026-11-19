@@ -126,7 +126,7 @@ function setIT()
         SELECT_FACT: "Seleziona le fazioni che vuoi usare",
         SUBMIT: "Mescola",
         RANDOMIZE_2: "Mescola (2 giocatori)",
-        RANDOMIZE_34: "Mescola (3/4 giocatori)",
+        RANDOMIZE_34: "(3/4 giocatori)",
         CHECK_ALL: "Seleziona tutte le fazioni",
         UNCHECK_ALL: "Deseleziona tutte le fazioni",
         SHOW_SELECTOR: "Mostra selettore fazioni",

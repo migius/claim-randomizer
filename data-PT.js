@@ -129,7 +129,7 @@ function setPT()
         SELECT_FACT: "Selecione as facções que você quer usar",
         SUBMIT: "Sortear",
         RANDOMIZE_2: "Sortear (2 jogadores)",
-        RANDOMIZE_34: "Sortear (3/4 jogadores)",
+        RANDOMIZE_34: "(3/4 jogadores)",
         CHECK_ALL: "Marcar todas as facções",
         UNCHECK_ALL: "Desmarcar todas as facções",
         SHOW_SELECTOR: "Mostrar seletor de facções",

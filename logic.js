@@ -12,7 +12,7 @@ let submitBtn = document.createElement("button");
 submitBtn.classList.add("btn");
 submitBtn.classList.add("btn-primary");
 submitBtn.classList.add("btn-lg");
-submitBtn.classList.add("col-12");
+submitBtn.classList.add("w-100");
 submitBtn.classList.add("trasp-background");
 submitBtn.setAttribute("type","button");
 submitBtn.setAttribute("onclick", "calculate(2)");
@@ -21,11 +21,15 @@ let submit34Btn = document.createElement("button");
 submit34Btn.classList.add("btn");
 submit34Btn.classList.add("btn-primary");
 submit34Btn.classList.add("btn-lg");
-submit34Btn.classList.add("col-12");
+submit34Btn.classList.add("w-100");
 submit34Btn.classList.add("trasp-background");
-submit34Btn.classList.add("mb-2");
 submit34Btn.setAttribute("type","button");
 submit34Btn.setAttribute("onclick", "calculate(34)");
+
+let randomizeButtons = document.createElement("div");
+randomizeButtons.classList.add("randomize-buttons");
+randomizeButtons.appendChild(submitBtn);
+randomizeButtons.appendChild(submit34Btn);
 
 let checkAllBtn = document.createElement("button");
 checkAllBtn.classList.add("btn");
@@ -232,8 +236,7 @@ function refreshSelectionForm()
     }
 
     selectionForm.appendChild(factionSelector);
-    selectionForm.appendChild(submit34Btn);
-    selectionForm.appendChild(submitBtn);
+    selectionForm.appendChild(randomizeButtons);
 
     //activate tooltip:
     $('[data-toggle="tooltip"]').tooltip();

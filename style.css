@@ -63,6 +63,20 @@ h1, h3, h4 {
     border-radius: 12px;
 }
 
+.randomize-buttons {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+}
+
+.randomize-buttons .btn {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    white-space: normal;
+}
+
 .trasp-background .table {
     color: inherit;
 }
