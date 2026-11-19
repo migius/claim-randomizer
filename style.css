@@ -38,6 +38,10 @@ h1, h3, h4 {
     margin: 0.2rem 0.5rem;
 }
 
+#SelectionForm > .form-group {
+    cursor: pointer;
+}
+
 #result.trasp-background {
     padding: 1rem;
 }

@@ -70,7 +70,7 @@ function refreshPage()
 function refreshSelectionForm()
 {
     selectionForm.innerHTML = '';
-    for(var d in Deck) {
+    for(let d in Deck) {
         let formGroup = document.createElement("div");
         formGroup.classList.add("form-group");
         formGroup.classList.add("trasp-background");
@@ -95,6 +95,13 @@ function refreshSelectionForm()
         if(Deck[d].Include) {
             inputDeck.setAttribute("checked", "checked");
         }
+        formGroup.addEventListener("click", function(event) {
+            if(event.target.closest("input, label, a, button, select, textarea")) {
+                return;
+            }
+            inputDeck.checked = !inputDeck.checked;
+            checkDeck(d, id_d);
+        });
 
         deckItem.appendChild(inputDeck); 
 
