@@ -127,7 +127,7 @@ function setEN()
         SELECT_FACT: "Select factions you want to use",
         SUBMIT: "Randomize",
         RANDOMIZE_2: "Randomize (2 Players)",
-        RANDOMIZE_34: "Randomize (3/4 Players)",
+        RANDOMIZE_34: "(3/4 Players)",
         CHECK_ALL: "Check all factions",
         UNCHECK_ALL: "Uncheck all factions",
         SHOW_SELECTOR: "Show faction selector",

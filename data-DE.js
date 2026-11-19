@@ -128,7 +128,7 @@ function setDE()
         SELECT_FACT: "Wähle Fraktionen",
         SUBMIT: "Zufällig zusammenstellen",
         RANDOMIZE_2: "Zufällig zusammenstellen (2 Spieler)",
-        RANDOMIZE_34: "Zufällig zusammenstellen (3/4 Spieler)",
+        RANDOMIZE_34: "(3/4 Spieler)",
         CHECK_ALL: "Alle Fraktionen auswählen",
         UNCHECK_ALL: "Alle Fraktionen abwählen",
         SHOW_SELECTOR: "Fraktionsauswahl einblenden",

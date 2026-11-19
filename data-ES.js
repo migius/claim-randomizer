@@ -126,7 +126,7 @@ function setES()
         SELECT_FACT: "Selecciona las facciones que quieras usar",
         SUBMIT: "Aleatorizar",
         RANDOMIZE_2: "Aleatorizar (2 jugadores)",
-        RANDOMIZE_34: "Aleatorizar (3/4 jugadores)",
+        RANDOMIZE_34: "(3/4 jugadores)",
         CHECK_ALL: "Marcar todas las facciones",
         UNCHECK_ALL: "Desmarcar todas las facciones",
         SHOW_SELECTOR: "Mostrar selector de facciones",
