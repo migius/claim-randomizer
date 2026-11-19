@@ -115,6 +115,22 @@ tbody > tr > th {
     white-space: nowrap;
 }
 
+tbody > tr.replaceable-result {
+    touch-action: pan-y;
+}
+
+.replacement-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    min-width: 10rem;
+}
+
+.replacement-actions .btn {
+    width: 100%;
+    white-space: nowrap;
+}
+
 tbody > tr > th > a:before{
     vertical-align: middle;
 }

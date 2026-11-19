@@ -41,6 +41,12 @@ let selectorCollapsed = false;
 let factionSelector = document.createElement("div");
 factionSelector.setAttribute("id", "factionSelector");
 
+let replaceableResultStart = 0;
+let availableReplacementFactions = [];
+let availableReplacementCouples = [];
+let replacementTargetIndex = null;
+let replacementTargetType = null;
+
 let toggleSelectorBtn = document.createElement("button");
 toggleSelectorBtn.classList.add("btn");
 toggleSelectorBtn.classList.add("btn-secondary");
@@ -300,15 +306,68 @@ function cleanResult()
     $('#myAlert').hide();
 }
 
-function showResult()
+function showResult(scrollToResult)
 {
-    //reset scroll
-    location.hash = "#";    
+    result.innerHTML = '';
+    if(scrollToResult !== false) {
+        location.hash = "#";
+    }
 
     let res = document.createElement("h4");
     res.innerText = Strings["USE_THIS_FACTIONS"];
 
     result.appendChild(res); 
+
+    let replacementPanel = document.createElement("div");
+    replacementPanel.classList.add("replacement-selector");
+    replacementPanel.classList.add("form-group");
+    replacementPanel.hidden = true;
+
+    let replacementLabel = document.createElement("label");
+    replacementLabel.classList.add("mr-2");
+    replacementLabel.setAttribute("for", "replacementFactionSelect");
+    replacementLabel.setAttribute("aria-live", "polite");
+
+    let replacementSelect = document.createElement("select");
+    replacementSelect.setAttribute("id", "replacementFactionSelect");
+    replacementSelect.classList.add("form-control");
+    replacementSelect.classList.add("mb-2");
+
+    let replaceButton = document.createElement("button");
+    replaceButton.classList.add("btn");
+    replaceButton.classList.add("btn-primary");
+    replaceButton.classList.add("mr-2");
+    replaceButton.setAttribute("type", "button");
+    replaceButton.innerText = Strings["REPLACE"];
+    replaceButton.disabled = true;
+
+    let cancelReplacementButton = document.createElement("button");
+    cancelReplacementButton.classList.add("btn");
+    cancelReplacementButton.classList.add("btn-secondary");
+    cancelReplacementButton.setAttribute("type", "button");
+    cancelReplacementButton.innerText = Strings["CLOSE"];
+
+    replacementSelect.addEventListener("change", function() {
+        replaceButton.disabled = !replacementSelect.value;
+    });
+    replaceButton.addEventListener("click", function() {
+        if(replacementTargetType === "couple" && replacementSelect.value) {
+            replaceResultCouple(Number(replacementSelect.value));
+        } else if(replacementTargetType === "faction" && replacementTargetIndex !== null && replacementSelect.value) {
+            replaceResultFaction(replacementTargetIndex, replacementSelect.value);
+        }
+    });
+    cancelReplacementButton.addEventListener("click", function() {
+        replacementPanel.hidden = true;
+        replacementTargetIndex = null;
+        replacementTargetType = null;
+    });
+
+    replacementPanel.appendChild(replacementLabel);
+    replacementPanel.appendChild(replacementSelect);
+    replacementPanel.appendChild(replaceButton);
+    replacementPanel.appendChild(cancelReplacementButton);
+    result.appendChild(replacementPanel);
 
     let table = document.createElement("table");
     table.classList.add("table");
@@ -335,27 +394,33 @@ function showResult()
     th.classList.add("d-none");
     th.classList.add("d-md-table-cell");
     tr.appendChild(th); 
+    th = document.createElement("th");
+    th.setAttribute("scope","col");
+    th.innerText = Strings["REPLACE"];
+    tr.appendChild(th);
     thead.appendChild(tr); 
     table.appendChild(thead); 
 
     let tbody = document.createElement("tbody");
     let td = document.createElement("td");
     for(var f in results) {
+        let resultIndex = Number(f);
+        let faction = results[resultIndex];
         tr = document.createElement("tr");
         th = document.createElement("th");
         th.setAttribute("scope","row");
 
-        modal = createModalFaction(results[f]);
-        modal.innerText = " " + Factions[results[f]].Name;
+        modal = createModalFaction(faction);
+        modal.innerText = " " + Factions[faction].Name;
         th.appendChild(modal);
         tr.appendChild(th); 
 
         td = document.createElement("td");
-        td.innerText = Deck[Factions[results[f]].Deck].Name;
+        td.innerText = Deck[Factions[faction].Deck].Name;
         tr.appendChild(td); 
 
         td = document.createElement("td");
-        td.innerText = Factions[results[f]].Ability;
+        td.innerText = Factions[faction].Ability;
         td.classList.add("d-none");
         td.classList.add("d-md-table-cell");
         
@@ -363,7 +428,7 @@ function showResult()
         emptyTd.innerText = " ";
         emptyTd.classList.add("d-none");
         emptyTd.classList.add("d-md-table-cell");
-        switch(Factions[results[f]].Phase_ab)
+        switch(Factions[faction].Phase_ab)
         {
             case 1:
                 tr.appendChild(td); 
@@ -377,19 +442,263 @@ function showResult()
                 td.setAttribute("colspan","2");          
                 tr.appendChild(td); 
                 break; 
-        }        
+        }
+
+        td = document.createElement("td");
+        if(resultIndex < replaceableResultStart) {
+            if(availableReplacementCouples.length > 0) {
+                tr.classList.add("replaceable-result");
+
+                if(resultIndex === 0) {
+                    let currentCoupleName = getCoupleName(results.slice(0, replaceableResultStart));
+                    let replacementActions = document.createElement("div");
+                    replacementActions.classList.add("replacement-actions");
+
+                    let randomCoupleButton = document.createElement("button");
+                    randomCoupleButton.classList.add("btn");
+                    randomCoupleButton.classList.add("btn-outline-secondary");
+                    randomCoupleButton.classList.add("btn-sm");
+                    randomCoupleButton.setAttribute("type", "button");
+                    randomCoupleButton.setAttribute("aria-label", Strings["REPLACE_RANDOM_GROUP"] + " " + currentCoupleName);
+                    randomCoupleButton.innerText = Strings["REPLACE_RANDOM_GROUP"];
+                    randomCoupleButton.addEventListener("click", replaceResultCoupleRandomly);
+
+                    let chooseCoupleButton = document.createElement("button");
+                    chooseCoupleButton.classList.add("btn");
+                    chooseCoupleButton.classList.add("btn-outline-primary");
+                    chooseCoupleButton.classList.add("btn-sm");
+                    chooseCoupleButton.setAttribute("type", "button");
+                    chooseCoupleButton.setAttribute("aria-label", Strings["REPLACE_CHOOSE_GROUP"] + " " + currentCoupleName);
+                    chooseCoupleButton.innerText = Strings["REPLACE_CHOOSE_GROUP"];
+                    chooseCoupleButton.addEventListener("click", function() {
+                        openReplacementSelector(0, replacementPanel, replacementLabel, replacementSelect, "couple");
+                    });
+
+                    replacementActions.appendChild(randomCoupleButton);
+                    replacementActions.appendChild(chooseCoupleButton);
+                    td.appendChild(replacementActions);
+                }
+
+                bindReplacementGestures(tr, resultIndex, replacementPanel, replacementLabel, replacementSelect, "couple");
+            } else if(resultIndex === 0) {
+                td.innerText = Strings["REPLACE_GROUP_UNAVAILABLE"];
+            }
+        } else {
+            if(availableReplacementFactions.length > 0) {
+                tr.classList.add("replaceable-result");
+
+                let replacementActions = document.createElement("div");
+                replacementActions.classList.add("replacement-actions");
+
+                let randomButton = document.createElement("button");
+                randomButton.classList.add("btn");
+                randomButton.classList.add("btn-outline-secondary");
+                randomButton.classList.add("btn-sm");
+                randomButton.setAttribute("type", "button");
+                randomButton.setAttribute("aria-label", Strings["REPLACE_RANDOM"] + " " + Factions[faction].Name);
+                randomButton.innerText = Strings["REPLACE_RANDOM"];
+                randomButton.addEventListener("click", function() {
+                    replaceResultRandomly(resultIndex);
+                });
+
+                let chooseButton = document.createElement("button");
+                chooseButton.classList.add("btn");
+                chooseButton.classList.add("btn-outline-primary");
+                chooseButton.classList.add("btn-sm");
+                chooseButton.setAttribute("type", "button");
+                chooseButton.setAttribute("aria-label", Strings["REPLACE_CHOOSE"] + " " + Factions[faction].Name);
+                chooseButton.innerText = Strings["REPLACE_CHOOSE"];
+                chooseButton.addEventListener("click", function() {
+                    openReplacementSelector(resultIndex, replacementPanel, replacementLabel, replacementSelect, "faction");
+                });
+
+                replacementActions.appendChild(randomButton);
+                replacementActions.appendChild(chooseButton);
+                td.appendChild(replacementActions);
+                bindReplacementGestures(tr, resultIndex, replacementPanel, replacementLabel, replacementSelect, "faction");
+            } else {
+                td.innerText = Strings["REPLACE_UNAVAILABLE"];
+            }
+        }
+        tr.appendChild(td);
 
         tbody.appendChild(tr); 
     }
 
     table.appendChild(tbody); 
-    
     result.appendChild(table); 
+    let replacementHint = document.createElement("p");
+    replacementHint.classList.add("text-muted");
+    replacementHint.innerText = Strings["REPLACE_HINT"];
+    result.appendChild(replacementHint);
 
     $('#result').show();
-    //scroll to result
-    location.hash = "#result";
+    if(scrollToResult !== false) {
+        location.hash = "#result";
+    }
 } 
+
+function openReplacementSelector(index, panel, label, select, replacementType)
+{
+    let candidates;
+    if(replacementType === "couple") {
+        candidates = availableReplacementCouples;
+        replacementTargetType = "couple";
+        replacementTargetIndex = 0;
+        if(candidates.length === 0) {
+            return;
+        }
+        label.innerText = Strings["REPLACE_WITH"].replace("{0}", getCoupleName(results.slice(0, replaceableResultStart)));
+    } else {
+        candidates = availableReplacementFactions;
+        replacementTargetType = "faction";
+        replacementTargetIndex = index;
+        if(index < replaceableResultStart || candidates.length === 0) {
+            return;
+        }
+        label.innerText = Strings["REPLACE_WITH"].replace("{0}", Factions[results[index]].Name);
+    }
+
+    if(candidates.length === 0) {
+        return;
+    }
+
+    select.innerHTML = '';
+
+    let placeholder = document.createElement("option");
+    placeholder.value = "";
+    placeholder.innerText = Strings[replacementType === "couple" ? "REPLACE_SELECT_GROUP" : "REPLACE_SELECT"];
+    placeholder.disabled = true;
+    placeholder.selected = true;
+    select.appendChild(placeholder);
+
+    for(let i = 0; i < candidates.length; i++) {
+        let option = document.createElement("option");
+        if(replacementType === "couple") {
+            option.value = String(i);
+            option.innerText = getCoupleName(candidates[i]);
+        } else {
+            option.value = candidates[i];
+            option.innerText = Factions[candidates[i]].Name;
+        }
+        select.appendChild(option);
+    }
+
+    panel.hidden = false;
+    select.focus();
+}
+
+function replaceResultRandomly(index)
+{
+    if(index < replaceableResultStart || availableReplacementFactions.length === 0) {
+        return;
+    }
+    replaceResultFaction(index, getRandom(availableReplacementFactions, 1)[0]);
+}
+
+function replaceResultFaction(index, faction)
+{
+    if(index < replaceableResultStart || !availableReplacementFactions.includes(faction)) {
+        return;
+    }
+
+    let replacedFaction = results[index];
+    results[index] = faction;
+    availableReplacementFactions = availableReplacementFactions.filter(function(availableFaction) {
+        return availableFaction !== faction;
+    });
+    availableReplacementFactions.push(replacedFaction);
+    replacementTargetIndex = null;
+    replacementTargetType = null;
+    showResult(false);
+}
+
+function replaceResultCoupleRandomly()
+{
+    if(availableReplacementCouples.length === 0) {
+        return;
+    }
+    replaceResultCouple(Math.floor(Math.random() * availableReplacementCouples.length));
+}
+
+function replaceResultCouple(coupleIndex)
+{
+    if(coupleIndex < 0 || coupleIndex >= availableReplacementCouples.length) {
+        return;
+    }
+
+    let replacedCouple = results.slice(0, replaceableResultStart);
+    let replacementCouple = availableReplacementCouples[coupleIndex];
+    results.splice(0, replaceableResultStart);
+    results.unshift.apply(results, replacementCouple);
+    availableReplacementCouples.splice(coupleIndex, 1);
+    availableReplacementCouples.push(replacedCouple);
+    selectedCouple = replacementCouple;
+    replacementTargetIndex = null;
+    replacementTargetType = null;
+    showResult(false);
+}
+
+function getCoupleName(couple)
+{
+    return couple.map(function(faction) {
+        return Factions[faction].Name;
+    }).join(" + ");
+}
+
+function bindReplacementGestures(row, index, panel, label, select, replacementType)
+{
+    let touchStart = null;
+    let ignoreNextClick = false;
+
+    row.addEventListener("touchstart", function(event) {
+        if(event.target.closest("button, select, input")) {
+            touchStart = null;
+            return;
+        }
+        let touch = event.changedTouches[0];
+        touchStart = {x: touch.clientX, y: touch.clientY};
+    }, {passive: true});
+
+    row.addEventListener("touchend", function(event) {
+        if(!touchStart) {
+            return;
+        }
+        let touch = event.changedTouches[0];
+        let deltaX = touch.clientX - touchStart.x;
+        let deltaY = touch.clientY - touchStart.y;
+        touchStart = null;
+
+        if(Math.abs(deltaX) < 50 || Math.abs(deltaX) <= Math.abs(deltaY)) {
+            return;
+        }
+
+        event.preventDefault();
+        event.stopPropagation();
+        ignoreNextClick = true;
+        window.setTimeout(function() {
+            ignoreNextClick = false;
+        }, 500);
+
+        if(deltaX < 0) {
+            if(replacementType === "couple") {
+                replaceResultCoupleRandomly();
+            } else {
+                replaceResultRandomly(index);
+            }
+        } else {
+            openReplacementSelector(index, panel, label, select, replacementType);
+        }
+    }, {passive: false});
+
+    row.addEventListener("click", function(event) {
+        if(ignoreNextClick) {
+            event.preventDefault();
+            event.stopPropagation();
+            ignoreNextClick = false;
+        }
+    });
+}
 
 function getRandom(arr, n) {
     var result = new Array(n),
@@ -437,12 +746,20 @@ function calculate(playerCount) {
 
 
     results = [];
+    availableReplacementFactions = [];
+    availableReplacementCouples = [];
+    replacementTargetIndex = null;
+    replacementTargetType = null;
 
     selectedCouple = selectedCouples[Math.floor(Math.random() * selectedCouples.length)];
+    availableReplacementCouples = selectedCouples.filter(function(couple) {
+        return couple !== selectedCouple && couple.length === selectedCouple.length;
+    });
 
     for(var c in selectedCouple) {
         results.push(selectedCouple[c]);
     }
+    replaceableResultStart = selectedCouple.length;
 
     let needed;
     if(playerCount === 34) {
@@ -460,6 +777,10 @@ function calculate(playerCount) {
     for(var f in randomFactions) {
         results.push(randomFactions[f]);
     }
+
+    availableReplacementFactions = selectedFactions.filter(function(faction) {
+        return !results.includes(faction);
+    });
 
     showResult();
 }
