@@ -17,6 +17,7 @@
 <body class="default">
 
 <div class="container trasp-background" id="main">
+    <div id="selectionTop" class="trasp-background solid-bg">
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent col-12">
         
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -89,11 +90,12 @@
         </div>
     </nav>
 
-    <h1 id="TITLE">Claim randomizer</h1>
-
-    <h3 id="SELECT_FACT">Select factions you want to use</h3>
-    <hr/>
-    <form id="SelectionForm"></form>
+        <h1 id="TITLE">Claim randomizer</h1>
+        <div id="selectorToggleContainer"></div>
+    </div>
+    <form id="SelectionForm">
+        <h3 id="SELECT_FACT">Select factions you want to use</h3>
+    </form>
 
     <div id="myAlert" class="alert alert-danger mt-3" role="alert">
         If you read this the page is loading... if it take more than a few seconds please refresh.

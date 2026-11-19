@@ -66,6 +66,7 @@ let bodyEl = document.getElementsByTagName("body")[0];
 let HELP_TRANSLATE_El = document.getElementById("HELP_TRANSLATE");
 let TITLE_El = document.getElementById("TITLE");
 let SELECT_FACT_El = document.getElementById("SELECT_FACT");
+let selectorToggleContainer = document.getElementById("selectorToggleContainer");
 
 function refreshPage()
 {
@@ -96,14 +97,15 @@ function refreshSelectionForm()
     selectionForm.innerHTML = '';
     factionSelector.innerHTML = '';
     factionSelector.hidden = selectorCollapsed;
-    SELECT_FACT_El.hidden = selectorCollapsed;
+    SELECT_FACT_El.hidden = false;
     toggleSelectorBtn.innerText = Strings[selectorCollapsed ? "SHOW_SELECTOR" : "HIDE_SELECTOR"];
     toggleSelectorBtn.setAttribute("aria-expanded", String(!selectorCollapsed));
     factionSelector.setAttribute("aria-labelledby", "SELECT_FACT");
     updateCheckAllButton();
 
-    selectionForm.appendChild(toggleSelectorBtn);
-    selectionForm.appendChild(SELECT_FACT_El);
+    selectorToggleContainer.appendChild(toggleSelectorBtn);
+    factionSelector.appendChild(SELECT_FACT_El);
+    factionSelector.appendChild(document.createElement("hr"));
     factionSelector.appendChild(checkAllBtn);
 
     for(let d in Deck) {
@@ -246,7 +248,6 @@ function toggleFactionSelector()
 {
     selectorCollapsed = !selectorCollapsed;
     factionSelector.hidden = selectorCollapsed;
-    SELECT_FACT_El.hidden = selectorCollapsed;
     toggleSelectorBtn.innerText = Strings[selectorCollapsed ? "SHOW_SELECTOR" : "HIDE_SELECTOR"];
     toggleSelectorBtn.setAttribute("aria-expanded", String(!selectorCollapsed));
 }

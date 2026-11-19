@@ -10,6 +10,15 @@ div#result {
 div#main {
 }
 
+#selectionTop {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+    border: 0;
+    border-radius: 12px;
+    padding: 0.25rem 0.25rem 0.5rem;
+}
+
 body {    
     background-size: cover;
     background-position: center;
