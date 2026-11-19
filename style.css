@@ -119,6 +119,28 @@ tbody > tr.replaceable-result {
     touch-action: pan-y;
 }
 
+tbody > tr.swipe-replace-left {
+    animation: swipe-replace-left 250ms ease-out forwards;
+}
+
+tbody > tr.swipe-open-right {
+    animation: swipe-open-right 250ms ease-out;
+}
+
+@keyframes swipe-replace-left {
+    to {
+        opacity: 0;
+        transform: translateX(-8%);
+    }
+}
+
+@keyframes swipe-open-right {
+    50% {
+        background-color: #007bff22;
+        transform: translateX(5%);
+    }
+}
+
 .replacement-actions {
     display: flex;
     flex-direction: column;
@@ -129,6 +151,13 @@ tbody > tr.replaceable-result {
 .replacement-actions .btn {
     width: 100%;
     white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    tbody > tr.swipe-replace-left,
+    tbody > tr.swipe-open-right {
+        animation-duration: 0.01ms;
+    }
 }
 
 tbody > tr > th > a:before{

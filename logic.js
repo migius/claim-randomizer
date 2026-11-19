@@ -397,6 +397,8 @@ function showResult(scrollToResult)
     th = document.createElement("th");
     th.setAttribute("scope","col");
     th.innerText = Strings["REPLACE"];
+    th.classList.add("d-none");
+    th.classList.add("d-md-table-cell");
     tr.appendChild(th);
     thead.appendChild(tr); 
     table.appendChild(thead); 
@@ -445,6 +447,8 @@ function showResult(scrollToResult)
         }
 
         td = document.createElement("td");
+        td.classList.add("d-none");
+        td.classList.add("d-md-table-cell");
         if(resultIndex < replaceableResultStart) {
             if(availableReplacementCouples.length > 0) {
                 tr.classList.add("replaceable-result");
@@ -646,6 +650,26 @@ function getCoupleName(couple)
     }).join(" + ");
 }
 
+function animateSwipe(row, animationClass, onComplete)
+{
+    let completed = false;
+    let timeoutId = window.setTimeout(finish, 250);
+
+    function finish(event)
+    {
+        if((event && event.target !== row) || completed) {
+            return;
+        }
+        completed = true;
+        window.clearTimeout(timeoutId);
+        row.removeEventListener("animationend", finish);
+        onComplete();
+    }
+
+    row.addEventListener("animationend", finish);
+    row.classList.add(animationClass);
+}
+
 function bindReplacementGestures(row, index, panel, label, select, replacementType)
 {
     let touchStart = null;
@@ -680,15 +704,19 @@ function bindReplacementGestures(row, index, panel, label, select, replacementTy
             ignoreNextClick = false;
         }, 500);
 
-        if(deltaX < 0) {
-            if(replacementType === "couple") {
-                replaceResultCoupleRandomly();
+        let animationClass = deltaX < 0 ? "swipe-replace-left" : "swipe-open-right";
+        animateSwipe(row, animationClass, function() {
+            if(deltaX < 0) {
+                if(replacementType === "couple") {
+                    replaceResultCoupleRandomly();
+                } else {
+                    replaceResultRandomly(index);
+                }
             } else {
-                replaceResultRandomly(index);
+                row.classList.remove(animationClass);
+                openReplacementSelector(index, panel, label, select, replacementType);
             }
-        } else {
-            openReplacementSelector(index, panel, label, select, replacementType);
-        }
+        });
     }, {passive: false});
 
     row.addEventListener("click", function(event) {
