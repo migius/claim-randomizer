@@ -37,6 +37,21 @@ checkAllBtn.classList.add("mb-2");
 checkAllBtn.setAttribute("type","button");
 checkAllBtn.setAttribute("onclick", "checkAllFactions()");
 
+let selectorCollapsed = false;
+let factionSelector = document.createElement("div");
+factionSelector.setAttribute("id", "factionSelector");
+
+let toggleSelectorBtn = document.createElement("button");
+toggleSelectorBtn.classList.add("btn");
+toggleSelectorBtn.classList.add("btn-secondary");
+toggleSelectorBtn.classList.add("btn-lg");
+toggleSelectorBtn.classList.add("col-12");
+toggleSelectorBtn.classList.add("trasp-background");
+toggleSelectorBtn.classList.add("mb-2");
+toggleSelectorBtn.setAttribute("type", "button");
+toggleSelectorBtn.setAttribute("aria-controls", "SELECT_FACT factionSelector");
+toggleSelectorBtn.addEventListener("click", toggleFactionSelector);
+
 let bodyEl = document.getElementsByTagName("body")[0];
 let HELP_TRANSLATE_El = document.getElementById("HELP_TRANSLATE");
 let TITLE_El = document.getElementById("TITLE");
@@ -47,7 +62,6 @@ function refreshPage()
     //todo: replace menu, titles, texts...
     submitBtn.innerText = Strings["RANDOMIZE_2"];
     submit34Btn.innerText = Strings["RANDOMIZE_34"];
-    checkAllBtn.innerText = Strings["CHECK_ALL"];
     HELP_TRANSLATE_El.innerText = Strings["HELP_TRANSLATE"];
     TITLE_El.innerText = Strings["TITLE"];
     SELECT_FACT_El.innerText = Strings["SELECT_FACT"];
@@ -70,6 +84,18 @@ function refreshPage()
 function refreshSelectionForm()
 {
     selectionForm.innerHTML = '';
+    factionSelector.innerHTML = '';
+    factionSelector.hidden = selectorCollapsed;
+    SELECT_FACT_El.hidden = selectorCollapsed;
+    toggleSelectorBtn.innerText = Strings[selectorCollapsed ? "SHOW_SELECTOR" : "HIDE_SELECTOR"];
+    toggleSelectorBtn.setAttribute("aria-expanded", String(!selectorCollapsed));
+    factionSelector.setAttribute("aria-labelledby", "SELECT_FACT");
+    updateCheckAllButton();
+
+    selectionForm.appendChild(toggleSelectorBtn);
+    selectionForm.appendChild(SELECT_FACT_El);
+    factionSelector.appendChild(checkAllBtn);
+
     for(let d in Deck) {
         let formGroup = document.createElement("div");
         formGroup.classList.add("form-group");
@@ -196,15 +222,24 @@ function refreshSelectionForm()
         }
 
         formGroup.appendChild(deckList); 
-        selectionForm.appendChild(formGroup); 
+        factionSelector.appendChild(formGroup);
     }
 
-    selectionForm.appendChild(checkAllBtn);
+    selectionForm.appendChild(factionSelector);
     selectionForm.appendChild(submit34Btn);
     selectionForm.appendChild(submitBtn);
 
     //activate tooltip:
     $('[data-toggle="tooltip"]').tooltip();
+}
+
+function toggleFactionSelector()
+{
+    selectorCollapsed = !selectorCollapsed;
+    factionSelector.hidden = selectorCollapsed;
+    SELECT_FACT_El.hidden = selectorCollapsed;
+    toggleSelectorBtn.innerText = Strings[selectorCollapsed ? "SHOW_SELECTOR" : "HIDE_SELECTOR"];
+    toggleSelectorBtn.setAttribute("aria-expanded", String(!selectorCollapsed));
 }
 
 function createModalFaction(fact)
@@ -232,17 +267,29 @@ function checkDeck(d, id)
 function checkFaction(f,id)
 {
     Factions[f].Include = document.getElementById(id).checked;
+    updateCheckAllButton();
 } 
 
 function checkAllFactions()
 {
+    var includeAll = !Object.keys(Factions).every(function(f) {
+        return Factions[f].Include;
+    });
     for(var f in Factions) {
-        Factions[f].Include = true;
+        Factions[f].Include = includeAll;
     }
     for(var d in Deck) {
-        Deck[d].Include = true;
+        Deck[d].Include = includeAll;
     }
     refreshSelectionForm();
+}
+
+function updateCheckAllButton()
+{
+    var allFactionsIncluded = Object.keys(Factions).every(function(f) {
+        return Factions[f].Include;
+    });
+    checkAllBtn.innerText = Strings[allFactionsIncluded ? "UNCHECK_ALL" : "CHECK_ALL"];
 }
 
 
