@@ -15,21 +15,83 @@ submitBtn.classList.add("btn-lg");
 submitBtn.classList.add("w-100");
 submitBtn.classList.add("trasp-background");
 submitBtn.setAttribute("type","button");
-submitBtn.setAttribute("onclick", "calculate(2)");
-
-let submit34Btn = document.createElement("button");
-submit34Btn.classList.add("btn");
-submit34Btn.classList.add("btn-primary");
-submit34Btn.classList.add("btn-lg");
-submit34Btn.classList.add("w-100");
-submit34Btn.classList.add("trasp-background");
-submit34Btn.setAttribute("type","button");
-submit34Btn.setAttribute("onclick", "calculate(34)");
+submitBtn.addEventListener("click", function() {
+    customRandomizeSection.hidden = true;
+    customRandomizeToggleBtn.setAttribute("aria-expanded", "false");
+    calculate(2);
+});
 
 let randomizeButtons = document.createElement("div");
 randomizeButtons.classList.add("randomize-buttons");
 randomizeButtons.appendChild(submitBtn);
-randomizeButtons.appendChild(submit34Btn);
+
+let customRandomizeToggleBtn = document.createElement("button");
+customRandomizeToggleBtn.classList.add("btn");
+customRandomizeToggleBtn.classList.add("btn-primary");
+customRandomizeToggleBtn.classList.add("btn-lg");
+customRandomizeToggleBtn.classList.add("trasp-background");
+customRandomizeToggleBtn.setAttribute("type", "button");
+customRandomizeToggleBtn.setAttribute("aria-controls", "customRandomizeSection");
+customRandomizeToggleBtn.setAttribute("aria-expanded", "false");
+customRandomizeToggleBtn.addEventListener("click", function() {
+    customRandomizeSection.hidden = !customRandomizeSection.hidden;
+    customRandomizeToggleBtn.setAttribute("aria-expanded", String(!customRandomizeSection.hidden));
+});
+randomizeButtons.appendChild(customRandomizeToggleBtn);
+
+let customRandomizeSection = document.createElement("div");
+customRandomizeSection.setAttribute("id", "customRandomizeSection");
+customRandomizeSection.classList.add("custom-randomize-section");
+customRandomizeSection.hidden = true;
+let customRandomizeCaption = document.createElement("h4");
+customRandomizeCaption.classList.add("custom-randomize-caption");
+customRandomizeSection.appendChild(customRandomizeCaption);
+
+let customRandomizeOptions = document.createElement("div");
+customRandomizeOptions.classList.add("custom-randomize-options");
+
+let customCoupleGroup = document.createElement("div");
+customCoupleGroup.classList.add("form-group");
+let customCoupleLabel = document.createElement("label");
+customCoupleLabel.setAttribute("for", "customCoupleSelect");
+let customCoupleSelect = document.createElement("select");
+customCoupleSelect.setAttribute("id", "customCoupleSelect");
+customCoupleSelect.classList.add("form-control");
+customCoupleGroup.appendChild(customCoupleLabel);
+customCoupleGroup.appendChild(customCoupleSelect);
+
+let customPlayerGroup = document.createElement("div");
+customPlayerGroup.classList.add("form-group");
+let customPlayerLabel = document.createElement("label");
+customPlayerLabel.setAttribute("for", "customPlayerCount");
+let customPlayerSelect = document.createElement("select");
+customPlayerSelect.setAttribute("id", "customPlayerCount");
+customPlayerSelect.classList.add("form-control");
+for(let playerCount = 2; playerCount <= 4; playerCount++) {
+    let option = document.createElement("option");
+    option.value = String(playerCount);
+    option.innerText = String(playerCount);
+    customPlayerSelect.appendChild(option);
+}
+customPlayerGroup.appendChild(customPlayerLabel);
+customPlayerGroup.appendChild(customPlayerSelect);
+
+customRandomizeOptions.appendChild(customCoupleGroup);
+customRandomizeOptions.appendChild(customPlayerGroup);
+customRandomizeSection.appendChild(customRandomizeOptions);
+
+let customSubmitBtn = document.createElement("button");
+customSubmitBtn.classList.add("btn");
+customSubmitBtn.classList.add("btn-primary");
+customSubmitBtn.classList.add("btn-lg");
+customSubmitBtn.classList.add("w-100");
+customSubmitBtn.classList.add("trasp-background");
+customSubmitBtn.setAttribute("type", "button");
+customSubmitBtn.addEventListener("click", function() {
+    calculate(Number(customPlayerSelect.value), customCoupleSelect.value);
+});
+customRandomizeSection.appendChild(customSubmitBtn);
+randomizeButtons.appendChild(customRandomizeSection);
 
 let checkAllBtn = document.createElement("button");
 checkAllBtn.classList.add("btn");
@@ -71,8 +133,12 @@ let selectorToggleContainer = document.getElementById("selectorToggleContainer")
 function refreshPage()
 {
     //todo: replace menu, titles, texts...
-    submitBtn.innerText = Strings["RANDOMIZE_2"];
-    submit34Btn.innerText = Strings["RANDOMIZE_34"];
+    submitBtn.innerText = Strings["SUBMIT"];
+    customRandomizeToggleBtn.innerText = Strings["RANDOMIZE_CUSTOM"];
+    customRandomizeCaption.innerText = Strings["RANDOMIZE_CUSTOM"];
+    customCoupleLabel.innerText = Strings["SELECT_GROUP"];
+    customPlayerLabel.innerText = Strings["PLAYER_COUNT"];
+    customSubmitBtn.innerText = Strings["SUBMIT"];
     HELP_TRANSLATE_El.innerText = Strings["HELP_TRANSLATE"];
     TITLE_El.innerText = Strings["TITLE"];
     SELECT_FACT_El.innerText = Strings["SELECT_FACT"];
@@ -238,10 +304,44 @@ function refreshSelectionForm()
     }
 
     selectionForm.appendChild(factionSelector);
+    refreshCustomCoupleOptions();
     selectionForm.appendChild(randomizeButtons);
 
     //activate tooltip:
     $('[data-toggle="tooltip"]').tooltip();
+}
+
+function refreshCustomCoupleOptions()
+{
+    let selectedCouple = customCoupleSelect.value;
+    customCoupleSelect.innerHTML = "";
+
+    let placeholder = document.createElement("option");
+    placeholder.value = "";
+    placeholder.innerText = Strings["SELECT_GROUP"];
+    placeholder.disabled = true;
+    placeholder.selected = true;
+    customCoupleSelect.appendChild(placeholder);
+
+    for(let coupleName in Couples) {
+        let couple = Couples[coupleName];
+        let isAvailable = couple.every(function(faction) {
+            return Factions[faction].Include;
+        });
+        if(!isAvailable) {
+            continue;
+        }
+
+        let option = document.createElement("option");
+        option.value = coupleName;
+        option.innerText = getCoupleName(couple);
+        option.selected = coupleName === selectedCouple;
+        customCoupleSelect.appendChild(option);
+    }
+
+    if(selectedCouple && customCoupleSelect.querySelector('option[value="' + selectedCouple + '"]')) {
+        customCoupleSelect.value = selectedCouple;
+    }
 }
 
 function toggleFactionSelector()
@@ -340,6 +440,7 @@ function showResult(scrollToResult)
     let replaceButton = document.createElement("button");
     replaceButton.classList.add("btn");
     replaceButton.classList.add("btn-primary");
+    replaceButton.classList.add("trasp-background");
     replaceButton.classList.add("mr-2");
     replaceButton.setAttribute("type", "button");
     replaceButton.innerText = Strings["REPLACE"];
@@ -348,6 +449,7 @@ function showResult(scrollToResult)
     let cancelReplacementButton = document.createElement("button");
     cancelReplacementButton.classList.add("btn");
     cancelReplacementButton.classList.add("btn-secondary");
+    cancelReplacementButton.classList.add("trasp-background");
     cancelReplacementButton.setAttribute("type", "button");
     cancelReplacementButton.innerText = Strings["CLOSE"];
 
@@ -465,6 +567,7 @@ function showResult(scrollToResult)
                     let randomCoupleButton = document.createElement("button");
                     randomCoupleButton.classList.add("btn");
                     randomCoupleButton.classList.add("btn-outline-secondary");
+                    randomCoupleButton.classList.add("trasp-background");
                     randomCoupleButton.classList.add("btn-sm");
                     randomCoupleButton.setAttribute("type", "button");
                     randomCoupleButton.setAttribute("aria-label", Strings["REPLACE_RANDOM_GROUP"] + " " + currentCoupleName);
@@ -474,6 +577,7 @@ function showResult(scrollToResult)
                     let chooseCoupleButton = document.createElement("button");
                     chooseCoupleButton.classList.add("btn");
                     chooseCoupleButton.classList.add("btn-outline-primary");
+                    chooseCoupleButton.classList.add("trasp-background");
                     chooseCoupleButton.classList.add("btn-sm");
                     chooseCoupleButton.setAttribute("type", "button");
                     chooseCoupleButton.setAttribute("aria-label", Strings["REPLACE_CHOOSE_GROUP"] + " " + currentCoupleName);
@@ -501,6 +605,7 @@ function showResult(scrollToResult)
                 let randomButton = document.createElement("button");
                 randomButton.classList.add("btn");
                 randomButton.classList.add("btn-outline-secondary");
+                randomButton.classList.add("trasp-background");
                 randomButton.classList.add("btn-sm");
                 randomButton.setAttribute("type", "button");
                 randomButton.setAttribute("aria-label", Strings["REPLACE_RANDOM"] + " " + Factions[faction].Name);
@@ -512,6 +617,7 @@ function showResult(scrollToResult)
                 let chooseButton = document.createElement("button");
                 chooseButton.classList.add("btn");
                 chooseButton.classList.add("btn-outline-primary");
+                chooseButton.classList.add("trasp-background");
                 chooseButton.classList.add("btn-sm");
                 chooseButton.setAttribute("type", "button");
                 chooseButton.setAttribute("aria-label", Strings["REPLACE_CHOOSE"] + " " + Factions[faction].Name);
@@ -746,7 +852,7 @@ function getRandom(arr, n) {
     return result;
 }
 
-function calculate(playerCount) {
+function calculate(playerCount, selectedCoupleName) {
     cleanResult();
 
     var selectedFactions = [];
@@ -755,6 +861,7 @@ function calculate(playerCount) {
     }
 
     var selectedCouples = [];
+    var selectedCoupleNames = [];
     for(var c in Couples) {
         let includeCouple = true;
         for(var f in Couples[c]) {
@@ -770,7 +877,8 @@ function calculate(playerCount) {
         }
         if(includeCouple) {
             //select
-            selectedCouples.push(Couples[c]);            
+            selectedCouples.push(Couples[c]);
+            selectedCoupleNames.push(c);
         }
     }
 
@@ -783,7 +891,14 @@ function calculate(playerCount) {
     replacementTargetIndex = null;
     replacementTargetType = null;
 
-    selectedCouple = selectedCouples[Math.floor(Math.random() * selectedCouples.length)];
+    if(selectedCoupleName !== undefined && !selectedCoupleNames.includes(selectedCoupleName)) {
+        myAlert(Strings["CHOOSE_GROUP"]);
+        return;
+    }
+
+    selectedCouple = selectedCoupleName !== undefined
+        ? Couples[selectedCoupleName]
+        : selectedCouples[Math.floor(Math.random() * selectedCouples.length)];
     availableReplacementCouples = selectedCouples.filter(function(couple) {
         return couple !== selectedCouple && couple.length === selectedCouple.length;
     });
@@ -794,7 +909,7 @@ function calculate(playerCount) {
     replaceableResultStart = selectedCouple.length;
 
     let needed;
-    if(playerCount === 34) {
+    if(playerCount >= 3) {
         // If the selectedCouple is a special 12 cards faction, we need to add 6 normal factions instead of 5
         needed = selectedCouple.length === 1 ? 6 : 5;
     } else {
