@@ -921,9 +921,9 @@ function setBackground(bg)
 (function() {
     // your page initialization code here
     // the DOM will be available here
-    setLanguage('EN');
+    setLanguage('DE');
 
-    setBackground(getRandom(["DP","DW","GO","KN","UD","claim","C5A","C5A","C5A","C5A"],1)[0]); //a little more chance for C5A
+    setBackground("KN"); //a little more chance for C5A
 
     //LAST, IMPORTANT!
     cleanResult();
