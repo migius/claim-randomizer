@@ -78,6 +78,9 @@ function setIT()
         RA: {Image: "images\\factions\\cards\\small\\RA.jpg", Deck: "C5A", Name: "Procioni", Include: false, Phase_ab:3, Ability: "I Procioni con il simbolo bottino contano, alla fine della partita, anche per la fazione di cui hai meno carte."},
         RO: {Image: "images\\factions\\cards\\small\\RO.jpg", Deck: "C5A", Name: "Reali", Include: false, Phase_ab:3, Ability: "Alla fine della partita, un Contadino abbandonerà il tuo regno se non hai un Reale con dallo stesso valore fino a +3."},
         VI: {Image: "images\\factions\\cards\\small\\VI.jpg", Deck: "C5A", Name: "Vichinghi", Include: false, Phase_ab:3, Ability: "Alla fine della partita, ogni Vichingo conta come 2 se nella tua pila Punteggio c'è un'altra carta con lo stesso valore."},
+        // CAL
+        BP: {Image: "images\\factions\\cards\\small\\BP.jpg", Deck: "CAL", Name: "Popolo degli Insetti", Include: false, Phase_ab:3, Ability: "Alla fine della partita, ogni giocatore controlla tutte le carte Popolo degli Insetti nella propria pila Punteggio. Per conservare una carta Popolo degli Insetti, deve esserci un'altra carta Popolo degli Insetti con un valore compreso entro +/-2. Se non è presente nessuna carta Popolo degli Insetti in questo intervallo, la carta striscia verso l'avversario. Questa operazione viene effettuata simultaneamente."},
+        BK: {Image: "images\\factions\\cards\\small\\BK.jpg", Deck: "CAL", Name: "Orsidi", Include: false, Phase_ab:1, Ability: "Se vinci una presa nella Fase 1 con un Orsido, puoi mettere la prossima carta rivelata sotto il mazzo di pesca e rivelare una nuova carta. Se vinci l'ultima presa della Fase 1 con un Orsido, non succede nulla."},
     };
 
     Couples = {
@@ -114,6 +117,7 @@ function setIT()
         STBOX: {Name:"Storage Box", Factions: ["AW","SA"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/pre-order-claim-storage-box/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"},//(Awakeners and Satyrs)
 
         C5A: {Name:"5th Anniversary Edition", Factions: ["AU","BD","DP","DR","DW","GI","GN","GO","GR","KN","PE","RA","RO","SE","TR","UD","VI"], Include: false, linkBuy: "https://www.amazon.it/MS-Edizioni-95028-Claim/dp/B0881KJ3KX/ref=as_li_ss_tl?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=claim&qid=1603033037&s=toys&sr=1-2&linkCode=ll1&tag=migio21-21&linkId=9e48931d66127a34d74d5dc04b4a46bd&language=it_IT"}, 
+        CAL: {Name:"Claim Alliances", Factions: ["BP","BK"], Include: false, linkBuy: "http://www.whitegoblingames.com/product/claim-alliances-kaartspel/"},
     };
 
     Strings = {
@@ -121,6 +125,23 @@ function setIT()
         TITLE: "Claim randomizer",
         SELECT_FACT: "Seleziona le fazioni che vuoi usare",
         SUBMIT: "Mescola",
+        RANDOMIZE_2: "Mescola (2 giocatori)",
+        RANDOMIZE_34: "Mescola (3/4 giocatori)",
+        CHECK_ALL: "Seleziona tutte le fazioni",
+        UNCHECK_ALL: "Deseleziona tutte le fazioni",
+        SHOW_SELECTOR: "Mostra selettore fazioni",
+        HIDE_SELECTOR: "Nascondi selettore fazioni",
+        REPLACE: "Sostituisci",
+        REPLACE_RANDOM: "Casuale",
+        REPLACE_CHOOSE: "Scegli",
+        REPLACE_WITH: "Sostituisci {0} con:",
+        REPLACE_SELECT: "Seleziona una fazione",
+        REPLACE_RANDOM_GROUP: "Gruppo casuale",
+        REPLACE_CHOOSE_GROUP: "Scegli gruppo",
+        REPLACE_SELECT_GROUP: "Seleziona un gruppo",
+        REPLACE_GROUP_UNAVAILABLE: "Non sono disponibili altri gruppi selezionati di questa dimensione.",
+        REPLACE_HINT: "Scorri una fazione o un gruppo verso sinistra per sostituirlo casualmente, o verso destra per scegliere un sostituto.",
+        REPLACE_UNAVAILABLE: "Nessuna fazione selezionata e non usata disponibile.",
         USE_THIS_FACTIONS: "Usa queste fazioni:",
         DECK: "Mazzo",
         FACTION: "Fazione",

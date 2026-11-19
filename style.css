@@ -38,31 +38,29 @@ h1, h3, h4 {
     margin: 0.2rem 0.5rem;
 }
 
+#SelectionForm > .form-group {
+    cursor: pointer;
+}
+
 #result.trasp-background {
     padding: 1rem;
 }
 
 .trasp-background {
     background-color: #ffffff99;    
-    border: 2px solid;
+    border: 0;
     padding: 0.5rem 0.5rem;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
-    border-top-left-radius: 255px 15px;
-    border-top-right-radius: 15px 225px;
-    border-bottom-right-radius: 225px 15px;
-    border-bottom-left-radius: 15px 255px;
-    box-shadow: 0 .125rem .25rem rgba(0,0,0,.75)!important;
+    border-radius: 12px;
+    box-shadow: none;
 }
 
 .btn.trasp-background {
     color: #ffffff;  
     background-color: #111111;
-    border: 1rem;
-    border-top-left-radius: 255px 45px;
-    border-top-right-radius: 45px 225px;
-    border-bottom-right-radius: 225px 45px;
-    border-bottom-left-radius: 45px 255px;
+    border: 0;
+    border-radius: 12px;
 }
 
 .trasp-background .table {
@@ -114,6 +112,22 @@ div.buy-link a {
 }
 
 tbody > tr > th {
+    white-space: nowrap;
+}
+
+tbody > tr.replaceable-result {
+    touch-action: pan-y;
+}
+
+.replacement-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    min-width: 10rem;
+}
+
+.replacement-actions .btn {
+    width: 100%;
     white-space: nowrap;
 }
 
@@ -191,6 +205,8 @@ tbody > tr > th > a:before{
 .icon-PE:before { background-image: url('images/factions/icons/PE.svg'); }
 .icon-RA:before { background-image: url('images/factions/icons/RA.svg'); }
 .icon-RO:before { background-image: url('images/factions/icons/RO.svg'); }
+.icon-BP:before { background-image: url('images/factions/icons/BP.svg'); }
+.icon-BK:before { background-image: url('images/factions/icons/BK.svg'); }
 .icon-VI:before { background-image: url('images/factions/icons/VI.svg'); }
 
 img.modal-image {

@@ -78,6 +78,9 @@ function setDE()
         RA: {Image: "images\\factions\\cards\\small\\RA.jpg", Deck: "C5A", Name: "Waschbären", Include: false, Phase_ab:3, Ability: "[MT] Waschbären mit einem Beute-Symbol zählen am Ende des Spiels auch für die Fraktion, von der du die wenigsten Karten hast."},
         RO: {Image: "images\\factions\\cards\\small\\RO.jpg", Deck: "C5A", Name: "Königliche", Include: false, Phase_ab:3, Ability: "[MT] Am Ende des Spiels verlässt dich ein Bauer, wenn du keinen Königlichen mit demselben Wert bis +3 hast."},
         VI: {Image: "images\\factions\\cards\\small\\VI.jpg", Deck: "C5A", Name: "Wikinger", Include: false, Phase_ab:3, Ability: "[MT] Am Ende des Spiels zählt jeder Wikinger doppelt, wenn sich eine andere Karte mit demselben Wert in deinem Punktestapel befindet."},
+        // CAL
+        BP: {Image: "images\\factions\\cards\\small\\BP.jpg", Deck: "CAL", Name: "Käfer", Include: false, Phase_ab:3, Ability: "[MT] Am Ende des Spiels überprüft jeder Spieler alle Käfer in seinem Punktestapel. Um einen Käfer im Punktestapel zu behalten, muss eine weitere Käferkarte im Wert von +/-2 liegen. Wenn kein Käfer in diesem Bereich liegt, kriecht der Käfer zum Gegner. Dies muss gleichzeitig geschehen."},
+        BK: {Image: "images\\factions\\cards\\small\\BK.jpg", Deck: "CAL", Name: "Bären", Include: false, Phase_ab:1, Ability: "[MT] Wenn du in Phase 1 einen Stich mit einem Bären gewinnst, darfst du die nächste aufgedeckte Karte unter den Nachziehstapel legen und eine neue Karte ziehen. Wenn du den letzten Stich in Phase 1 mit einem Bären gewinnst, passiert nichts."}
     };
 
     Couples = {
@@ -114,13 +117,33 @@ function setDE()
         STBOX: {Name:"Storage Box", Factions: ["AW","SA"], Include: false, linkBuy: "https://whitegoblingames.com/site/game/pre-order-claim-storage-box/?utm_source=migio&utm_medium=buy-deck&utm_campaign=claim-randomizer"},//(Awakeners and Satyrs)
 
         C5A: {Name:"5th Anniversary Edition", Factions: ["AU","BD","DP","DR","DW","GI","GN","GO","GR","KN","PE","RA","RO","SE","TR","UD","VI"], Include: false, linkBuy: "https://www.amazon.it/MS-Edizioni-95028-Claim/dp/B0881KJ3KX/ref=as_li_ss_tl?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=claim&qid=1603033037&s=toys&sr=1-2&linkCode=ll1&tag=migio21-21&linkId=9e48931d66127a34d74d5dc04b4a46bd&language=it_IT"}, 
+    
+        CAL: {Name:"Claim Allianzen", Factions: ["BP","BK"], Include: false, linkBuy: "http://www.whitegoblingames.com/product/claim-alliances-kaartspel/"}, //(Bug People and Bearkin)
+
     };
 
     Strings = {
         HELP_TRANSLATE: "Möchtest du zu den Übersetzungen einen Beitrag leisten?",
-        TITLE: "Claim - Zufallszusammenstellung Kartensatz",
-        SELECT_FACT: "Wähle die Fraktionen aus, die du benutzen möchtest",
+        TITLE: "Claim - Companion",
+        SELECT_FACT: "Wähle Fraktionen",
         SUBMIT: "Zufällig zusammenstellen",
+        RANDOMIZE_2: "Zufällig zusammenstellen (2 Spieler)",
+        RANDOMIZE_34: "Zufällig zusammenstellen (3/4 Spieler)",
+        CHECK_ALL: "Alle Fraktionen auswählen",
+        UNCHECK_ALL: "Alle Fraktionen abwählen",
+        SHOW_SELECTOR: "Fraktionsauswahl einblenden",
+        HIDE_SELECTOR: "Fraktionsauswahl ausblenden",
+        REPLACE: "Ersetzen",
+        REPLACE_RANDOM: "Zufällig",
+        REPLACE_CHOOSE: "Auswählen",
+        REPLACE_WITH: "Ersetze {0} durch:",
+        REPLACE_SELECT: "Fraktion auswählen",
+        REPLACE_RANDOM_GROUP: "Zufällige Gruppe",
+        REPLACE_CHOOSE_GROUP: "Gruppe auswählen",
+        REPLACE_SELECT_GROUP: "Gruppe auswählen",
+        REPLACE_GROUP_UNAVAILABLE: "Keine anderen ausgewählten Gruppen dieser Größe verfügbar.",
+        REPLACE_HINT: "Wische auf einer Fraktion oder Gruppe nach links, um sie zufällig zu ersetzen, oder nach rechts, um einen Ersatz auszuwählen.",
+        REPLACE_UNAVAILABLE: "Keine unbenutzten ausgewählten Fraktionen verfügbar.",
         USE_THIS_FACTIONS: "Benutze diese Fraktion:",
         DECK: "Kartendeck",
         FACTION: "Fraktion",

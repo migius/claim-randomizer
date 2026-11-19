@@ -15,7 +15,48 @@ submitBtn.classList.add("btn-lg");
 submitBtn.classList.add("col-12");
 submitBtn.classList.add("trasp-background");
 submitBtn.setAttribute("type","button");
-submitBtn.setAttribute("onclick", "calculate()");
+submitBtn.setAttribute("onclick", "calculate(2)");
+
+let submit34Btn = document.createElement("button");
+submit34Btn.classList.add("btn");
+submit34Btn.classList.add("btn-primary");
+submit34Btn.classList.add("btn-lg");
+submit34Btn.classList.add("col-12");
+submit34Btn.classList.add("trasp-background");
+submit34Btn.classList.add("mb-2");
+submit34Btn.setAttribute("type","button");
+submit34Btn.setAttribute("onclick", "calculate(34)");
+
+let checkAllBtn = document.createElement("button");
+checkAllBtn.classList.add("btn");
+checkAllBtn.classList.add("btn-secondary");
+checkAllBtn.classList.add("btn-lg");
+checkAllBtn.classList.add("col-12");
+checkAllBtn.classList.add("trasp-background");
+checkAllBtn.classList.add("mb-2");
+checkAllBtn.setAttribute("type","button");
+checkAllBtn.setAttribute("onclick", "checkAllFactions()");
+
+let selectorCollapsed = false;
+let factionSelector = document.createElement("div");
+factionSelector.setAttribute("id", "factionSelector");
+
+let replaceableResultStart = 0;
+let availableReplacementFactions = [];
+let availableReplacementCouples = [];
+let replacementTargetIndex = null;
+let replacementTargetType = null;
+
+let toggleSelectorBtn = document.createElement("button");
+toggleSelectorBtn.classList.add("btn");
+toggleSelectorBtn.classList.add("btn-secondary");
+toggleSelectorBtn.classList.add("btn-lg");
+toggleSelectorBtn.classList.add("col-12");
+toggleSelectorBtn.classList.add("trasp-background");
+toggleSelectorBtn.classList.add("mb-2");
+toggleSelectorBtn.setAttribute("type", "button");
+toggleSelectorBtn.setAttribute("aria-controls", "SELECT_FACT factionSelector");
+toggleSelectorBtn.addEventListener("click", toggleFactionSelector);
 
 let bodyEl = document.getElementsByTagName("body")[0];
 let HELP_TRANSLATE_El = document.getElementById("HELP_TRANSLATE");
@@ -25,7 +66,8 @@ let SELECT_FACT_El = document.getElementById("SELECT_FACT");
 function refreshPage()
 {
     //todo: replace menu, titles, texts...
-    submitBtn.innerText = Strings["SUBMIT"];
+    submitBtn.innerText = Strings["RANDOMIZE_2"];
+    submit34Btn.innerText = Strings["RANDOMIZE_34"];
     HELP_TRANSLATE_El.innerText = Strings["HELP_TRANSLATE"];
     TITLE_El.innerText = Strings["TITLE"];
     SELECT_FACT_El.innerText = Strings["SELECT_FACT"];
@@ -48,7 +90,19 @@ function refreshPage()
 function refreshSelectionForm()
 {
     selectionForm.innerHTML = '';
-    for(var d in Deck) {
+    factionSelector.innerHTML = '';
+    factionSelector.hidden = selectorCollapsed;
+    SELECT_FACT_El.hidden = selectorCollapsed;
+    toggleSelectorBtn.innerText = Strings[selectorCollapsed ? "SHOW_SELECTOR" : "HIDE_SELECTOR"];
+    toggleSelectorBtn.setAttribute("aria-expanded", String(!selectorCollapsed));
+    factionSelector.setAttribute("aria-labelledby", "SELECT_FACT");
+    updateCheckAllButton();
+
+    selectionForm.appendChild(toggleSelectorBtn);
+    selectionForm.appendChild(SELECT_FACT_El);
+    factionSelector.appendChild(checkAllBtn);
+
+    for(let d in Deck) {
         let formGroup = document.createElement("div");
         formGroup.classList.add("form-group");
         formGroup.classList.add("trasp-background");
@@ -73,6 +127,13 @@ function refreshSelectionForm()
         if(Deck[d].Include) {
             inputDeck.setAttribute("checked", "checked");
         }
+        formGroup.addEventListener("click", function(event) {
+            if(event.target.closest("input, label, a, button, select, textarea")) {
+                return;
+            }
+            inputDeck.checked = !inputDeck.checked;
+            checkDeck(d, id_d);
+        });
 
         deckItem.appendChild(inputDeck); 
 
@@ -167,14 +228,24 @@ function refreshSelectionForm()
         }
 
         formGroup.appendChild(deckList); 
-        selectionForm.appendChild(formGroup); 
-
-        //add submit
-        selectionForm.appendChild(submitBtn); 
+        factionSelector.appendChild(formGroup);
     }
+
+    selectionForm.appendChild(factionSelector);
+    selectionForm.appendChild(submit34Btn);
+    selectionForm.appendChild(submitBtn);
 
     //activate tooltip:
     $('[data-toggle="tooltip"]').tooltip();
+}
+
+function toggleFactionSelector()
+{
+    selectorCollapsed = !selectorCollapsed;
+    factionSelector.hidden = selectorCollapsed;
+    SELECT_FACT_El.hidden = selectorCollapsed;
+    toggleSelectorBtn.innerText = Strings[selectorCollapsed ? "SHOW_SELECTOR" : "HIDE_SELECTOR"];
+    toggleSelectorBtn.setAttribute("aria-expanded", String(!selectorCollapsed));
 }
 
 function createModalFaction(fact)
@@ -202,7 +273,30 @@ function checkDeck(d, id)
 function checkFaction(f,id)
 {
     Factions[f].Include = document.getElementById(id).checked;
+    updateCheckAllButton();
 } 
+
+function checkAllFactions()
+{
+    var includeAll = !Object.keys(Factions).every(function(f) {
+        return Factions[f].Include;
+    });
+    for(var f in Factions) {
+        Factions[f].Include = includeAll;
+    }
+    for(var d in Deck) {
+        Deck[d].Include = includeAll;
+    }
+    refreshSelectionForm();
+}
+
+function updateCheckAllButton()
+{
+    var allFactionsIncluded = Object.keys(Factions).every(function(f) {
+        return Factions[f].Include;
+    });
+    checkAllBtn.innerText = Strings[allFactionsIncluded ? "UNCHECK_ALL" : "CHECK_ALL"];
+}
 
 
 function cleanResult()
@@ -212,15 +306,68 @@ function cleanResult()
     $('#myAlert').hide();
 }
 
-function showResult()
+function showResult(scrollToResult)
 {
-    //reset scroll
-    location.hash = "#";    
+    result.innerHTML = '';
+    if(scrollToResult !== false) {
+        location.hash = "#";
+    }
 
     let res = document.createElement("h4");
     res.innerText = Strings["USE_THIS_FACTIONS"];
 
     result.appendChild(res); 
+
+    let replacementPanel = document.createElement("div");
+    replacementPanel.classList.add("replacement-selector");
+    replacementPanel.classList.add("form-group");
+    replacementPanel.hidden = true;
+
+    let replacementLabel = document.createElement("label");
+    replacementLabel.classList.add("mr-2");
+    replacementLabel.setAttribute("for", "replacementFactionSelect");
+    replacementLabel.setAttribute("aria-live", "polite");
+
+    let replacementSelect = document.createElement("select");
+    replacementSelect.setAttribute("id", "replacementFactionSelect");
+    replacementSelect.classList.add("form-control");
+    replacementSelect.classList.add("mb-2");
+
+    let replaceButton = document.createElement("button");
+    replaceButton.classList.add("btn");
+    replaceButton.classList.add("btn-primary");
+    replaceButton.classList.add("mr-2");
+    replaceButton.setAttribute("type", "button");
+    replaceButton.innerText = Strings["REPLACE"];
+    replaceButton.disabled = true;
+
+    let cancelReplacementButton = document.createElement("button");
+    cancelReplacementButton.classList.add("btn");
+    cancelReplacementButton.classList.add("btn-secondary");
+    cancelReplacementButton.setAttribute("type", "button");
+    cancelReplacementButton.innerText = Strings["CLOSE"];
+
+    replacementSelect.addEventListener("change", function() {
+        replaceButton.disabled = !replacementSelect.value;
+    });
+    replaceButton.addEventListener("click", function() {
+        if(replacementTargetType === "couple" && replacementSelect.value) {
+            replaceResultCouple(Number(replacementSelect.value));
+        } else if(replacementTargetType === "faction" && replacementTargetIndex !== null && replacementSelect.value) {
+            replaceResultFaction(replacementTargetIndex, replacementSelect.value);
+        }
+    });
+    cancelReplacementButton.addEventListener("click", function() {
+        replacementPanel.hidden = true;
+        replacementTargetIndex = null;
+        replacementTargetType = null;
+    });
+
+    replacementPanel.appendChild(replacementLabel);
+    replacementPanel.appendChild(replacementSelect);
+    replacementPanel.appendChild(replaceButton);
+    replacementPanel.appendChild(cancelReplacementButton);
+    result.appendChild(replacementPanel);
 
     let table = document.createElement("table");
     table.classList.add("table");
@@ -247,27 +394,33 @@ function showResult()
     th.classList.add("d-none");
     th.classList.add("d-md-table-cell");
     tr.appendChild(th); 
+    th = document.createElement("th");
+    th.setAttribute("scope","col");
+    th.innerText = Strings["REPLACE"];
+    tr.appendChild(th);
     thead.appendChild(tr); 
     table.appendChild(thead); 
 
     let tbody = document.createElement("tbody");
     let td = document.createElement("td");
     for(var f in results) {
+        let resultIndex = Number(f);
+        let faction = results[resultIndex];
         tr = document.createElement("tr");
         th = document.createElement("th");
         th.setAttribute("scope","row");
 
-        modal = createModalFaction(results[f]);
-        modal.innerText = " " + Factions[results[f]].Name;
+        modal = createModalFaction(faction);
+        modal.innerText = " " + Factions[faction].Name;
         th.appendChild(modal);
         tr.appendChild(th); 
 
         td = document.createElement("td");
-        td.innerText = Deck[Factions[results[f]].Deck].Name;
+        td.innerText = Deck[Factions[faction].Deck].Name;
         tr.appendChild(td); 
 
         td = document.createElement("td");
-        td.innerText = Factions[results[f]].Ability;
+        td.innerText = Factions[faction].Ability;
         td.classList.add("d-none");
         td.classList.add("d-md-table-cell");
         
@@ -275,7 +428,7 @@ function showResult()
         emptyTd.innerText = " ";
         emptyTd.classList.add("d-none");
         emptyTd.classList.add("d-md-table-cell");
-        switch(Factions[results[f]].Phase_ab)
+        switch(Factions[faction].Phase_ab)
         {
             case 1:
                 tr.appendChild(td); 
@@ -289,19 +442,263 @@ function showResult()
                 td.setAttribute("colspan","2");          
                 tr.appendChild(td); 
                 break; 
-        }        
+        }
+
+        td = document.createElement("td");
+        if(resultIndex < replaceableResultStart) {
+            if(availableReplacementCouples.length > 0) {
+                tr.classList.add("replaceable-result");
+
+                if(resultIndex === 0) {
+                    let currentCoupleName = getCoupleName(results.slice(0, replaceableResultStart));
+                    let replacementActions = document.createElement("div");
+                    replacementActions.classList.add("replacement-actions");
+
+                    let randomCoupleButton = document.createElement("button");
+                    randomCoupleButton.classList.add("btn");
+                    randomCoupleButton.classList.add("btn-outline-secondary");
+                    randomCoupleButton.classList.add("btn-sm");
+                    randomCoupleButton.setAttribute("type", "button");
+                    randomCoupleButton.setAttribute("aria-label", Strings["REPLACE_RANDOM_GROUP"] + " " + currentCoupleName);
+                    randomCoupleButton.innerText = Strings["REPLACE_RANDOM_GROUP"];
+                    randomCoupleButton.addEventListener("click", replaceResultCoupleRandomly);
+
+                    let chooseCoupleButton = document.createElement("button");
+                    chooseCoupleButton.classList.add("btn");
+                    chooseCoupleButton.classList.add("btn-outline-primary");
+                    chooseCoupleButton.classList.add("btn-sm");
+                    chooseCoupleButton.setAttribute("type", "button");
+                    chooseCoupleButton.setAttribute("aria-label", Strings["REPLACE_CHOOSE_GROUP"] + " " + currentCoupleName);
+                    chooseCoupleButton.innerText = Strings["REPLACE_CHOOSE_GROUP"];
+                    chooseCoupleButton.addEventListener("click", function() {
+                        openReplacementSelector(0, replacementPanel, replacementLabel, replacementSelect, "couple");
+                    });
+
+                    replacementActions.appendChild(randomCoupleButton);
+                    replacementActions.appendChild(chooseCoupleButton);
+                    td.appendChild(replacementActions);
+                }
+
+                bindReplacementGestures(tr, resultIndex, replacementPanel, replacementLabel, replacementSelect, "couple");
+            } else if(resultIndex === 0) {
+                td.innerText = Strings["REPLACE_GROUP_UNAVAILABLE"];
+            }
+        } else {
+            if(availableReplacementFactions.length > 0) {
+                tr.classList.add("replaceable-result");
+
+                let replacementActions = document.createElement("div");
+                replacementActions.classList.add("replacement-actions");
+
+                let randomButton = document.createElement("button");
+                randomButton.classList.add("btn");
+                randomButton.classList.add("btn-outline-secondary");
+                randomButton.classList.add("btn-sm");
+                randomButton.setAttribute("type", "button");
+                randomButton.setAttribute("aria-label", Strings["REPLACE_RANDOM"] + " " + Factions[faction].Name);
+                randomButton.innerText = Strings["REPLACE_RANDOM"];
+                randomButton.addEventListener("click", function() {
+                    replaceResultRandomly(resultIndex);
+                });
+
+                let chooseButton = document.createElement("button");
+                chooseButton.classList.add("btn");
+                chooseButton.classList.add("btn-outline-primary");
+                chooseButton.classList.add("btn-sm");
+                chooseButton.setAttribute("type", "button");
+                chooseButton.setAttribute("aria-label", Strings["REPLACE_CHOOSE"] + " " + Factions[faction].Name);
+                chooseButton.innerText = Strings["REPLACE_CHOOSE"];
+                chooseButton.addEventListener("click", function() {
+                    openReplacementSelector(resultIndex, replacementPanel, replacementLabel, replacementSelect, "faction");
+                });
+
+                replacementActions.appendChild(randomButton);
+                replacementActions.appendChild(chooseButton);
+                td.appendChild(replacementActions);
+                bindReplacementGestures(tr, resultIndex, replacementPanel, replacementLabel, replacementSelect, "faction");
+            } else {
+                td.innerText = Strings["REPLACE_UNAVAILABLE"];
+            }
+        }
+        tr.appendChild(td);
 
         tbody.appendChild(tr); 
     }
 
     table.appendChild(tbody); 
-    
     result.appendChild(table); 
+    let replacementHint = document.createElement("p");
+    replacementHint.classList.add("text-muted");
+    replacementHint.innerText = Strings["REPLACE_HINT"];
+    result.appendChild(replacementHint);
 
     $('#result').show();
-    //scroll to result
-    location.hash = "#result";
+    if(scrollToResult !== false) {
+        location.hash = "#result";
+    }
 } 
+
+function openReplacementSelector(index, panel, label, select, replacementType)
+{
+    let candidates;
+    if(replacementType === "couple") {
+        candidates = availableReplacementCouples;
+        replacementTargetType = "couple";
+        replacementTargetIndex = 0;
+        if(candidates.length === 0) {
+            return;
+        }
+        label.innerText = Strings["REPLACE_WITH"].replace("{0}", getCoupleName(results.slice(0, replaceableResultStart)));
+    } else {
+        candidates = availableReplacementFactions;
+        replacementTargetType = "faction";
+        replacementTargetIndex = index;
+        if(index < replaceableResultStart || candidates.length === 0) {
+            return;
+        }
+        label.innerText = Strings["REPLACE_WITH"].replace("{0}", Factions[results[index]].Name);
+    }
+
+    if(candidates.length === 0) {
+        return;
+    }
+
+    select.innerHTML = '';
+
+    let placeholder = document.createElement("option");
+    placeholder.value = "";
+    placeholder.innerText = Strings[replacementType === "couple" ? "REPLACE_SELECT_GROUP" : "REPLACE_SELECT"];
+    placeholder.disabled = true;
+    placeholder.selected = true;
+    select.appendChild(placeholder);
+
+    for(let i = 0; i < candidates.length; i++) {
+        let option = document.createElement("option");
+        if(replacementType === "couple") {
+            option.value = String(i);
+            option.innerText = getCoupleName(candidates[i]);
+        } else {
+            option.value = candidates[i];
+            option.innerText = Factions[candidates[i]].Name;
+        }
+        select.appendChild(option);
+    }
+
+    panel.hidden = false;
+    select.focus();
+}
+
+function replaceResultRandomly(index)
+{
+    if(index < replaceableResultStart || availableReplacementFactions.length === 0) {
+        return;
+    }
+    replaceResultFaction(index, getRandom(availableReplacementFactions, 1)[0]);
+}
+
+function replaceResultFaction(index, faction)
+{
+    if(index < replaceableResultStart || !availableReplacementFactions.includes(faction)) {
+        return;
+    }
+
+    let replacedFaction = results[index];
+    results[index] = faction;
+    availableReplacementFactions = availableReplacementFactions.filter(function(availableFaction) {
+        return availableFaction !== faction;
+    });
+    availableReplacementFactions.push(replacedFaction);
+    replacementTargetIndex = null;
+    replacementTargetType = null;
+    showResult(false);
+}
+
+function replaceResultCoupleRandomly()
+{
+    if(availableReplacementCouples.length === 0) {
+        return;
+    }
+    replaceResultCouple(Math.floor(Math.random() * availableReplacementCouples.length));
+}
+
+function replaceResultCouple(coupleIndex)
+{
+    if(coupleIndex < 0 || coupleIndex >= availableReplacementCouples.length) {
+        return;
+    }
+
+    let replacedCouple = results.slice(0, replaceableResultStart);
+    let replacementCouple = availableReplacementCouples[coupleIndex];
+    results.splice(0, replaceableResultStart);
+    results.unshift.apply(results, replacementCouple);
+    availableReplacementCouples.splice(coupleIndex, 1);
+    availableReplacementCouples.push(replacedCouple);
+    selectedCouple = replacementCouple;
+    replacementTargetIndex = null;
+    replacementTargetType = null;
+    showResult(false);
+}
+
+function getCoupleName(couple)
+{
+    return couple.map(function(faction) {
+        return Factions[faction].Name;
+    }).join(" + ");
+}
+
+function bindReplacementGestures(row, index, panel, label, select, replacementType)
+{
+    let touchStart = null;
+    let ignoreNextClick = false;
+
+    row.addEventListener("touchstart", function(event) {
+        if(event.target.closest("button, select, input")) {
+            touchStart = null;
+            return;
+        }
+        let touch = event.changedTouches[0];
+        touchStart = {x: touch.clientX, y: touch.clientY};
+    }, {passive: true});
+
+    row.addEventListener("touchend", function(event) {
+        if(!touchStart) {
+            return;
+        }
+        let touch = event.changedTouches[0];
+        let deltaX = touch.clientX - touchStart.x;
+        let deltaY = touch.clientY - touchStart.y;
+        touchStart = null;
+
+        if(Math.abs(deltaX) < 50 || Math.abs(deltaX) <= Math.abs(deltaY)) {
+            return;
+        }
+
+        event.preventDefault();
+        event.stopPropagation();
+        ignoreNextClick = true;
+        window.setTimeout(function() {
+            ignoreNextClick = false;
+        }, 500);
+
+        if(deltaX < 0) {
+            if(replacementType === "couple") {
+                replaceResultCoupleRandomly();
+            } else {
+                replaceResultRandomly(index);
+            }
+        } else {
+            openReplacementSelector(index, panel, label, select, replacementType);
+        }
+    }, {passive: false});
+
+    row.addEventListener("click", function(event) {
+        if(ignoreNextClick) {
+            event.preventDefault();
+            event.stopPropagation();
+            ignoreNextClick = false;
+        }
+    });
+}
 
 function getRandom(arr, n) {
     var result = new Array(n),
@@ -317,7 +714,7 @@ function getRandom(arr, n) {
     return result;
 }
 
-function calculate() {
+function calculate(playerCount) {
     cleanResult();
 
     var selectedFactions = [];
@@ -349,15 +746,29 @@ function calculate() {
 
 
     results = [];
+    availableReplacementFactions = [];
+    availableReplacementCouples = [];
+    replacementTargetIndex = null;
+    replacementTargetType = null;
 
     selectedCouple = selectedCouples[Math.floor(Math.random() * selectedCouples.length)];
+    availableReplacementCouples = selectedCouples.filter(function(couple) {
+        return couple !== selectedCouple && couple.length === selectedCouple.length;
+    });
 
     for(var c in selectedCouple) {
         results.push(selectedCouple[c]);
     }
+    replaceableResultStart = selectedCouple.length;
 
-    // If the selectedCouple is a special 12 cards faction, we need to add 4 normal factions instead of 3
-    let needed = selectedCouple.length === 1 ? 4 : 3;
+    let needed;
+    if(playerCount === 34) {
+        // If the selectedCouple is a special 12 cards faction, we need to add 6 normal factions instead of 5
+        needed = selectedCouple.length === 1 ? 6 : 5;
+    } else {
+        // If the selectedCouple is a special 12 cards faction, we need to add 4 normal factions instead of 3
+        needed = selectedCouple.length === 1 ? 4 : 3;
+    }
 
     if(selectedFactions.length < needed) { myAlert(Strings["AT_LEAST_FACTIONS"].replace("{0}",needed));  return;}    
 
@@ -366,6 +777,10 @@ function calculate() {
     for(var f in randomFactions) {
         results.push(randomFactions[f]);
     }
+
+    availableReplacementFactions = selectedFactions.filter(function(faction) {
+        return !results.includes(faction);
+    });
 
     showResult();
 }
